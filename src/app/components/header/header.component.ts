@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  isOn:boolean = true;
+  isOn:boolean = false;
   show() {
     this.isOn = !this.isOn;
   }
