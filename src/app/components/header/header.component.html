@@ -1,44 +1,13 @@
-<nav class=" row justify-content-between navbar navbar-expand-lg navbar-light bg-warning p-0">
-    <div class="col-3 ml-5">
-        <a class="navbar-brand" href="#">Owlcms</a>
-        <img style="width: 50px; height: 50px;" src="https://cdn3.iconfinder.com/data/icons/school-and-education-4/32/education_29-512.png">
+<div class="container-fluid bg-warning">
+    <div class="row">
+      <div class="col-sm align-self-center">
+        <div class="h3"><i class="fa fa-phone">0909090909090909</i></div>
+      </div>
+      <div class="col-sm">
+        <img src = "assets/image/logo.png" class="w-75"></div>
+      <div class="col-sm align-self-center">
+        <div (click)="openLogin()" class="btn btn-success">Login</div>
     </div>
-    <div class="col-4">
-        <div class="collapse navbar-collapse ">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link h5 text-dark" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link h5 text-dark" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link h5 text-dark" href="#">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link h5 text-dark" href="#">Timeline</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link h5 text-dark" href="#">Media</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link h5 text-dark" href="#">Faculty</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link h5 text-dark" href="#">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link h5 text-dark" href="#">Shortcodes</a>
-                </li>
-            </ul>
-        </div>
     </div>
-    <div class="col-2 bg-light ml-5 row ">
-        <img class="col-2" src="assets/images/phone.svg" alt="">
-        <div class="col-6">
-            <p>Available @</p>
-            <p class="h4">64564.55641.52965</p>
-        </div>
-    </div>
-    <div (click)="openLogin()" class="btn btn-success">Login</div>
-</nav>
+  </div>
+  <app-nav-bar></app-nav-bar>
