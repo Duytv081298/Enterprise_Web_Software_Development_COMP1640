@@ -14,6 +14,12 @@ import { ContentHomeComponent } from './components/content-home/content-home.com
 import { MajorsComponent } from './components/majors/majors.component';
 import { ClubsComponent } from './components/clubs/clubs.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { CourseDetailsComponent } from './components/course-details/course-details.component';
+import { DisplayCoursesComponent } from './components/display-courses/display-courses.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SearchComponent } from './components/search/search.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +31,13 @@ import { FooterComponent } from './components/footer/footer.component';
     ContentHomeComponent,
     MajorsComponent,
     ClubsComponent,
-    FooterComponent
+    FooterComponent,
+    EditProfileComponent,
+    CourseDetailsComponent,
+    DisplayCoursesComponent,
+    SidebarComponent,
+    SearchComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
