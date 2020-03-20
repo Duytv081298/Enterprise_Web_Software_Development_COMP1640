@@ -12,4 +12,18 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  showsidebar(){
+    let y = document.getElementById('sidebar');
+  
+    let x = document.getElementById('test');
+
+    if (x.style.display === "none" && y.classList.toggle("!active")) {
+      y.classList.toggle('active');
+      x.style.display = "block";
+    } else {
+      // y.classList.toggle('active');
+      x.style.display = "none";
+    } 
+  }
+
 }

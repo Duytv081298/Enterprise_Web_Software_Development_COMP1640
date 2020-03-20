@@ -36,3 +36,23 @@
 .dropdown-toggle::after {
     display: none
 }
+
+#sidebar{
+    position: fixed;
+    left: -300px;
+    transition: all 500ms linear;
+}
+
+#sidebar.active{
+    left: 0px;
+}
+
+#sidebar .toggle-btn{
+    position: absolute;
+    left: 300px;
+    top: 10px;
+}
+
+#test{
+    display: none;
+}
