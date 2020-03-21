@@ -25,6 +25,14 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { PostsComponent } from './components/posts/posts.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { SidebarAdminComponent } from './components/sidebar-admin/sidebar-admin.component';
+import { DisplayClassComponent } from './components/display-class/display-class.component';
+
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { InformationComponent } from './components/information/information.component';
+import { CreateClassComponent } from './components/create-class/create-class.component';
+import { TimeTableComponent } from './components/time-table/time-table.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +51,14 @@ import { PostsComponent } from './components/posts/posts.component';
     SidebarComponent,
     SearchComponent,
     ProfileComponent,
-    PostsComponent
+    PostsComponent,
+    AdminComponent,
+    SidebarAdminComponent,
+    DisplayClassComponent,
+    InformationComponent,
+    CreateClassComponent,
+    TimeTableComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -52,7 +67,8 @@ import { PostsComponent } from './components/posts/posts.component';
     BrowserAnimationsModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent],

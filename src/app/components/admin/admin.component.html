@@ -1,0 +1,46 @@
+<mat-sidenav-container>
+    <mat-sidenav mode="side" #sidenav position="start" class="p-0">
+        <app-sidebar-admin></app-sidebar-admin>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar style="background-color: #ECEDE7;">
+            <nav class="navbar navbar-light ">
+                <button mat-icon-button (click)="sidenav.toggle()" class="navbar-toggler" type="button">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            </nav>
+            <span class="toolbar-spacer"></span>
+            <ul class="nav justify-content-end ">
+                <li class="nav-item align-self-center">
+                    <div class="searchbar float-right " data-toggle="modal" data-target=".modal-search">
+                        <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown align-self-center">
+                    <a class="nav-link dropdown-toggle fa fa-bell text-secondary" data-toggle="dropdown" href="#"></a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">...............</a>
+                        <a class="dropdown-item" href="#">...............</a>
+                        <a class="dropdown-item" href="#">...............</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown align-self-center">
+                    <a class="nav-link dropdown-toggle text-secondary" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>USER NAME</a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <p class="text-center">WELCOME!</p>
+                        <a class="dropdown-item" href="#"> <span class="glyphicon glyphicon-user"></span> PROFILE</a>
+                        <a class="dropdown-item" href="#"><span class="glyphicon glyphicon-cog"></span>SETTING</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#"><span class="glyphicon glyphicon-log-out"></span>LOG OUT</a>
+                    </div>
+                </li>
+            </ul>
+        </mat-toolbar>
+        <hr class="m-0">
+        <!-- <app-display-courses></app-display-courses> -->
+        <!-- <app-information></app-information> -->
+        <app-create-class></app-create-class>
+        <app-search id="exampleModal"></app-search>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
