@@ -1,137 +1,136 @@
-<div class="container-fluid p-0">
-    <div>
-        <div class="d-flex p-0 " style="background-color: #ECEDE7;">
-            <div class="col-4">
-                <nav id="sidebar" class="navbar-light p-0" >
-                    <button class="navbar-toggler toggle-btn ml-5 mt-2" type="button" (click)="showsidebar()">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <app-sidebar id="test"></app-sidebar>
-                </nav>
-            </div>
-            <div class="col-8 m-2">
-                <ul class="nav justify-content-end ">
-                    <li class="nav-item align-self-center">
-                        <div class="searchbar float-right " data-toggle="modal" data-target=".modal-search">
-                            <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown align-self-center">
-                        <a class="nav-link dropdown-toggle fa fa-bell text-secondary" data-toggle="dropdown" href="#"></a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">...............</a>
-                            <a class="dropdown-item" href="#">...............</a>
-                            <a class="dropdown-item" href="#">...............</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown align-self-center">
-                        <a class="nav-link dropdown-toggle text-secondary" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>USER NAME</a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <p class="text-center">WELCOME!</p>
-                            <a class="dropdown-item" href="#"> <span class="glyphicon glyphicon-user"></span> PROFILE</a>
-                            <a class="dropdown-item" href="#"><span class="glyphicon glyphicon-cog"></span>SETTING</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#"><span class="glyphicon glyphicon-log-out"></span>LOG OUT</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
+<mat-sidenav-container fullscreen>
+    <mat-sidenav mode="side" #sidenav opened position="start" class="p-0">
+        <app-sidebar></app-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <nav class="navbar navbar-light ">
+                <button mat-icon-button (click)="sidenav.toggle()" class="navbar-toggler" type="button">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            </nav>
+            <span class="toolbar-spacer"></span>
+            <ul class="nav justify-content-end ">
+                <li class="nav-item align-self-center">
+                    <div class="searchbar float-right " data-toggle="modal" data-target=".modal-search">
+                        <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown align-self-center">
+                    <a class="nav-link dropdown-toggle fa fa-bell text-secondary" data-toggle="dropdown" href="#"></a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">...............</a>
+                        <a class="dropdown-item" href="#">...............</a>
+                        <a class="dropdown-item" href="#">...............</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown align-self-center">
+                    <a class="nav-link dropdown-toggle text-secondary" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>USER NAME</a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <p class="text-center">WELCOME!</p>
+                        <a class="dropdown-item" href="#"> <span class="glyphicon glyphicon-user"></span> PROFILE</a>
+                        <a class="dropdown-item" href="#"><span class="glyphicon glyphicon-cog"></span>SETTING</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#"><span class="glyphicon glyphicon-log-out"></span>LOG OUT</a>
+                    </div>
+                </li>
+            </ul>
+        </mat-toolbar>
+        <div class="main-content p-0">
+            <ul class="nav justify-content-center navbar-light " style="background-color: #ECEDE7;">
+                <li class="nav-item active m-2">
+                    <button type="button" class="btn btn-light border rounded-circle">PROFILE</button>
+                </li>
+                <li class="nav-item m-2">
+                    <button type="button" class="btn btn-light border rounded-circle">HISTORY</button>
+                </li>
+                <li class="nav-item m-2">
+                    <button type="button" class="btn btn-light border rounded-circle">SAVED</button>
+                </li>
+                <li class="nav-item m-2">
+                    <button type="button" class="btn btn-light border rounded-circle">MY COURSES</button>
+                </li>
+                <li class="nav-item m-2">
+                    <button type="button" class="btn btn-light border rounded-circle">WEEKLY TIMETABLE</button>
+                </li>
+                <li class="nav-item m-2">
+                    <button type="button" class="btn btn-light border rounded-circle">NOTIFICATION</button>
+                </li>
+                <li class="nav-item m-2">
+                    <button type="button" class="btn btn-light border rounded-circle">SETTING</button>
+                </li>
+            </ul>
+            <hr class="m-0">
 
-        <hr class="m-0">
-        <ul class="nav justify-content-center navbar-light " style="background-color: #ECEDE7;">
-            <li class="nav-item active m-2">
-                <button type="button" class="btn btn-light border rounded-circle">PROFILE</button>
-            </li>
-            <li class="nav-item m-2">
-                <button type="button" class="btn btn-light border rounded-circle">HISTORY</button>
-            </li>
-            <li class="nav-item m-2">
-                <button type="button" class="btn btn-light border rounded-circle">SAVED</button>
-            </li>
-            <li class="nav-item m-2">
-                <button type="button" class="btn btn-light border rounded-circle">MY COURSES</button>
-            </li>
-            <li class="nav-item m-2">
-                <button type="button" class="btn btn-light border rounded-circle">WEEKLY TIMETABLE</button>
-            </li>
-            <li class="nav-item m-2">
-                <button type="button" class="btn btn-light border rounded-circle">NOTIFICATION</button>
-            </li>
-            <li class="nav-item m-2">
-                <button type="button" class="btn btn-light border rounded-circle">SETTING</button>
-            </li>
-        </ul>
-        <hr class="m-0">
-
-        <div class="d-flex flex-row" style="background-color: #ECEDE7;">
-            <div class="col-2 p-0">
-            </div>
-            <div class="col-10 p-0">
-                <!-- What's on your mind? -->
-                <div class="container mt-5">
-                    <div class="row justify-content-md-center text-dark">
-                        <div class="col col-lg-9 p-3 mb-2 bg-light">
-                            <b>Create Post</b>
-                            <textarea class="form-control mt-3 " placeholder="What's on your mind?" rows="4"></textarea>
-                            <div class="row">
-                                <input type="button" class="btn btn-primary  offset-md-10 mt-3 px-4" value="Post" />
+            <div class="d-flex flex-row" style="background-color: #ECEDE7;">
+                <div class="col-2 p-0">
+                </div>
+                <div class="col-10 p-0">
+                    <div class="container mt-5">
+                        <div class="row justify-content-md-center text-dark">
+                            <div class="col col-lg-9 p-3 mb-2 bg-light">
+                                <b>Create Post</b>
+                                <textarea class="form-control mt-3 " placeholder="What's on your mind?" rows="4"></textarea>
+                                <div class="row">
+                                    <input type="button" class="btn btn-primary  offset-md-10 mt-3 px-4" value="Post" />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row justify-content-md-center rounded  text-dark my-3 ">
-                        <h5><b>POST</b></h5>
-                    </div>
+                        <div class="row justify-content-md-center rounded  text-dark my-3 ">
+                            <h5><b>POST</b></h5>
+                        </div>
 
 
 
-                    <div class="row justify-content-md-center rounded  text-dark my-3 ">
-                        <div class="col col-lg-9 p-0">
-                            <p>March 1, 2020 at 2:22 PM</p>
-                            <div class="bg-light text-dark p-3">
-                                <b>Create Post</b>
-                                <p>
-                                    Post Title Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!
-                                </p>
+                        <div class="row justify-content-md-center rounded  text-dark my-3 ">
+                            <div class="col col-lg-9 p-0">
+                                <p>March 1, 2020 at 2:22 PM</p>
+                                <div class="bg-light text-dark p-3">
+                                    <b>Create Post</b>
+                                    <p>
+                                        Post Title Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row justify-content-md-center rounded text-dark my-3 pt-4">
-                        <div class="col col-lg-9 p-0 ">
-                            <p>March 1, 2020 at 2:22 PM</p>
-                            <div class="bg-light text-dark p-3">
-                                <b>Create Post</b>
-                                <p>
-                                    Post Title Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!
-                                </p>
+                        <div class="row justify-content-md-center rounded text-dark my-3 pt-4">
+                            <div class="col col-lg-9 p-0 ">
+                                <p>March 1, 2020 at 2:22 PM</p>
+                                <div class="bg-light text-dark p-3">
+                                    <b>Create Post</b>
+                                    <p>
+                                        Post Title Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row justify-content-md-center rounded text-dark my-3 pt-4">
-                        <div class="col col-lg-9 p-0 ">
-                            <p>March 1, 2020 at 2:22 PM</p>
-                            <div class="bg-light text-dark p-3">
-                                <b>Create Post</b>
-                                <p>
-                                    Post Title Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!
-                                </p>
+                        <div class="row justify-content-md-center rounded text-dark my-3 pt-4">
+                            <div class="col col-lg-9 p-0 ">
+                                <p>March 1, 2020 at 2:22 PM</p>
+                                <div class="bg-light text-dark p-3">
+                                    <b>Create Post</b>
+                                    <p>
+                                        Post Title Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row justify-content-md-center rounded text-dark my-3 pt-4">
-                        <div class="col col-lg-9 p-0 ">
-                            <p>March 1, 2020 at 2:22 PM</p>
-                            <div class="bg-light text-dark p-3">
-                                <b>Create Post</b>
-                                <p>
-                                    Post Title Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!
-                                </p>
+                        <div class="row justify-content-md-center rounded text-dark my-3 pt-4">
+                            <div class="col col-lg-9 p-0 ">
+                                <p>March 1, 2020 at 2:22 PM</p>
+                                <div class="bg-light text-dark p-3">
+                                    <b>Create Post</b>
+                                    <p>
+                                        Post Title Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <app-search id="exampleModal"></app-search>
         </div>
-        <app-search id="exampleModal"></app-search>
-    </div>
-</div>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

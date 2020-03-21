@@ -1,3 +1,22 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+mat-sidenav {
+    width: 301px;
+    height: 100%;
+}
+
+.mat-drawer {
+    background-color: #023075;
+    color: #fff
+}
+
+.main-content {
+    padding: 20px;
+}
+
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+
 .searchbar {
     margin-bottom: auto;
     margin-top: auto;
@@ -31,28 +50,4 @@
     font-size: 0.95rem;
     color: #aaa;
     font-style: italic;
-}
-
-.dropdown-toggle::after {
-    display: none
-}
-
-#sidebar{
-    position: fixed;
-    left: -300px;
-    transition: all 500ms linear;
-}
-
-#sidebar.active{
-    left: 0px;
-}
-
-#sidebar .toggle-btn{
-    position: absolute;
-    left: 300px;
-    top: 10px;
-}
-
-#test{
-    display: none;
 }
