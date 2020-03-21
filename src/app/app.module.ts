@@ -24,6 +24,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import { PostsComponent } from './components/posts/posts.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {MatIconModule} from '@angular/material/icon';
     DisplayCoursesComponent,
     SidebarComponent,
     SearchComponent,
-    ProfileComponent
+    ProfileComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,

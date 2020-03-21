@@ -63,30 +63,6 @@ a:focus {
 }
 
 
-/* Sô 5 đỏ */
-
-#sidebar ul li a span.notif {
-    position: relative;
-}
-
-
-/* màu đỏ */
-
-#sidebar ul li a span.notif small {
-    position: absolute;
-    top: -3px;
-    bottom: 0;
-    right: -3px;
-    width: 12px;
-    height: 12px;
-    content: '';
-    background: red;
-    border-radius: 50%;
-    font-family: "Poppins", Arial, sans-serif;
-    font-size: 8px;
-}
-
-
 /* active list ul li */
 
 #sidebar ul li a:hover {
@@ -128,6 +104,7 @@ a:focus {
 /* Kích thước sidebar */
 
 #sidebar {
+    height: 100%;
     min-width: 300px;
     max-width: 300px;
     background: #32373d;
@@ -136,4 +113,12 @@ a:focus {
     -o-transition: all 0.3s;
     transition: all 0.3s;
     position: relative;
+}
+
+#menuMajor a {
+    margin-left: 15%;
+}
+
+#menuClass a {
+    margin-left: 15%;
 }

@@ -1,9 +1,9 @@
-<mat-sidenav-container fullscreen>
-    <mat-sidenav mode="side" #sidenav opened position="start" class="p-0">
+<mat-sidenav-container>
+    <mat-sidenav mode="side" #sidenav position="start" class="p-0">
         <app-sidebar></app-sidebar>
     </mat-sidenav>
     <mat-sidenav-content>
-        <mat-toolbar color="primary">
+        <mat-toolbar style="background-color: #ECEDE7;">
             <nav class="navbar navbar-light ">
                 <button mat-icon-button (click)="sidenav.toggle()" class="navbar-toggler" type="button">
             <span class="navbar-toggler-icon"></span>
@@ -36,6 +36,7 @@
                 </li>
             </ul>
         </mat-toolbar>
+        <hr class="m-0">
         <div class="main-content p-0">
             <ul class="nav justify-content-center navbar-light " style="background-color: #ECEDE7;">
                 <li class="nav-item active m-2">
@@ -61,74 +62,7 @@
                 </li>
             </ul>
             <hr class="m-0">
-
-            <div class="d-flex flex-row" style="background-color: #ECEDE7;">
-                <div class="col-2 p-0">
-                </div>
-                <div class="col-10 p-0">
-                    <div class="container mt-5">
-                        <div class="row justify-content-md-center text-dark">
-                            <div class="col col-lg-9 p-3 mb-2 bg-light">
-                                <b>Create Post</b>
-                                <textarea class="form-control mt-3 " placeholder="What's on your mind?" rows="4"></textarea>
-                                <div class="row">
-                                    <input type="button" class="btn btn-primary  offset-md-10 mt-3 px-4" value="Post" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row justify-content-md-center rounded  text-dark my-3 ">
-                            <h5><b>POST</b></h5>
-                        </div>
-
-
-
-                        <div class="row justify-content-md-center rounded  text-dark my-3 ">
-                            <div class="col col-lg-9 p-0">
-                                <p>March 1, 2020 at 2:22 PM</p>
-                                <div class="bg-light text-dark p-3">
-                                    <b>Create Post</b>
-                                    <p>
-                                        Post Title Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row justify-content-md-center rounded text-dark my-3 pt-4">
-                            <div class="col col-lg-9 p-0 ">
-                                <p>March 1, 2020 at 2:22 PM</p>
-                                <div class="bg-light text-dark p-3">
-                                    <b>Create Post</b>
-                                    <p>
-                                        Post Title Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row justify-content-md-center rounded text-dark my-3 pt-4">
-                            <div class="col col-lg-9 p-0 ">
-                                <p>March 1, 2020 at 2:22 PM</p>
-                                <div class="bg-light text-dark p-3">
-                                    <b>Create Post</b>
-                                    <p>
-                                        Post Title Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row justify-content-md-center rounded text-dark my-3 pt-4">
-                            <div class="col col-lg-9 p-0 ">
-                                <p>March 1, 2020 at 2:22 PM</p>
-                                <div class="bg-light text-dark p-3">
-                                    <b>Create Post</b>
-                                    <p>
-                                        Post Title Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <app-posts></app-posts>
             <app-search id="exampleModal"></app-search>
         </div>
         <router-outlet></router-outlet>

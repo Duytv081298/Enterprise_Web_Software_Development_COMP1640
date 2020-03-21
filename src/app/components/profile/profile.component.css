@@ -51,3 +51,7 @@ mat-sidenav {
     color: #aaa;
     font-style: italic;
 }
+
+.dropdown-toggle::after {
+    display: none
+}
