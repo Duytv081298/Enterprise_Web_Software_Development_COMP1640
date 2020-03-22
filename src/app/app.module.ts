@@ -5,14 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
-
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { NewsComponent } from './components/news/news.component';
-import { ContentHomeComponent } from './components/content-home/content-home.component';
 import { MajorsComponent } from './components/majors/majors.component';
-import { ClubsComponent } from './components/clubs/clubs.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
@@ -20,19 +16,19 @@ import { DisplayCoursesComponent } from './components/display-courses/display-co
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SearchComponent } from './components/search/search.component';
 import { ProfileComponent } from './components/profile/profile.component';
-
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
 import { PostsComponent } from './components/posts/posts.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { SidebarAdminComponent } from './components/sidebar-admin/sidebar-admin.component';
 import { DisplayClassComponent } from './components/display-class/display-class.component';
-
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { InformationComponent } from './components/information/information.component';
 import { CreateClassComponent } from './components/create-class/create-class.component';
 import { TimeTableComponent } from './components/time-table/time-table.component';
+
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -40,10 +36,7 @@ import { TimeTableComponent } from './components/time-table/time-table.component
     HeaderComponent,
     LoginComponent,
     NavBarComponent,
-    NewsComponent,
-    ContentHomeComponent,
     MajorsComponent,
-    ClubsComponent,
     FooterComponent,
     EditProfileComponent,
     CourseDetailsComponent,
