@@ -1,32 +1,13 @@
 <div class="container bg-light pt-5">
     <div class="row justify-content-md-center">
         <div class="col-lg-8">
+            <p class="h3">Edit Class</p>
             <div class="form-group ">
-                <label class="h4 mb-3" for="major">Major:</label>
-                <select class="form-control" id="major">
-                    <option>Major 1</option>
-                    <option>Major 2</option>
-                    <option>Major 3</option>
-                    <option>Major 4</option>
-                    <option>Major 5</option>
-                    <option>Major 6</option>
-                    <option>Major 7</option>
-                </select>
-
-                <label class="h4 my-3 mt-4" for="course">Course:</label>
-                <select class="form-control" id="Course">
-                    <option>Course 1</option>
-                    <option>Course 2</option>
-                    <option>Course 3</option>
-                    <option>Course 4</option>
-                    <option>Course 5</option>
-                    <option>Course 6</option>
-                    <option>Course 7</option>
-                </select>
+                <input disabled class="form-control" type="text" placeholder="Major:" />
+                <input disabled class="form-control" type="text" placeholder="Course:" />
                 <input disabled class="form-control" type="text" placeholder="ID:" />
-                <input class="form-control" type="text" placeholder="Name:" />
-
-                <label class="h4 my-3 mt-4" for="tutor">Tutor:</label>
+                <input disabled class="form-control" type="text" placeholder="Name:" />
+                <label class="h5" for="tutor">Tutor</label>
                 <select class="form-control" id="tutor" data-toggle="collapse" data-target="#tutorSchedule">
                     <option>Tutor 1</option>
                     <option>Tutor 2</option>
@@ -37,10 +18,10 @@
                     <option>Tutor 7</option>
                 </select>
                 <div class="collapse" id="tutorSchedule">
-                    <p class="h4 my-3 mt-4">Schedule</p>
+                    <p class="h4 my-3 mt-4 ">Tutor Schedule</p>
                     <app-time-table></app-time-table>
                 </div>
-                <label class="h4 my-3 mt-4" for="slots">Slots-Day:</label>
+                <label class="h5 my-3 mt-4" for="slots">Slots-Day</label>
                 <select class="form-control" id="slots">
                     <option>Slot 1 (7:30-9:00)</option>
                     <option>Slot 2 (9:10-10:40)</option>

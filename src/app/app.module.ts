@@ -31,6 +31,11 @@ import {MatIconModule} from '@angular/material/icon';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { OperationHistoryComponent } from './components/operation-history/operation-history.component';
 import { ClassDetailComponent } from './components/class-detail/class-detail.component';
+import { ClassDetailForAdminComponent } from './components/class-detail-for-admin/class-detail-for-admin.component';
+import { EditClassComponent } from './components/edit-class/edit-class.component';
+import { DisplayTutorComponent } from './components/display-tutor/display-tutor.component';
+import { DisplayStudentComponent } from './components/display-student/display-student.component';
+import { InformationStudentComponent } from './components/information-student/information-student.component';
 
 
 @NgModule({
@@ -56,6 +61,11 @@ import { ClassDetailComponent } from './components/class-detail/class-detail.com
     TimeTableComponent,
     OperationHistoryComponent,
     ClassDetailComponent,
+    ClassDetailForAdminComponent,
+    EditClassComponent,
+    DisplayTutorComponent,
+    DisplayStudentComponent,
+    InformationStudentComponent,
     
   ],
   imports: [
