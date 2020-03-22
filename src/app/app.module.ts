@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +29,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { OperationHistoryComponent } from './components/operation-history/operation-history.component';
 
 
 @NgModule({
@@ -51,6 +53,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     InformationComponent,
     CreateClassComponent,
     TimeTableComponent,
+    OperationHistoryComponent,
     
   ],
   imports: [
@@ -61,7 +64,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

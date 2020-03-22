@@ -1,0 +1,31 @@
+<div class="container ">
+    <div class="justify-content-center my-3">
+        <div class="bg-light text-dark font-weight-bold text-uppercase rounded border text-center ">
+            <p class="mt-3">Operation History</p>
+            <div class="form-group d-flex py-3 justify-content-center">
+                <div class="col-lg-3">
+                    <input id ="inputDate1" (input)="updateDate1($event)" class="form-control " type="date"  />
+                </div>
+                <div class="col-lg-3">
+                    <input id = "inputDate2" [ngModel] ="date2 | date:'yyyy-MM-dd'" (ngModelChange)="date2 = $event" 
+                    (input)="updateDate2($event)" class="form-control " type="date" value="{{date2}}" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class=" rounded border p-3  bg-light">
+        <p id ="selectDate" class ="ml-5">{{date1 | date:'dd-MM-yyyy'}} to {{date2 | date:'dd-MM-yyyy'}}</p>
+        <div class="row justify-content-around">
+            <p class="col col-lg-10 bg-white text-dark rounded border ml-2">You have submited your
+                assignment...</p>
+            <p class="col col-lg-10 bg-white text-dark rounded border ml-2 ">You have submited your
+                assignment...</p>
+            <p class="col col-lg-10 bg-white text-dark rounded border ml-2">You have submited your
+                assignment...</p>
+            <p class="col col-lg-10 bg-white text-dark rounded border ml-2">You have submited your
+                assignment...</p>
+            <p class="col col-lg-10 bg-white text-dark rounded border ml-2">You have submited your
+                assignment...</p>
+        </div>
+    </div>
+</div>
