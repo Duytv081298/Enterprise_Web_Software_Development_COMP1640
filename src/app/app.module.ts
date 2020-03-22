@@ -30,6 +30,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { OperationHistoryComponent } from './components/operation-history/operation-history.component';
+import { ClassDetailComponent } from './components/class-detail/class-detail.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { OperationHistoryComponent } from './components/operation-history/operat
     CreateClassComponent,
     TimeTableComponent,
     OperationHistoryComponent,
+    ClassDetailComponent,
     
   ],
   imports: [
