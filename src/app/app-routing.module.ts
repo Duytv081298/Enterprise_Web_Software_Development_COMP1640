@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
+// Home-page
+import { HomepageComponent } from './components/homepage/homepage.component';
+
 //admin
 import { AdminComponent } from './components/admin/admin.component';
 import { DisplayCoursesComponent } from './components/display-courses/display-courses.component';
@@ -12,14 +16,16 @@ import { DisplayTutorComponent } from './components/display-tutor/display-tutor.
 import { DisplayStudentComponent } from './components/display-student/display-student.component';
 import { ClassDetailForAdminComponent } from './components/class-detail-for-admin/class-detail-for-admin.component';
 
-
 //Tutor
 import { PostsComponent } from './components/posts/posts.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 //Student
 
+
 const routes: Routes = [
+  { path: 'homepage', component: HomepageComponent },
+
   { path: 'admin/courses', component: DisplayCoursesComponent },
   { path: 'admin/tutors', component: DisplayTutorComponent },
   { path: 'admin/students', component: DisplayStudentComponent },
@@ -30,11 +36,8 @@ const routes: Routes = [
   { path: 'admin/student/information', component: InformationStudentComponent },
   { path: 'admin/class-detail', component: ClassDetailForAdminComponent },
 
-
-  
   { path: 'tutor', component: ProfileComponent },
   { path: 'student', component: ProfileComponent },
-
 
   { path: 'tutor/PostsComponent', component: PostsComponent },
   { path: 'student/PostsComponent', component: PostsComponent },

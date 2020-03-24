@@ -37,6 +37,7 @@ import { DisplayTutorComponent } from './components/display-tutor/display-tutor.
 import { DisplayStudentComponent } from './components/display-student/display-student.component';
 import { InformationStudentComponent } from './components/information-student/information-student.component';
 import { SelectStudentsComponent } from './components/select-students/select-students.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { SelectStudentsComponent } from './components/select-students/select-stu
     DisplayStudentComponent,
     InformationStudentComponent,
     SelectStudentsComponent,
+    HomepageComponent,
     
   ],
   imports: [
