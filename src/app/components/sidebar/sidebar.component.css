@@ -112,13 +112,30 @@ a:focus {
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
-    position: relative;
+    position: fixed;
+    overflow: auto;
 }
 
 #menuMajor a {
     margin-left: 15%;
 }
 
+#menuStudents a {
+    margin-left: 15%;
+}
+
+#menuTutor a {
+    margin-left: 15%;
+}
+
 #menuClass a {
     margin-left: 15%;
+}
+
+#menuCourse a {
+    margin-left: 15%;
+}
+
+.fa {
+    font-size: 1.5em
 }

@@ -1,13 +1,53 @@
-<div class="container-fluid bg-warning">
-    <div class="row">
-      <div class="col-sm align-self-center">
-        <div class="h3"><i class="fa fa-phone">0909090909090909</i></div>
-      </div>
-      <div class="col-sm">
-        <img src = "assets/image/logo.png" class="w-75"></div>
-      <div class="col-sm align-self-center">
-        <div (click)="openLogin()" class="btn btn-success">Login</div>
-    </div>
-    </div>
-  </div>
-  <app-nav-bar></app-nav-bar>
+<mat-sidenav-container>
+    <mat-sidenav mode="side" #sidenav position="start" class="p-0">
+        <app-sidebar></app-sidebar>>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar style="background-color: #ECEDE7;">
+            <nav class="navbar navbar-light ">
+                <button mat-icon-button (click)="sidenav.toggle()" class="navbar-toggler" type="button">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            </nav>
+            <i class="material-icons mr-3 ml-5" style="font-size: 1.8em; color: gray;">search</i>
+            <input class="search" size="50" type="text" placeholder="Search" aria-label="Search">
+            <span class="toolbar-spacer"></span>
+            <ul class="nav">
+                <li class="nav-item dropdown align-self-center">
+                    <a class="nav-link dropdown-toggle text-secondary" data-toggle="dropdown" href="#"><i class="material-icons">mail_outline</i></a>
+                    <div class="dropdown-menu dropdown-menu-left m-0 p-0">
+                        <p class="text-center p-1 py-2" style="background-color: darkgrey;">WELCOME!</p>
+                        <a class="dropdown-item" href="#"> PROFILE</a>
+                        <a class="dropdown-item" href="#">SETTING</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">LOG OUT</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown align-self-center">
+                    <a class="nav-link dropdown-toggle text-secondary" data-toggle="dropdown" href="#"><i class="fa fa-bell-o"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right m-0 p-0">
+                        <p class="text-center p-1 py-2" style="background-color: darkgrey;">WELCOME!</p>
+                        <a class="dropdown-item" href="#"> PROFILE</a>
+                        <a class="dropdown-item" href="#">SETTING</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">LOG OUT</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown align-self-center">
+                    <a class="nav-link dropdown-toggle text-secondary" data-toggle="dropdown" href="#">USER NAME</a>
+                    <div class="dropdown-menu dropdown-menu-right m-0 p-0">
+                        <p class="text-center p-1 py-2" style="background-color: darkgrey;">WELCOME!</p>
+                        <a class="dropdown-item" href="#"><i class="fa fa-user-circle-o mr-2"></i> PROFILE</a>
+                        <a class="dropdown-item" href="#"> <i class="fa fa-cog mr-2"></i> SETTING</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#"> <i class="fa fa-sign-out mr-2"></i> LOG OUT</a>
+                    </div>
+                </li>
+            </ul>
+
+        </mat-toolbar>
+        <div style="height: 500px; background-color: aqua;">
+            ddddd
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,21 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+mat-sidenav {
+    width: 300px;
+    height: 100%;
+}
+
+.search {
+    outline: none;
+    font-size: 20px;
+    border: 0;
+    background-color: #ECEDE7;
+    color: grey;
+}
+
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+.dropdown-toggle::after {
+    display: none
+}
