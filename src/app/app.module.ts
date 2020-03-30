@@ -36,6 +36,8 @@ import { ListOfCoursesComponent } from './components/list-of-courses/list-of-cou
 import { AddCourseComponent } from './components/add-course/add-course.component';
 import { UpdateCourseComponent } from './components/update-course/update-course.component';
 import { CourseDetailComponent } from './components/course-detail/course-detail.component';
+import { StudentDashboardComponent } from './components/student-dashboard/student-dashboard.component';
+import { TutorDashboardComponent } from './components/tutor-dashboard/tutor-dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +66,10 @@ import { CourseDetailComponent } from './components/course-detail/course-detail.
     ListOfCoursesComponent,
     AddCourseComponent,
     UpdateCourseComponent,
-    CourseDetailComponent
+    CourseDetailComponent,
+    StudentDashboardComponent,
+    TutorDashboardComponent,
+
   ],
   imports: [
     BrowserModule,
