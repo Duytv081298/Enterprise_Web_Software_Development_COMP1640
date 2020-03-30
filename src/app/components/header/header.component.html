@@ -3,18 +3,20 @@
         <app-sidebar></app-sidebar>>
     </mat-sidenav>
     <mat-sidenav-content>
-        <mat-toolbar style="background-color: #ECEDE7;">
+        <mat-toolbar style="background-color: #ECEDE7; padding: 0;">
             <nav class="navbar navbar-light ">
-                <button mat-icon-button (click)="sidenav.toggle()" class="navbar-toggler" type="button">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+          <button type="button" (click)="sidenav.toggle()" class="navbar-toggler sidebar-toggle-mobile">
+            <i class="fa fa-bars"></i>
+        </button>
             </nav>
-            <i class="material-icons mr-3 ml-5" style="font-size: 1.8em; color: gray;">search</i>
-            <input class="search" size="50" type="text" placeholder="Search" aria-label="Search">
+            <div class="form-inline d-flex justify-content-center md-form form-sm mt-0 w-25" id="search-form">
+                <i class="material-icons" style="font-size: 1.8em; color: gray;">search</i>
+                <input class="form-control form-control-sm ml-3 w-75 border-top-0 border-right-0 border-left-0" style="background-color: #ECEDE7;" type="text" placeholder="Search" aria-label="Search">
+            </div>
             <span class="toolbar-spacer"></span>
             <ul class="nav">
                 <li class="nav-item dropdown align-self-center">
-                    <a class="nav-link dropdown-toggle text-secondary" data-toggle="dropdown" href="#"><i class="material-icons">mail_outline</i></a>
+                    <a class="nav-link dropdown-toggle text-secondary" data-toggle="dropdown" href="#"><i class="material-icons" style="font-size: 1.2em;">mail_outline</i></a>
                     <div class="dropdown-menu dropdown-menu-left m-0 p-0">
                         <p class="text-center p-1 py-2" style="background-color: darkgrey;">WELCOME!</p>
                         <a class="dropdown-item" href="#"> PROFILE</a>
@@ -24,7 +26,7 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown align-self-center">
-                    <a class="nav-link dropdown-toggle text-secondary" data-toggle="dropdown" href="#"><i class="fa fa-bell-o"></i></a>
+                    <a class="nav-link dropdown-toggle text-secondary" data-toggle="dropdown" href="#"><i class="fa fa-bell-o" style="font-size: 1.2em;"></i></a>
                     <div class="dropdown-menu dropdown-menu-right m-0 p-0">
                         <p class="text-center p-1 py-2" style="background-color: darkgrey;">WELCOME!</p>
                         <a class="dropdown-item" href="#"> PROFILE</a>
