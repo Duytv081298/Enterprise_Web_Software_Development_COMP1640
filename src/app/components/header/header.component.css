@@ -29,13 +29,6 @@ mat-sidenav {
     }
 }
 
-<<<<<<< HEAD
-  /* @media screen and (max-width: 400px) {
-    .nav{
-        width: 500px;
-    }
-  } */
-=======
 @media screen and (max-width: 400px) {
     #search-form {
         visibility: hidden;
@@ -44,4 +37,3 @@ mat-sidenav {
         width: 100%;
     }
 }
->>>>>>> 071b50b39e8054b5f06ab1d60a8b010093297f49
