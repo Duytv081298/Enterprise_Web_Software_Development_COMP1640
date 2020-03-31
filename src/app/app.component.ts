@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Web-Development-COMP1640';
+  
+  typeAccount ="Staff"
 }
