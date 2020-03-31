@@ -1,0 +1,10 @@
+a {
+    text-decoration: none;
+}
+
+input[type="text"]:disabled,
+input[type="date"]:disabled,
+.description {
+    background: white;
+    margin: 3%;
+}

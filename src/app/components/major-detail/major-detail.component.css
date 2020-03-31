@@ -1,0 +1,9 @@
+a {
+    text-decoration: none;
+}
+
+input[type="text"]:disabled,
+.disabled {
+    background: white;
+    margin: 2%;
+}

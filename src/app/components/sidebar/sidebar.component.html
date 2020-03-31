@@ -7,7 +7,7 @@
     </div>
     <ul class="list-unstyled">
         <li>
-            <a href="">
+            <a routerLink="/staff/Dashboard">
                 <i class="fa fa-dashboard mr-2"></i> DASHBOARD
             </a>
         </li>
@@ -15,56 +15,44 @@
             <a href="#menuStudents" data-toggle="collapse">
                 <i class="fa fa-group mr-2"></i> MANAGE STUDENT</a>
             <div class="collapse" id="menuStudents">
-                <a href=""><i class="fa fa-angle-right mr-2"></i>All Students</a>
-                <a href=""><i class="fa fa-angle-right mr-2"></i>Add Student</a>
+                <a routerLink="/staff/ListStudents"><i class="fa fa-angle-right mr-2"></i>All Students</a>
+                <a routerLink="/staff/AddStudent"><i class="fa fa-angle-right mr-2"></i>Add Student</a>
             </div>
         </li>
         <li>
             <a href="#menuTutor" data-toggle="collapse"> <i class="fa fa-child mr-2"></i> MANAGE TUTOR</a>
             <div class="collapse" id="menuTutor">
-                <a href=""><i class="fa fa-angle-right mr-2"></i>All Tutor</a>
-                <a href=""><i class="fa fa-angle-right mr-2"></i>Add Tutor</a>
+                <a routerLink="/staff/ListTutors"><i class="fa fa-angle-right mr-2"></i>All Tutor</a>
+                <a routerLink="/staff/AddTutor"><i class="fa fa-angle-right mr-2"></i>Add Tutor</a>
             </div>
         </li>
         <li>
             <a href="#menuMajor" data-toggle="collapse">
                 <i class="material-icons mr-2" style="font-size: 1.5em;">school</i> MANAGE MAJOR</a>
             <div class="collapse" id="menuMajor">
-                <a href=""><i class="fa fa-angle-right mr-2"></i>All Major</a>
-                <a href=""><i class="fa fa-angle-right mr-2"></i>Add Major</a>
+                <a routerLink="/staff/ListOfMajors"><i class="fa fa-angle-right mr-2"></i>All Major</a>
+                <a routerLink="/staff/AddMajor"><i class="fa fa-angle-right mr-2"></i>Add Major</a>
             </div>
         </li>
         <li>
             <a href="#menuCourse" data-toggle="collapse"> <i class="fa fa-book mr-2"></i> MANAGE COURSE</a>
             <div class="collapse" id="menuCourse">
-                <a href=""><i class="fa fa-angle-right mr-2"></i>All Course</a>
-                <a href=""><i class="fa fa-angle-right mr-2"></i>Add Course</a>
+                <a routerLink="/staff/ListOfCourses"><i class="fa fa-angle-right mr-2"></i>All Course</a>
+                <a routerLink="/staff/AddCourse"><i class="fa fa-angle-right mr-2"></i>Add Course</a>
             </div>
         </li>
-        <li>
-            <a href="#menuClass" data-toggle="collapse"> <i class="fa fa-pencil-square-o mr-2"></i> MANAGE CLASS</a>
-            <div class="collapse" id="menuClass">
-                <a href=""> <i class="fa fa-angle-right mr-2"></i> All Class</a>
-                <a href=""><i class="fa fa-angle-right mr-2"></i>Add Class</a>
-            </div>
-        </li>
-
         <li>
             <a href="#menuProfile" data-toggle="collapse"> <i class="fa fa-address-card-o mr-2"></i> PROFILE</a>
             <div class="collapse" id="menuProfile">
-                <a href=""> <i class="fa fa-angle-right mr-2"></i> View Profile</a>
-                <a href=""> <i class="fa fa-angle-right mr-2"></i>Edit Profile</a>
+                <a routerLink="/staff/Profile"> <i class="fa fa-angle-right mr-2"></i> View Profile</a>
+                <a routerLink="/staff/UpdateProfile"> <i class="fa fa-angle-right mr-2"></i>Edit Profile</a>
             </div>
         </li>
         <li>
-            <a href=""> <i class="fa fa-bold mr-2"></i> BLOG</a>
-        </li>
-
-        <li>
-            <a href=""> <i class="	fa fa-calendar mr-2"></i> WEEKLY SCHEDULE</a>
+            <a routerLink="/admin/tutors"> <i class="	fa fa-calendar mr-2"></i> WEEKLY SCHEDULE</a>
         </li>
         <li>
-            <a href=""> <i class="fa fa-book mr-2"></i> MY COURSES</a>
+            <a routerLink="/admin/tutors"> <i class="fa fa-book mr-2"></i> MY COURSES</a>
         </li>
     </ul>
 </nav>

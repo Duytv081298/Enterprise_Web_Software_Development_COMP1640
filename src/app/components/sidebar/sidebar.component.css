@@ -116,23 +116,11 @@ a:focus {
     overflow: auto;
 }
 
-#menuMajor a {
-    margin-left: 15%;
-}
-
-#menuStudents a {
-    margin-left: 15%;
-}
-
-#menuTutor a {
-    margin-left: 15%;
-}
-
+#menuMajor a,
+#menuStudents a,
+#menuTutor a,
+#menuCourse a,
 #menuClass a {
-    margin-left: 15%;
-}
-
-#menuCourse a {
     margin-left: 15%;
 }
 

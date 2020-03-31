@@ -1,9 +1,8 @@
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
 mat-sidenav {
     width: 300px;
     height: 100%;
 }
+
 
 /* .search {
     outline: none;
@@ -21,19 +20,28 @@ mat-sidenav {
     display: none
 }
 
-
 @media screen and (max-width: 800px) {
     #search-form {
         visibility: hidden;
     }
-    .nav{
+    .nav {
         width: 100%;
-        
     }
-  }
+}
 
+<<<<<<< HEAD
   /* @media screen and (max-width: 400px) {
     .nav{
         width: 500px;
     }
   } */
+=======
+@media screen and (max-width: 400px) {
+    #search-form {
+        visibility: hidden;
+    }
+    .nav {
+        width: 100%;
+    }
+}
+>>>>>>> 071b50b39e8054b5f06ab1d60a8b010093297f49
