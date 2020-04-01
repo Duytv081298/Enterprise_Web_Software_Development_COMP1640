@@ -30,6 +30,7 @@ import {EtutoringService} from './etutoring.service'
 import { HttpClientModule } from '@angular/common/http';
 import { from } from 'rxjs';
 import { LoginComponent } from './components/login/login.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { LoginComponent } from './components/login/login.component';
     StudentDashboardComponent,
     TutorDashboardComponent,
     LoginComponent,
+    HomepageComponent,
 
   ],
   imports: [

@@ -14,6 +14,7 @@ import { ListOfStudentsComponent } from './components/list-of-students/list-of-s
 import { StudentDetailComponent } from './components/student-detail/student-detail.component';
 
 import { LoginComponent } from './components/login/login.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 
 const routes: Routes = [
@@ -28,8 +29,10 @@ const routes: Routes = [
   { path: 'staff/StudentDetail', component: StudentDetailComponent },
 
   { path: 'login', component: LoginComponent },
+  
+  { path: 'Homepage', component: HomepageComponent },
 
-  {path:'', redirectTo:'/login', pathMatch:'full'}
+  {path:'', redirectTo:'/Homepage', pathMatch:'full'}
 
 
 ];
