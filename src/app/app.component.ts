@@ -7,6 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Web-Development-COMP1640';
-  
-  typeAccount ="Staff"
+  // typeAccount :String;
+  typeAccount = 'tutor';
+  receiveMessage($event) {
+    this.typeAccount = $event;
+  }
 }

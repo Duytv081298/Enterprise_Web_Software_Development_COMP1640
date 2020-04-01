@@ -15,82 +15,19 @@
                     <th scope="col">ID Tutor</th>
                     <th scope="col">Name Tutor</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Num of student</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>GCH17645</td>
-                    <td>Trịnh Văn Duy</td>
-                    <td>Duytvgch17645</td>
-                    <td> <a routerLink="/staff/List-Students-Of-Tutor">45</a></td>
+                <tr *ngFor="let item of tutors ; let i= index">
+                    <th scope="row">{{i + 1}}</th>
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.email}}</td>
                     <td class="p-2">
                         <div class="form-group row justify-content-around">
                             <div>
                                 <input type="button" class="btn btn-outline-secondary mx-4" value="Detail" routerLink="/staff/TutorDetail" />
-                                <input type="button" class="btn btn-outline-secondary" value="Update" />
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>GCH17645</td>
-                    <td>Trịnh Văn Duy</td>
-                    <td>Duytvgch17645</td>
-                    <td> <a routerLink="/staff/List-Students-Of-Tutor">45</a></td>
-                    <td class="p-2">
-                        <div class="form-group row justify-content-around">
-                            <div>
-                                <input type="button" class="btn btn-outline-secondary mx-4" value="Detail" routerLink="/staff/TutorDetail" />
-                                <input type="button" class="btn btn-outline-secondary" value="Update" />
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>GCH17645</td>
-                    <td>Trịnh Văn Duy</td>
-                    <td>Duytvgch17645</td>
-                    <td> <a routerLink="/staff/List-Students-Of-Tutor">45</a></td>
-                    <td class="p-2">
-                        <div class="form-group row justify-content-around">
-                            <div>
-                                <input type="button" class="btn btn-outline-secondary mx-4" value="Detail" routerLink="/staff/TutorDetail" />
-                                <input type="button" class="btn btn-outline-secondary" value="Update" />
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>GCH17645</td>
-                    <td>Trịnh Văn Duy</td>
-                    <td>Duytvgch17645</td>
-                    <td> <a routerLink="/staff/List-Students-Of-Tutor">45</a></td>
-                    <td class="p-2">
-                        <div class="form-group row justify-content-around">
-                            <div>
-                                <input type="button" class="btn btn-outline-secondary mx-4" value="Detail" routerLink="/staff/TutorDetail" />
-                                <input type="button" class="btn btn-outline-secondary" value="Update" />
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>GCH17645</td>
-                    <td>Trịnh Văn Duy</td>
-                    <td>Duytvgch17645</td>
-                    <td> <a routerLink="/staff/List-Students-Of-Tutor">45</a></td>
-                    <td class="p-2">
-                        <div class="form-group row justify-content-around">
-                            <div>
-                                <input type="button" class="btn btn-outline-secondary mx-4" value="Detail" routerLink="/staff/TutorDetail" />
-                                <input type="button" class="btn btn-outline-secondary" value="Update" />
                             </div>
                         </div>
                     </td>

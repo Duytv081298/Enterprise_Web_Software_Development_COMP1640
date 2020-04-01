@@ -19,14 +19,14 @@ export class SidebarComponent implements OnInit {
   accountStudent = null;
 
   CheckAccount(){
-    if(this.typeAccount == 'Staff'){
-      this.accountStaff = 'Staff';
+    if(this.typeAccount == 'staff'){
+      this.accountStaff = 'staff';
 
-    }else if(this.typeAccount == 'Tutor'){
-      this.accountTutor = 'Tutor';
+    }else if(this.typeAccount == 'tutor'){
+      this.accountTutor = 'tutor';
 
-    }else if(this.typeAccount == 'Student') {
-      this.accountStudent = 'Student';
+    }else if(this.typeAccount == 'student') {
+      this.accountStudent = 'student';
     }
   }
 

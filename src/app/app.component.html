@@ -48,5 +48,7 @@
             </ul>
         </mat-toolbar>
         <router-outlet></router-outlet>
+        <app-login (usernameto)="receiveMessage($event)"></app-login>
+        <p>{{typeAccount}}</p>
     </mat-sidenav-content>
 </mat-sidenav-container>
