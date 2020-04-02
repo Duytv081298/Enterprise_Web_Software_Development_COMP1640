@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DashboardStaffService } from './dashboard-staff.service';
 
 @Component({
   selector: 'app-dashboard-staff',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardStaffComponent implements OnInit {
 
-  constructor() { }
+  numStudent : Number;
+  numTutor : Number;
+  constructor(private dashboardStaffService: DashboardStaffService) { }
 
   ngOnInit(): void {
+    this.getNumberStudent();
+    this.getNumberTutor();
   }
 
+  getNumberStudent(): void{
+    this.dashboardStaffService.getNumberOfStudent().subscribe(data => {this.numStudent = data 
+    console.log(this.numStudent)});
+  }
+
+  getNumberTutor(): void{
+    this.dashboardStaffService.getNumberOfTutor().subscribe(data => {this.numTutor = data 
+    console.log(this.numTutor)});
+  }
 }

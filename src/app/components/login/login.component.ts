@@ -14,7 +14,9 @@ export class LoginComponent implements OnInit {
   username: String;
   pasword: String;
 
-  user: User
+  user: User;
+  routerLinks: String;
+  
   
   constructor(private loginService: LoginService) { }
   ngOnInit(): void {
@@ -24,12 +26,30 @@ export class LoginComponent implements OnInit {
     const target = event.target
     this.username = target.querySelector('#username').value
     this.pasword = target.querySelector('#password').value
-    this.checklogin()
-    console.log(this.user.username)
-  }
-  checklogin(): void{
+    // this.checklogin()
+    
     this.loginService.getUser(this.username, this.pasword)
     .subscribe(data => this.user = data)
+    this.CheckAccount();
+    console.log(this.user.username)
+    console.log(this.routerLinks)
+  }
+  // checklogin(): void{
+  //   this.loginService.getUser(this.username, this.pasword)
+  //   .subscribe(data => this.user = data)
+  //   this.CheckAccount();
+  // }
+
+  CheckAccount(){
+    if(this.user.username == 'staff'){
+      this.routerLinks = "/staff/Dashboard";
+
+    }else if(this.user.username == 'tutor'){
+      this.routerLinks = "/tutor/Dashboard";
+
+    }else if(this.user.username == 'student') {
+      this.routerLinks = "/student/Dashboard";
+    }
   }
 
 }

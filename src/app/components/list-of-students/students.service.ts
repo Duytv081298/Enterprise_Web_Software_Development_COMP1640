@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class StudentsService {
-  private getStudentAPI = 'http://localhost:8080/students';
+  private getStudentAPI = 'http://localhost:8080/student/students';
   getStudent(): Observable<Student[]> {
     return this.http.get<Student[]>(this.getStudentAPI)
   }
