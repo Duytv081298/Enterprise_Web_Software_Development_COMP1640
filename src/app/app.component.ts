@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
-import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers: [NgbModalConfig, NgbModal]
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'Web-Development-COMP1640';
@@ -14,13 +12,5 @@ export class AppComponent {
     this.typeAccount = $event;
   }
 
-constructor(config: NgbModalConfig, private modalService: NgbModal) {
-  // customize default values of modals used by this component tree
-  config.backdrop = 'static';
-  config.keyboard = false;
-}
 
-open(content) {
-  this.modalService.open(content);
-}
 }
