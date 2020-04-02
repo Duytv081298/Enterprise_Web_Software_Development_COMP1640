@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   username: String;
   pasword: String;
 
-  user: User[] = [];
+  user: User
   
   constructor(private loginService: LoginService) { }
   ngOnInit(): void {
@@ -25,11 +25,7 @@ export class LoginComponent implements OnInit {
     this.username = target.querySelector('#username').value
     this.pasword = target.querySelector('#password').value
     this.checklogin()
-    
-    let userArr = JSON.parse(JSON.stringify(this.user));
-    this.username = userArr.username
-    this.usernameto.emit(this.username)
-    console.log(this.username)
+    console.log(this.user.username)
   }
   checklogin(): void{
     this.loginService.getUser(this.username, this.pasword)

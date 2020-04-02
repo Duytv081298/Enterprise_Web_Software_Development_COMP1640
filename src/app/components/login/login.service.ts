@@ -12,8 +12,8 @@ export class LoginService {
   constructor(private http: HttpClient, ) { }
   private getUserAPI = 'http://localhost:8080/login';
 
-  getUser(username, password ): Observable<User[]>{
-    return this.http.post<User[]>(this.getUserAPI,{
+  getUser(username, password ): Observable<User>{
+    return this.http.post<User>(this.getUserAPI,{
       username,
       password
     })
