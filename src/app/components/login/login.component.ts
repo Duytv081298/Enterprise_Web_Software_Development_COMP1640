@@ -16,9 +16,8 @@ import { StudentDetailService } from 'src/app/services/student-detail.service';
 })
 export class LoginComponent implements OnInit {
 
-  username: String;
-  pasword: String;
   user: User;
+  result : String;
 
   constructor(private loginService: LoginService,
     private typeAccount : AccountClassificationService,
@@ -27,16 +26,20 @@ export class LoginComponent implements OnInit {
     private student: StudentDetailService) { }
   ngOnInit(): void {}
 
-  loginUser(event){
-    event.preventDefault()
-    const target = event.target
-    this.username = target.querySelector('#username').value
-    this.pasword = target.querySelector('#password').value
-    this.loginService.getUser(this.username, this.pasword)
-    .subscribe(data => this.user = data)
-    
-    this.typeAccount.shareTypeAccount(this.user.type)
+  loginUser(username, password){
+      this.loginService.getUser(username, password)
+      .subscribe(
+        data => {
+          this.user = data
+          if( this.user == null){
+            this.result = 'e-mail'
+          }else{
+            this.typeAccount.shareTypeAccount(this.user.type)
+            console.log(" typeAccount in LoginComponent: " + this.user.type)
+          }
+        })
   }
+
   shareInfor(){
     if(this.user.type == 'staff'){
       this.staff.shareStaff(this.user)

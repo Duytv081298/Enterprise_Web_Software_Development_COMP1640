@@ -9,13 +9,11 @@ import { AccountClassificationService } from 'src/app/services/account-classific
 export class SidebarComponent implements OnInit {
   account : String;
 
-  constructor( private typeAccount : AccountClassificationService) { 
-    this.typeAccount.share.subscribe(x => this.account = x)
-  }
+  constructor( private typeAccount : AccountClassificationService) { }
 
   ngOnInit(): void {
     this.CheckAccount();
-    console.log('typeAccount in sidebar: ' + this.account)
+    console.log(this.account)
   }
   
   accountStaff = null;

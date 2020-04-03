@@ -21,6 +21,7 @@ export class AppComponent implements OnInit{
   }
   receiveData(){
     this.typeAccount.share.subscribe(x => this.checkAccount = x)
+    console.log("typeAccount in AppComponent: " + this.checkAccount)
     if(this.checkAccount == null){
       this.login = 'login';
       this.logout = null;

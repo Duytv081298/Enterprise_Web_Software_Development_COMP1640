@@ -6,11 +6,10 @@ import { from } from 'rxjs';
   providedIn: 'root'
 })
 export class AccountClassificationService {
-  private typeAccount = new BehaviorSubject<String>('staff');
+  private typeAccount = new BehaviorSubject<String>(null);
   public share = this.typeAccount.asObservable();
   constructor() { }
   shareTypeAccount(typeAccount){
     this.typeAccount.next(typeAccount)
   }
-
 }
