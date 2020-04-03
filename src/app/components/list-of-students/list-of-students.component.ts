@@ -48,7 +48,6 @@ export class ListOfStudentsComponent implements OnInit {
   }
   onSelect(student: Student){
     this.shareStudent.shareStudent(student)
-    console.log(student)
   }
 
 }

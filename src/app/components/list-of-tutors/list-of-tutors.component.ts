@@ -4,6 +4,7 @@ import {Tutor} from '../../models/tutor'
 import {TutorService} from '../list-of-tutors/tutor.service'
 import { catchError, map } from 'rxjs/operators';
 import {of} from 'rxjs'
+import { TutorDetailService } from 'src/app/services/tutor-detail.service';
 
 @Component({
   selector: 'app-list-of-tutors',
@@ -12,7 +13,8 @@ import {of} from 'rxjs'
 })
 export class ListOfTutorsComponent implements OnInit {
   tutors: Tutor[] = [];
-  constructor(private tutorService: TutorService) { }
+  constructor(private tutorService: TutorService,
+    private shareTutor : TutorDetailService) { }
   ngOnInit(): void {
     this.getTutor();
   }
@@ -41,6 +43,9 @@ export class ListOfTutorsComponent implements OnInit {
     ).subscribe(data =>{
       this.tutors = data
     } )
+  }
+  onSelect(tutor: Tutor){
+    this.shareTutor.shareTutor(tutor)
   }
 
 }

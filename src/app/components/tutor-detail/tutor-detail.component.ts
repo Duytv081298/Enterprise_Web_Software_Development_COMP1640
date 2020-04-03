@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TutorDetailService } from 'src/app/services/tutor-detail.service';
+import {Tutor} from '../../models/tutor'
 
 @Component({
   selector: 'app-tutor-detail',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tutor-detail.component.css']
 })
 export class TutorDetailComponent implements OnInit {
-
-  constructor() { }
+  selectTutor :Tutor;
+  constructor(private shareTutor : TutorDetailService) { }
 
   ngOnInit(): void {
+    this.shareTutor.share.subscribe(x => this.selectTutor = x)
   }
 
 }

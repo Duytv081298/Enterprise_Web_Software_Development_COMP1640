@@ -1,7 +1,13 @@
 import { Component, OnInit , Output, EventEmitter} from '@angular/core';
 import {LoginService} from '../login/login.service'
 import { User } from 'src/app/models/user';
+import { Tutor } from 'src/app/models/tutor';
+import { Student } from 'src/app/models/student';
+import { Staff } from 'src/app/models/staff';
 import { AccountClassificationService } from 'src/app/services/account-classification.service';
+import { ShareStaffService } from 'src/app/services/share-staff.service';
+import { TutorDetailService } from 'src/app/services/tutor-detail.service';
+import { StudentDetailService } from 'src/app/services/student-detail.service';
 
 @Component({
   selector: 'app-login',
@@ -12,15 +18,14 @@ export class LoginComponent implements OnInit {
 
   username: String;
   pasword: String;
-
   user: User;
-  
-  
-  constructor(private loginService: LoginService,
-    private typeAccount : AccountClassificationService) { }
-  ngOnInit(): void {
 
-  }
+  constructor(private loginService: LoginService,
+    private typeAccount : AccountClassificationService,
+    private staff : ShareStaffService,
+    private tutor: TutorDetailService,
+    private student: StudentDetailService) { }
+  ngOnInit(): void {}
 
   loginUser(event){
     event.preventDefault()
@@ -31,11 +36,14 @@ export class LoginComponent implements OnInit {
     .subscribe(data => this.user = data)
     
     this.typeAccount.shareTypeAccount(this.user.type)
-    console.log(this.user.type)
   }
-  // shareData(data){
-  //   if(data != null){
-  //     this.typeAccount.shareTypeAccount(data)
-  //   }
-  // }
+  shareInfor(){
+    if(this.user.type == 'staff'){
+      this.staff.shareStaff(this.user)
+    }else if(this.user.type == 'tutor'){
+      this.tutor.shareTutor(this.user)
+    }else if(this.user.type == 'student'){
+      this.student.shareStudent(this.user)
+    }
+  }
 }
