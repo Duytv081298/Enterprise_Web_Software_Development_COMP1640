@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TutorService {
 
-  private getTutorAPI = 'http://localhost:8080/tutors';
+  private getTutorAPI = 'http://localhost:8080/tutor/tutors';
   getTutor(): Observable<Tutor[]> {
     return this.http.get<Tutor[]>(this.getTutorAPI)
   }

@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class LoginService {
 
   constructor(private http: HttpClient, ) { }
-  private getUserAPI = 'http://localhost:8080/login';
+  private getUserAPI = 'http://localhost:8080/common/login';
 
   getUser(username, password ): Observable<User>{
     return this.http.post<User>(this.getUserAPI,{

@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AccountClassificationService } from 'src/app/services/account-classification.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,26 +7,30 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+  account : String;
 
-  constructor() { }
+  constructor( private typeAccount : AccountClassificationService) { 
+    this.typeAccount.share.subscribe(x => this.account = x)
+  }
 
   ngOnInit(): void {
     this.CheckAccount();
+    console.log('typeAccount in sidebar: ' + this.account)
   }
-  @Input() typeAccount: String;
   
   accountStaff = null;
   accountTutor = null;
   accountStudent = null;
 
   CheckAccount(){
-    if(this.typeAccount == 'staff'){
+    this.typeAccount.share.subscribe(x => this.account = x)
+    if(this.account == 'staff'){
       this.accountStaff = 'staff';
 
-    }else if(this.typeAccount == 'tutor'){
+    }else if(this.account == 'tutor'){
       this.accountTutor = 'tutor';
 
-    }else if(this.typeAccount == 'student') {
+    }else if(this.account == 'student') {
       this.accountStudent = 'student';
     }
   }

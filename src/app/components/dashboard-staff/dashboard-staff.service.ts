@@ -11,12 +11,12 @@ export class DashboardStaffService {
 
   }
 
-  private getNumberOfStudentApi = 'http://localhost:8080/student/student'
+  private getNumberOfStudentApi = 'http://localhost:8080/student/number-student'
   getNumberOfStudent() : Observable<Number>{
     return this.http.get<Number>(this.getNumberOfStudentApi);
   }
 
-  private getNumberOfTutorApi = 'http://localhost:8080/tutor/tutor'
+  private getNumberOfTutorApi = 'http://localhost:8080/tutor/number-tutor'
   getNumberOfTutor() : Observable<Number>{
     return this.http.get<Number>(this.getNumberOfTutorApi);
   }

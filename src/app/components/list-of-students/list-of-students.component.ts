@@ -16,6 +16,7 @@ export class ListOfStudentsComponent implements OnInit {
   ngOnInit(): void {
     this.getStudent();
   }
+
   getStudent():void{
     this.studentsService.getStudent().pipe(
       map(receivedStudents => 
@@ -40,7 +41,6 @@ export class ListOfStudentsComponent implements OnInit {
       catchError(error => of([]))
     ).subscribe(data =>{
       this.students = data
-      console.log(data)
     } )
   }
 

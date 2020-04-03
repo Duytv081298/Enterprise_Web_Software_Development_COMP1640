@@ -18,12 +18,10 @@ export class DashboardStaffComponent implements OnInit {
   }
 
   getNumberStudent(): void{
-    this.dashboardStaffService.getNumberOfStudent().subscribe(data => {this.numStudent = data 
-    console.log(this.numStudent)});
+    this.dashboardStaffService.getNumberOfStudent().subscribe(data => this.numStudent = data );
   }
 
   getNumberTutor(): void{
-    this.dashboardStaffService.getNumberOfTutor().subscribe(data => {this.numTutor = data 
-    console.log(this.numTutor)});
+    this.dashboardStaffService.getNumberOfTutor().subscribe(data => this.numTutor = data );
   }
 }

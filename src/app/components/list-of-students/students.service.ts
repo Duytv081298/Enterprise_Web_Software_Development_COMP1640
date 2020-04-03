@@ -14,8 +14,6 @@ export class StudentsService {
   getStudent(): Observable<Student[]> {
     return this.http.get<Student[]>(this.getStudentAPI)
   }
-
-
   constructor(
     private http: HttpClient, 
   ) { }

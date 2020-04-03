@@ -1,6 +1,7 @@
 import { Component, OnInit , Output, EventEmitter} from '@angular/core';
 import {LoginService} from '../login/login.service'
 import { User } from 'src/app/models/user';
+import { AccountClassificationService } from 'src/app/services/account-classification.service';
 
 @Component({
   selector: 'app-login',
@@ -9,49 +10,32 @@ import { User } from 'src/app/models/user';
 })
 export class LoginComponent implements OnInit {
 
-  @Output() usernameto = new EventEmitter<String>();
-
   username: String;
   pasword: String;
 
   user: User;
-  routerLinks: String;
   
   
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService,
+    private typeAccount : AccountClassificationService) { }
   ngOnInit(): void {
+
   }
+
   loginUser(event){
     event.preventDefault()
     const target = event.target
     this.username = target.querySelector('#username').value
     this.pasword = target.querySelector('#password').value
-    // this.checklogin()
-    
     this.loginService.getUser(this.username, this.pasword)
     .subscribe(data => this.user = data)
-    this.CheckAccount();
-    console.log(this.user.username)
-    console.log(this.routerLinks)
+    
+    this.typeAccount.shareTypeAccount(this.user.type)
+    console.log(this.user.type)
   }
-  // checklogin(): void{
-  //   this.loginService.getUser(this.username, this.pasword)
-  //   .subscribe(data => this.user = data)
-  //   this.CheckAccount();
+  // shareData(data){
+  //   if(data != null){
+  //     this.typeAccount.shareTypeAccount(data)
+  //   }
   // }
-
-  CheckAccount(){
-    if(this.user.username == 'staff'){
-      this.routerLinks = "/staff/Dashboard";
-
-    }else if(this.user.username == 'tutor'){
-      this.routerLinks = "/tutor/Dashboard";
-
-    }else if(this.user.username == 'student') {
-      this.routerLinks = "/student/Dashboard";
-    }
-  }
-
- 
-
 }
