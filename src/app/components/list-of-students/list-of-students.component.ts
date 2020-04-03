@@ -4,6 +4,7 @@ import {Student} from '../../models/student'
 import {StudentsService} from '../list-of-students/students.service'
 import { catchError, map } from 'rxjs/operators';
 import {of} from 'rxjs'
+import { StudentDetailService } from 'src/app/services/student-detail.service';
 
 @Component({
   selector: 'app-list-of-students',
@@ -12,9 +13,11 @@ import {of} from 'rxjs'
 })
 export class ListOfStudentsComponent implements OnInit {
   students: Student[] = [];
-  constructor(private studentsService: StudentsService) { }
+  constructor(private studentsService: StudentsService,
+    private shareStudent : StudentDetailService) { }
   ngOnInit(): void {
     this.getStudent();
+    
   }
 
   getStudent():void{
@@ -42,6 +45,10 @@ export class ListOfStudentsComponent implements OnInit {
     ).subscribe(data =>{
       this.students = data
     } )
+  }
+  onSelect(student: Student){
+    this.shareStudent.shareStudent(student)
+    console.log(student)
   }
 
 }

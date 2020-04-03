@@ -6,7 +6,7 @@ import { from } from 'rxjs';
   providedIn: 'root'
 })
 export class AccountClassificationService {
-  private typeAccount = new BehaviorSubject<String>(null);
+  private typeAccount = new BehaviorSubject<String>('staff');
   public share = this.typeAccount.asObservable();
   constructor() { }
   shareTypeAccount(typeAccount){
