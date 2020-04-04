@@ -60,7 +60,8 @@ import { HomepageComponent } from './components/homepage/homepage.component';
     HttpClientModule 
   ],
   providers: [StudentsService,
-    EtutoringService],
+    EtutoringService,
+    LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

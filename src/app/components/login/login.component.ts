@@ -4,10 +4,12 @@ import { User } from 'src/app/models/user';
 import { Tutor } from 'src/app/models/tutor';
 import { Student } from 'src/app/models/student';
 import { Staff } from 'src/app/models/staff';
+import { Router } from '@angular/router';
 import { AccountClassificationService } from 'src/app/services/account-classification.service';
 import { ShareStaffService } from 'src/app/services/share-staff.service';
 import { TutorDetailService } from 'src/app/services/tutor-detail.service';
 import { StudentDetailService } from 'src/app/services/student-detail.service';
+
 
 @Component({
   selector: 'app-login',
@@ -16,10 +18,15 @@ import { StudentDetailService } from 'src/app/services/student-detail.service';
 })
 export class LoginComponent implements OnInit {
 
+  
+
   user: User;
   result : String;
+  ismodelShow : String
 
-  constructor(private loginService: LoginService,
+  constructor(
+    private router: Router,
+    private loginService: LoginService,
     private typeAccount : AccountClassificationService,
     private staff : ShareStaffService,
     private tutor: TutorDetailService,
@@ -34,10 +41,38 @@ export class LoginComponent implements OnInit {
           if( this.user == null){
             this.result = 'e-mail'
           }else{
-            this.typeAccount.shareTypeAccount(this.user.type)
-            console.log(" typeAccount in LoginComponent: " + this.user.type)
+            let element: HTMLElement = document.getElementsByClassName('btn')[0] as HTMLElement;
+            element.click();
+            if(this.user.type = 'staff'){
+              this.setTypeUser(this.user.type+'')
+              this.router.navigate(['/staff/Dashboard'])
+              this.typeAccount.shareTypeAccount(this.user.type)
+            }else if(this.user.type = 'tutor'){
+              this.setTypeUser(this.user.type+'')
+              this.router.navigate(['/staff/Dashboard'])
+              this.typeAccount.shareTypeAccount(this.user.type)
+            }else if(this.user.type = 'student'){
+              this.setTypeUser(this.user.type+'')
+              this.router.navigate(['/staff/Dashboard'])
+              this.typeAccount.shareTypeAccount(this.user.type)
+            }
           }
         })
+  }
+  isUserLoggedIn() {
+    let user = sessionStorage.getItem('typeUser')
+    return !(user === null)
+  }
+  getTypeUser(): string{
+    let typeUser = sessionStorage.getItem('typeUser')
+    return typeUser
+  }
+  setTypeUser(type: string){
+    sessionStorage.setItem('typeUser', type)
+  }
+
+  logOut() {
+    sessionStorage.removeItem('username')
   }
 
   shareInfor(){

@@ -15,18 +15,19 @@ import { StudentDetailComponent } from './components/student-detail/student-deta
 
 import { LoginComponent } from './components/login/login.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { AuthGaurdService } from './components/login/auth-gaurd.service';
 
 
 const routes: Routes = [
-  { path: 'staff/Dashboard', component: DashboardStaffComponent },
-  { path: 'staff/Profile', component: ProfileComponent },
-  { path: 'staff/ChancePassword', component: ChancePasswordComponent },
+  { path: 'staff/Dashboard', component: DashboardStaffComponent ,canActivate:[AuthGaurdService]},
+  { path: 'staff/Profile', component: ProfileComponent,canActivate:[AuthGaurdService] },
+  { path: 'staff/ChancePassword', component: ChancePasswordComponent ,canActivate:[AuthGaurdService]},
 
-  { path: 'staff/ListTutors', component: ListOfTutorsComponent },
-  { path: 'staff/TutorDetail', component: TutorDetailComponent },
+  { path: 'staff/ListTutors', component: ListOfTutorsComponent ,canActivate:[AuthGaurdService]},
+  { path: 'staff/TutorDetail', component: TutorDetailComponent ,canActivate:[AuthGaurdService]},
   
-  { path: 'staff/ListStudents', component: ListOfStudentsComponent },
-  { path: 'staff/StudentDetail', component: StudentDetailComponent },
+  { path: 'staff/ListStudents', component: ListOfStudentsComponent ,canActivate:[AuthGaurdService]},
+  { path: 'staff/StudentDetail', component: StudentDetailComponent ,canActivate:[AuthGaurdService]},
 
   { path: 'login', component: LoginComponent },
   
