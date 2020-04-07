@@ -28,9 +28,11 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private loginService: LoginService,
     private typeAccount : AccountClassificationService,
-    private staff : ShareStaffService,
-    private tutor: TutorDetailService,
-    private student: StudentDetailService) { }
+    // private staff : ShareStaffService,
+    // private tutor: TutorDetailService,
+    // private student: StudentDetailService
+    
+    ) { }
   ngOnInit(): void {}
 
   loginUser(username, password){
@@ -46,15 +48,15 @@ export class LoginComponent implements OnInit {
             if(this.user.type = 'staff'){
               this.setTypeUser(this.user.type+'')
               this.router.navigate(['/staff/Dashboard'])
-              this.typeAccount.shareTypeAccount(this.user.type)
+              this.typeAccount.shareTypeAccount(this.user)
             }else if(this.user.type = 'tutor'){
               this.setTypeUser(this.user.type+'')
               this.router.navigate(['/staff/Dashboard'])
-              this.typeAccount.shareTypeAccount(this.user.type)
+              this.typeAccount.shareTypeAccount(this.user)
             }else if(this.user.type = 'student'){
               this.setTypeUser(this.user.type+'')
               this.router.navigate(['/staff/Dashboard'])
-              this.typeAccount.shareTypeAccount(this.user.type)
+              this.typeAccount.shareTypeAccount(this.user)
             }
           }
         })
@@ -65,23 +67,26 @@ export class LoginComponent implements OnInit {
   }
   getTypeUser(): string{
     let typeUser = sessionStorage.getItem('typeUser')
+    console.log(typeUser)
     return typeUser
   }
   setTypeUser(type: string){
     sessionStorage.setItem('typeUser', type)
+    console.log(type)
   }
 
   logOut() {
-    sessionStorage.removeItem('username')
+    sessionStorage.removeItem('typeUser')
+    this.router.navigate(['/Homepage'])
   }
 
-  shareInfor(){
-    if(this.user.type == 'staff'){
-      this.staff.shareStaff(this.user)
-    }else if(this.user.type == 'tutor'){
-      this.tutor.shareTutor(this.user)
-    }else if(this.user.type == 'student'){
-      this.student.shareStudent(this.user)
-    }
-  }
+  // shareInfor(){
+  //   if(this.user.type == 'staff'){
+  //     this.staff.shareStaff(this.user)
+  //   }else if(this.user.type == 'tutor'){
+  //     this.tutor.shareTutor(this.user)
+  //   }else if(this.user.type == 'student'){
+  //     this.student.shareStudent(this.user)
+  //   }
+  // }
 }

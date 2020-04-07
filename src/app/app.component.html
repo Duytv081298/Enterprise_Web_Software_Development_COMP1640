@@ -30,13 +30,13 @@
             </div>
         </li>
         <li *ngIf="logout" class="nav-item dropdown align-self-center">
-            <a class="nav-link dropdown-toggle text-secondary h6" data-toggle="dropdown" href="#">USER NAME</a>
+            <a class="nav-link dropdown-toggle text-secondary h6" data-toggle="dropdown" href="#">{{user.username}}</a>
             <div class="dropdown-menu dropdown-menu-right m-0 p-2">
                 <p class="text-center p-1 py-2" style="background-color: darkgrey;">WELCOME!</p>
                 <a class="dropdown-item" href="#"><i class="fa fa-user-circle-o mr-2"></i> PROFILE</a>
                 <a class="dropdown-item" href="#"> <i class="fa fa-cog mr-2"></i> SETTING</a>
                 <div class="dropdown-divider"></div>
-                <a *ngIf="logout" class="dropdown-item" href="#"> <i class="fa fa-sign-out mr-2"></i> LOG OUT</a>
+                <a *ngIf="logout" class="dropdown-item" (click)="logOut()"> <i class="fa fa-sign-out mr-2"></i> LOG OUT</a>
             </div>
         </li>
         <li *ngIf="login" class="nav-item dropdown align-self-center">

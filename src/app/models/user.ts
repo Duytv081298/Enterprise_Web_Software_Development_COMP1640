@@ -3,6 +3,4 @@ export class User{
     password: String;
     type: String;
     lastLogin: String;
-
-
 }

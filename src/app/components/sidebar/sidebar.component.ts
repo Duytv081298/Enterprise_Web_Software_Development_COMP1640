@@ -12,7 +12,7 @@ export class SidebarComponent implements OnInit {
   constructor( private typeAccount : AccountClassificationService) { }
 
   ngOnInit(): void {
-    this.CheckAccount();
+    // this.CheckAccount();
     console.log(this.account)
   }
   
@@ -20,17 +20,17 @@ export class SidebarComponent implements OnInit {
   accountTutor = null;
   accountStudent = null;
 
-  CheckAccount(){
-    this.typeAccount.share.subscribe(x => this.account = x)
-    if(this.account == 'staff'){
-      this.accountStaff = 'staff';
+  // CheckAccount(){
+  //   this.typeAccount.share.subscribe(x => this.account = x)
+  //   if(this.account == 'staff'){
+  //     this.accountStaff = 'staff';
 
-    }else if(this.account == 'tutor'){
-      this.accountTutor = 'tutor';
+  //   }else if(this.account == 'tutor'){
+  //     this.accountTutor = 'tutor';
 
-    }else if(this.account == 'student') {
-      this.accountStudent = 'student';
-    }
-  }
+  //   }else if(this.account == 'student') {
+  //     this.accountStudent = 'student';
+  //   }
+  // }
 
 }
