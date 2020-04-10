@@ -1,5 +1,4 @@
 import { Component, OnInit , DoCheck} from '@angular/core';
-import { AccountClassificationService } from './services/account-classification.service';
 import {LoginComponent} from '../app/components/login/login.component'
 import {User} from '../app/models/user';
 import { EtutoringService } from './etutoring.service';
@@ -28,23 +27,13 @@ export class AppComponent implements OnInit {
                 ) { 
   }
   ngOnInit(): void {
-    this.receiveData()
+
   }
   ngDoCheck() {
     this.showLogin()
     // this.receiveData()
   }
-  receiveData(){
-    if(this.user != null){
-      if(this.user.type == 'staff'){
-        this.etutoringService.getStaff(this.loginComponent.getUser().username).subscribe(data =>this.staff = data )
-      }else if(this.user.type == 'tutor'){
-        this.etutoringService.getTutor(this.loginComponent.getUser().username).subscribe(data => this.tutor = data)
-      }else if(this.user.type == 'student'){
-        this.etutoringService.getStudent(this.loginComponent.getUser().username).subscribe(data => this.student = data)
-      }
-    }
-  }
+  
   showLogin(){
     if(this.user != null){
         this.login = null;

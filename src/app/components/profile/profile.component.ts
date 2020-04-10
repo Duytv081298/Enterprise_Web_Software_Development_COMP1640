@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from '../login/login.component';
-import { ProfileService } from './profile.service';
 import { Staff } from 'src/app/models/staff';
 import { User } from 'src/app/models/user';
 import { EtutoringService } from 'src/app/etutoring.service';

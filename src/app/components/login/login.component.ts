@@ -2,7 +2,6 @@ import { Component, OnInit , Output, EventEmitter} from '@angular/core';
 import {LoginService} from '../login/login.service'
 import { User } from 'src/app/models/user';
 import { Router } from '@angular/router';
-import { AccountClassificationService } from 'src/app/services/account-classification.service';
 
 
 @Component({
@@ -11,21 +10,13 @@ import { AccountClassificationService } from 'src/app/services/account-classific
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  // user: User = {
-  //   username : null,
-  //   password : null,
-  //   type : null,
-  //   lastLogin :null,
-  // }
   user : User
   result : String
   id:String
 
   constructor(
     private router: Router,
-    private loginService: LoginService,
-    private typeAccount : AccountClassificationService,  ) { }
+    private loginService: LoginService, ) { }
   ngOnInit(): void {}
 
   getTypeUser(username, password){
@@ -42,15 +33,12 @@ export class LoginComponent implements OnInit {
             if(this.user.type = 'staff'){
               this.setUser(this.user)
               this.router.navigate(['/staff/Dashboard'])
-              this.typeAccount.shareTypeAccount(this.user.type)
             }else if(this.user.type = 'tutor'){
               this.setUser(this.user)
               this.router.navigate(['/staff/Dashboard'])
-              this.typeAccount.shareTypeAccount(this.user.type)
             }else if(this.user.type = 'student'){
               this.setUser(this.user)
               this.router.navigate(['/staff/Dashboard'])
-              this.typeAccount.shareTypeAccount(this.user.type)
             }
           }
         })

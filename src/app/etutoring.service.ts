@@ -3,7 +3,6 @@ import {Observable} from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Staff } from './models/staff';
 import { LoginComponent } from './components/login/login.component';
-import { AccountClassificationService } from './services/account-classification.service';
 import { Student } from './models/student';
 import { Tutor } from './models/tutor';
 import { User } from './models/user';
@@ -15,8 +14,7 @@ import { User } from './models/user';
 })
 export class EtutoringService {
   constructor(private http: HttpClient, 
-    private loginComponent :LoginComponent,
-    private typeAccount : AccountClassificationService) { }
+    private loginComponent :LoginComponent,) { }
 
     private getStaffAPI = 'http://localhost:8080/staffs';
     private getStudentAPI = 'http://localhost:8080/students';
