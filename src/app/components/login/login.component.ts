@@ -30,13 +30,13 @@ export class LoginComponent implements OnInit {
           }else{
             let element: HTMLElement = document.getElementsByClassName('btn')[0] as HTMLElement;
             element.click();
-            if(this.user.type = 'staff'){
+            if(this.user.type == 'staff'){
               this.setUser(this.user)
               this.router.navigate(['/staff/Dashboard'])
-            }else if(this.user.type = 'tutor'){
+            }else if(this.user.type == 'tutor'){
               this.setUser(this.user)
-              this.router.navigate(['/staff/Dashboard'])
-            }else if(this.user.type = 'student'){
+              this.router.navigate(['/tutor/ListClass'])
+            }else if(this.user.type == 'student'){
               this.setUser(this.user)
               this.router.navigate(['/staff/Dashboard'])
             }

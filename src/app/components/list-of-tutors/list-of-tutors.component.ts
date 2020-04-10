@@ -14,7 +14,7 @@ import { TutorDetailService } from 'src/app/services/tutor-detail.service';
 export class ListOfTutorsComponent implements OnInit {
   tutors: Tutor[] = [];
   constructor(private tutorService: TutorService,
-    private shareTutor : TutorDetailService) { }
+              private shareTutor : TutorDetailService) { }
   ngOnInit(): void {
     this.getTutor();
   }

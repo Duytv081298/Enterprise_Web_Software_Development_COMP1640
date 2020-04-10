@@ -13,6 +13,7 @@ export class SidebarComponent implements OnInit {
 
   constructor( private loginComponent : LoginComponent ) { }
   ngOnInit(): void {
+    console.log(this.typeAccount)
   }
   accountStaff = null;
   accountTutor = null;

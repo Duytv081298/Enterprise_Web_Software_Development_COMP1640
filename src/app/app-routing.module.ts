@@ -16,20 +16,28 @@ import { StudentDetailComponent } from './components/student-detail/student-deta
 import { LoginComponent } from './components/login/login.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { AuthGaurdService } from './components/login/auth-gaurd.service';
+import { AddClassComponent } from './components/add-class/add-class.component';
+import { ListClassComponent } from './components/list-class/list-class.component';
+import { DashboardClassComponent } from './components/dashboard-class/dashboard-class.component';
 
 
 const routes: Routes = [
   { path: 'staff/Dashboard', component: DashboardStaffComponent ,canActivate:[AuthGaurdService]},
   { path: 'staff/Profile', component: ProfileComponent,canActivate:[AuthGaurdService] },
   { path: 'staff/ChancePassword', component: ChancePasswordComponent ,canActivate:[AuthGaurdService]},
+  { path: 'staff/AddClass', component: AddClassComponent ,canActivate:[AuthGaurdService]},
 
   { path: 'staff/ListTutors', component: ListOfTutorsComponent ,canActivate:[AuthGaurdService]},
   { path: 'staff/TutorDetail', component: TutorDetailComponent ,canActivate:[AuthGaurdService]},
+  { path: 'staff/ListClass', component: DashboardClassComponent ,canActivate:[AuthGaurdService]},
   
   { path: 'staff/ListStudents', component: ListOfStudentsComponent ,canActivate:[AuthGaurdService]},
   { path: 'staff/StudentDetail', component: StudentDetailComponent ,canActivate:[AuthGaurdService]},
 
+  { path: 'tutor/ListClass', component: ListClassComponent ,canActivate:[AuthGaurdService]},
+
   { path: 'login', component: LoginComponent },
+
   
   { path: 'Homepage', component: HomepageComponent },
 

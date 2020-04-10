@@ -6,6 +6,7 @@
         </div>
     </div>
     <ul class="list-unstyled">
+                        <!-- Staff SideBar -->
         <li *ngIf="accountStaff">
             <a routerLink="/staff/Dashboard">
                 <i class="fa fa-dashboard mr-2"></i> DASHBOARD
@@ -22,24 +23,35 @@
             </a>
         </li>
         <li *ngIf="accountStaff">
+            <a routerLink="/staff/ListClass">
+                <i class="fa fa-dashboard mr-2"></i> LIST CLASS
+            </a>
+        </li>
+        <li *ngIf="accountStaff">
+            <a routerLink="/staff/AddClass">
+                <i class="fa fa-dashboard mr-2"></i> ADD CLASS
+            </a>
+        </li>
+        <li *ngIf="accountStaff">
             <a routerLink="/staff/Profile">
                 <i class="fa fa-dashboard mr-2"></i> PROFILE
             </a>
         </li>
 
+                 <!-- Tutor SideBar -->
         <li *ngIf="accountTutor">
             <a routerLink="/admin/tutors"> <i class="	fa fa-calendar mr-2"></i> BLOG</a>
         </li>
         <li *ngIf="accountTutor">
-            <a routerLink="/admin/tutors"> <i class="	fa fa-calendar mr-2"></i> WEEKLY SCHEDULE</a>
+            <a routerLink="/tutor/ListClass"> <i class="	fa fa-calendar mr-2"></i> CLASS LIST</a>
         </li>
-
         <li *ngIf="accountTutor">
-            <a routerLink="/admin/tutors"> <i class="	fa fa-calendar mr-2"></i>STUDENTS</a>
+            <a routerLink="/admin/tutors"> <i class="	fa fa-calendar mr-2"></i> WEEKLY SCHEDULE</a>
         </li>
         <li *ngIf="accountStudent">
             <a routerLink="/admin/tutors"> <i class="fa fa-book mr-2"></i> MY COURSES</a>
         </li>
+
 
     </ul>
 </nav>
