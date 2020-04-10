@@ -1,11 +1,11 @@
 export class Student{
-    id: String;
-    name: String;
-    phoneNumber : String;
-    email : String;
-    address: String;
+    id: string;
+    name: string;
+    phoneNumber : string;
+    email : string;
+    address: string;
     dateOfBirth: Date;
-    avatar: String;
-    username: String;
+    avatar: string;
+    username: string;
     lastLogin: Date;
 }

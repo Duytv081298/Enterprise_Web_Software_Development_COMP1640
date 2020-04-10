@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ShareStaffService } from './share-staff.service';
+import { ProfileService } from './profile.service';
 
-describe('ShareStaffService', () => {
-  let service: ShareStaffService;
+describe('ProfileService', () => {
+  let service: ProfileService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ShareStaffService);
+    service = TestBed.inject(ProfileService);
   });
 
   it('should be created', () => {

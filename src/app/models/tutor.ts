@@ -1,11 +1,11 @@
 export class Tutor{
-    id: String;
-    name: String;
-    phoneNumber : String;
-    email : String;
-    address: String;
+    id: string;
+    name: string;
+    phoneNumber : string;
+    email : string;
+    address: string;
     dateOfBirth: Date;
-    avatar: String;
-    username: String;
-    lastLogin: Date;
+    avatar: string;
+    username: string;
+    lastLogin: string;
 }
