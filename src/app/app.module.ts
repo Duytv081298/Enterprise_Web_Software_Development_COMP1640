@@ -38,6 +38,7 @@ import { ListClassComponent } from './components/list-class/list-class.component
 import { StudentBlogComponent } from './components/student-blog/student-blog.component';
 import { TutorBlogComponent } from './components/tutor-blog/tutor-blog.component';
 import { DashboardClassComponent } from './components/dashboard-class/dashboard-class.component';
+import { ChartStudentHaveWithoutTutorComponent } from './components/chart-student-have-without-tutor/chart-student-have-without-tutor.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +60,7 @@ import { DashboardClassComponent } from './components/dashboard-class/dashboard-
     StudentBlogComponent,
     TutorBlogComponent,
     DashboardClassComponent,
+    ChartStudentHaveWithoutTutorComponent,
 
   ],
   imports: [

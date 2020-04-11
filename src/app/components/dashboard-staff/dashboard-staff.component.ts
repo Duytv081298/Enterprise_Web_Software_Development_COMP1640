@@ -23,5 +23,6 @@ export class DashboardStaffComponent implements OnInit {
 
   getNumberTutor(): void{
     this.dashboardStaffService.getNumberOfTutor().subscribe(data => this.numTutor = data );
-  }
+  } 
+
 }

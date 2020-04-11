@@ -36,10 +36,10 @@ this.checkSuccess(this.isSuccess)
 
   checkSuccess(isSuccess){
     if (isSuccess == false) {
-      this.showDialogfalse = 'NGU'
+      this.showDialogfalse = 'False'
       this.showDialogtrue = null
     } else {
-      this.showDialogtrue = 'GIOI VAI LON'
+      this.showDialogtrue = 'True'
       this.showDialogfalse = null
     }
   }
