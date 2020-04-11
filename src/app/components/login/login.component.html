@@ -15,7 +15,7 @@
                     </div>
                     <p *ngIf="result" class="text-danger">Your e-mail or password incorrect. Please , try again</p>
                     <div class="row">
-                        <button href="http://localhost:4200/staff/Dashboard" (click)="loginUser(username.value, password.value)" class="btn btn-primary mr-auto">Login</button>
+                        <button href="http://localhost:4200/staff/Dashboard" (click)="getTypeUser(username.value, password.value)" class="btn btn-primary mr-auto">Login</button>
                         <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
                     </div>
                 </form>

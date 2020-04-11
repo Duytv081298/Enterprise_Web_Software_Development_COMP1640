@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginComponent} from '../login/login.component'
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,10 +8,12 @@ import {LoginComponent} from '../login/login.component'
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+  user : User = this.loginComponent.getUser()
   typeAccount: string;
 
   constructor( private loginComponent : LoginComponent ) { }
   ngOnInit(): void {
+    console.log(this.typeAccount)
   }
   accountStaff = null;
   accountTutor = null;
@@ -31,7 +34,9 @@ export class SidebarComponent implements OnInit {
     }
   }
   setTypeUser(){
-    this.typeAccount = this.loginComponent.getTypeUser()
+    if(this.loginComponent.getUser() != null){
+      this.typeAccount = this.loginComponent.getUser().type
+    }
   }
 
 }

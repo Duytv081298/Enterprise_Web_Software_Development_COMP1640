@@ -1,0 +1,31 @@
+<div class="my-5 p-0 container">
+    <div class="row justify-content-center" *ngIf="showDialogfalse">
+        <div class="col-lg-8">
+            <div class="alert alert-danger alert-dismissable text-center">
+                <p class="h3 m-0">add class fail</p>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center" *ngIf="showDialogtrue">
+        <div class="col-lg-8">
+            <div class="alert alert-info alert-dismissable text-center">
+                <p class="h3 m-0">add class success</p>
+            </div>
+        </div>
+    </div>
+    <form>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Select Student</label>
+            <select #optionStudent class="form-control"  id="exampleFormControlSelect1">
+              <option *ngFor="let item of students" value={{item.id}}>{{item.id}}&emsp;-&emsp;{{item.name}}</option>
+            </select>
+          </div>    
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Select Tutor</label>
+            <select #optionTutor class="form-control"  id="exampleFormControlSelect1">
+              <option *ngFor="let item of tutors" value={{item.id}}> {{item.id}}&emsp;-&emsp;{{item.name}}</option>
+            </select>
+          </div>
+    </form>
+    <button routerLink="/staff/ListClass" (click) = "addClass(optionStudent.value, optionTutor.value)">add</button>
+</div>

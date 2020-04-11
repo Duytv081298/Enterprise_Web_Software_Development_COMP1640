@@ -32,6 +32,12 @@ import { from } from 'rxjs';
 import { LoginComponent } from './components/login/login.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 
+
+import { AddClassComponent } from './components/add-class/add-class.component';
+import { ListClassComponent } from './components/list-class/list-class.component';
+import { StudentBlogComponent } from './components/student-blog/student-blog.component';
+import { TutorBlogComponent } from './components/tutor-blog/tutor-blog.component';
+import { DashboardClassComponent } from './components/dashboard-class/dashboard-class.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +54,11 @@ import { HomepageComponent } from './components/homepage/homepage.component';
     TutorDashboardComponent,
     LoginComponent,
     HomepageComponent,
+    AddClassComponent,
+    ListClassComponent,
+    StudentBlogComponent,
+    TutorBlogComponent,
+    DashboardClassComponent,
 
   ],
   imports: [

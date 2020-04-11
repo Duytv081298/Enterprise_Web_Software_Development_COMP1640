@@ -13,5 +13,4 @@ export class StudentDetailService {
   shareStudent(selectStudent){
     this.selectStudent.next(selectStudent)
   }
-
 }

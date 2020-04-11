@@ -1,7 +1,10 @@
 import { Component, OnInit , DoCheck} from '@angular/core';
-import { AccountClassificationService } from './services/account-classification.service';
 import {LoginComponent} from '../app/components/login/login.component'
 import {User} from '../app/models/user';
+import { EtutoringService } from './etutoring.service';
+import { Staff } from './models/staff';
+import { Tutor } from './models/tutor';
+import { Student } from './models/student';
 
 @Component({
   selector: 'app-root',
@@ -10,54 +13,37 @@ import {User} from '../app/models/user';
 })
 export class AppComponent implements OnInit {
   title = 'Web-Development-COMP1640';
-  typeUser : string
-  user: User
+  user :User = this.etutoringService.setUser() 
+  
+  staff: Staff
+  tutor: Tutor
+  student: Student
   
   login = null;
   logout = null;
-  receiveMessage($event) {
-    this.typeAccount = $event;
-  }
-  constructor( private typeAccount : AccountClassificationService,
+
+  constructor( private etutoringService : EtutoringService,
               private loginComponent :LoginComponent
                 ) { 
   }
   ngOnInit(): void {
-    // this.receiveData()
-  }
-  setTypeUser(){
-    this.typeUser = this.loginComponent.getTypeUser()
+
   }
   ngDoCheck() {
-    // if(this.typeUser != this.loginComponent.getTypeUser()){
-    //   console.log(this.typeUser)
-    //   console.log(this.loginComponent.getTypeUser())
-    //   this.typeUser = this.loginComponent.getTypeUser()
-    // }
-    this.receiveData()
-  }
-  receiveData(){
-    this.setTypeUser()
-    // this.ngDoCheck()
-    
-    this.typeAccount.share.subscribe(x => this.user = x)
-    console.log(this.user);
-    console.log("typeAccount in AppComponent: " + this.typeUser)
-    if(this.typeUser == null){
-      this.login = 'login';
-      this.logout = null;
-    }else{
-      this.login = null;
-      this.logout = 'logout';
-    }
+    this.showLogin()
+    // this.receiveData()
   }
   
-  logOut(){
-    this.user = null;
-    this.loginComponent.logOut();
-    console.log("goodbye");
+  showLogin(){
+    if(this.user != null){
+        this.login = null;
+        this.logout = 'logout';
+    }else{
+      this.login = 'login';
+        this.logout = null;
     }
-
-
-
+  }
+  logOut(){
+    this.loginComponent.logOut();
+  }
 }
