@@ -1,29 +1,46 @@
-.example-container {
-    display: flex;
-    flex-direction: column;
-    min-width: 300px;
-  }
-  
-  .example-header {
-    min-height: 64px;
-    padding: 8px 24px 0;
-  }
-  
-  .mat-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
-  
-  .mat-table {
-    overflow: auto;
-    max-height: 500px;
-  }
-  
-  b{
-      font-size: medium;
-      color: black;
-  }
 
-  mat-header-cell{
-      background-color: indianred;
-  }
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+b{
+    font-size: medium;
+    color: black;
+}
+
+mat-header-cell{
+    background-color: #17a2b8;
+}
+
+.mat-column-no {
+  max-width: 10%;
+}
+
+.mat-column-id {
+  max-width: 20%;
+}
+
+.mat-column-name {
+  max-width: 30%;
+}
+
+.mat-column-lastLogin {
+  max-width: 40%;
+}

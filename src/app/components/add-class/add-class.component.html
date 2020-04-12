@@ -1,4 +1,4 @@
-<div class="fxHeight">
+<body>
     <div class="my-5 p-0 container">
         <div class="row justify-content-center" *ngIf="showDialogfalse">
             <div class="col-lg-8">
@@ -17,17 +17,19 @@
         <form>
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Select Student</label>
-                <select #optionStudent class="form-control"  id="exampleFormControlSelect1">
-                  <option *ngFor="let item of students" value={{item.id}}>{{item.id}}&emsp;-&emsp;{{item.name}}</option>
+                <select #optionStudent class="form-control" id="exampleFormControlSelect1">
+                    <option *ngFor="let item of students" value={{item.id}}>{{item.id}}&emsp;-&emsp;{{item.name}}
+                    </option>
                 </select>
-              </div>    
-              <div class="form-group">
+            </div>
+            <div class="form-group">
                 <label for="exampleFormControlSelect1">Select Tutor</label>
-                <select #optionTutor class="form-control"  id="exampleFormControlSelect1">
-                  <option *ngFor="let item of tutors" value={{item.id}}> {{item.id}}&emsp;-&emsp;{{item.name}}</option>
+                <select #optionTutor class="form-control" id="exampleFormControlSelect1">
+                    <option *ngFor="let item of tutors" value={{item.id}}> {{item.id}}&emsp;-&emsp;{{item.name}}
+                    </option>
                 </select>
-              </div>
+            </div>
         </form>
-        <button routerLink="/staff/ListClass" (click) = "addClass(optionStudent.value, optionTutor.value)">add</button>
+        <button routerLink="/staff/ListClass" (click)="addClass(optionStudent.value, optionTutor.value)">add</button>
     </div>
-</div>
+</body>

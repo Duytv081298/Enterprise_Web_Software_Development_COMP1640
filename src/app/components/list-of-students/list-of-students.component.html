@@ -1,45 +1,62 @@
-
-<div class="fxHeight">
+<body>
     <div class="container">
-    <div class="my-5">
-        <div class="row justify-content-center my-4">
-            <div class="col-lg-8">
-                <div class="alert alert-info alert-dismissable text-center">
-                    <p class="h3 m-0">List of students</p>
+        <div class="my-5">
+            <div class="row justify-content-center my-4">
+                <div class="col-lg-8">
+                    <div class="alert alert-info alert-dismissable text-center">
+                        <p class="h3 m-0">List of students</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <table class="table table-striped text-center ">
-            <thead class="table-info">
-                <tr>
-                    <th scope="col">No.</th>
-                    <th scope="col">ID Student</th>
-                    <th scope="col">Name Student</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of students ; let i= index">
-                    <th scope="row">{{i + 1}}</th>
-                    <td>{{item.id}}</td>
-                    <td>{{item.name}}</td>
-                    <td>{{item.email}}</td>
-                    <td>{{item.phoneNumber}}</td>
-                    <td>{{item.address}}</td>
-                    <td class="p-2">
-                        <div class="form-group row justify-content-around">
-                            <div>
-                                <input type="button" class="btn btn-outline-secondary mx-4" value="Detail" routerLink="/staff/StudentDetail" (click)="onSelect(item)" />
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+            <div class="example-container mat-elevation-z8">
+                <mat-table [dataSource]="dataSource" matSort>
+                    
+                    <ng-container matColumnDef="no">
+                        <mat-header-cell *matHeaderCellDef><b> NO. </b></mat-header-cell>
+                        <mat-cell *matCellDef="let i = index"> {{i + 1}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="id">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header><b>Student ID</b></mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="name">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> <b>Student Name</b> </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.name}}</mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="email">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> <b>Email</b> </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="phone">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> <b>Phone</b> </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.phoneNumber}}</mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="address">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> <b>Address</b> </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.address}}</mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="action">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> <b>Action</b> </mat-header-cell>
+                        <mat-cell *matCellDef="let row">
+                            <a (click)="onSelect(row)" routerLink="/staff/StudentDetail">Detail</a>
+                        </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;">
+                    </mat-row>
+                </mat-table>
+
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+            </div>
+        </div>
     </div>
-</div>
-</div>
+</body>

@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import {Student} from '../../models/student'
 import {StudentsService} from '../list-of-students/students.service'
 import { catchError, map } from 'rxjs/operators';
 import {of} from 'rxjs'
 import { StudentDetailService } from 'src/app/services/student-detail.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-list-of-students',
@@ -12,7 +15,15 @@ import { StudentDetailService } from 'src/app/services/student-detail.service';
   styleUrls: ['./list-of-students.component.css']
 })
 export class ListOfStudentsComponent implements OnInit {
-  students: Student[] = [];
+
+  displayedColumns = ['no', 'id', 'name', 'email', 'phone', 'address', 'action'];
+
+  dataSource: MatTableDataSource<Student>;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
+
   constructor(private studentsService: StudentsService,
     private shareStudent : StudentDetailService) { }
   ngOnInit(): void {
@@ -43,7 +54,9 @@ export class ListOfStudentsComponent implements OnInit {
       }) ,
       catchError(error => of([]))
     ).subscribe(data =>{
-      this.students = data
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     } )
   }
   onSelect(student: Student){

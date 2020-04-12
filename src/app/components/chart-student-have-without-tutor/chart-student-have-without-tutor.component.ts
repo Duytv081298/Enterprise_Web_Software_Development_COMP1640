@@ -13,14 +13,13 @@ export class ChartStudentHaveWithoutTutorComponent implements OnInit {
   canvas: any;
   ctx: any;
   
-
   ngAfterViewInit(numStudent: number, numStudentNoTutor: number) {
       let numStudentHaveTutor = numStudent - numStudentNoTutor;
 
       this.canvas = document.getElementById('myChart');
       this.ctx = this.canvas.getContext('2d');
       let myChart = new Chart(this.ctx, {
-        type: 'pie',
+        type: 'doughnut',
         data: {
           labels: ["Students have a personal tutor", "Students without a personal tutor"],
           datasets: [{

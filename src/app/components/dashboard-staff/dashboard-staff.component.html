@@ -1,135 +1,137 @@
-
+<body>
+    
     <div class="container p-0">
-    <div class="my-5 row justify-content-around text-center">
-        <div class="col-4 p-2  bg-secondary text-white">
-            <p class="h4">Student</p>
-            <p class="h5 m-0">{{numStudent}}</p>
-        </div>
-        <div class="col-4 p-2  bg-secondary text-white">
-            <p class="h4">Tutor</p>
-            <p class="h5 m-0">{{numTutor}}</p>
-        </div>
-    </div>
-    <div class="my-5">
-        <p class="h3 mr-5 mx-3">Chart</p>
-        <app-chart-student-have-without-tutor></app-chart-student-have-without-tutor>
-    </div>
-    <div class="my-5">
-        <div class="row">
-            <p class="h3 mr-5 mx-3">Non-interaction</p>
-            <p class="h3">Select week</p>
-            <div class="col-3">
-                <div class="form-group">
-                    <select #days class="form-control" id="exampleSelect1"
-                        (change)="getStudentNoInteraction(days.value)">
-                        <option>7 days</option>
-                        <option>14 days</option>
-                        <option>21 days</option>
-                        <option>28 days</option>
-                        <option>35 days</option>
-                        <option>42 days</option>
-                        <option>49 days</option>
-                    </select>
-                </div>
+        <div class="my-5 row justify-content-around text-center">
+            <div class="col-4 p-2  bg-info text-white">
+                <p class="h4">Student</p>
+                <p class="h5 m-0">{{numStudent}}</p>
+            </div>
+            <div class="col-4 p-2  bg-info text-white">
+                <p class="h4">Tutor</p>
+                <p class="h5 m-0">{{numTutor}}</p>
             </div>
         </div>
 
-        <div class="example-container mat-elevation-z8">
-            <mat-table [dataSource]="dataSource" matSort>
 
-                <ng-container matColumnDef="no">
-                    <mat-header-cell *matHeaderCellDef><b> NO. </b></mat-header-cell>
-                    <mat-cell *matCellDef="let i = index"> {{i + 1}} </mat-cell>
-                </ng-container>
-
-                <ng-container matColumnDef="id">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header><b>Student ID</b></mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
-                </ng-container>
-
-                <ng-container matColumnDef="name">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> <b>Student Name</b> </mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.name}}</mat-cell>
-                </ng-container>
-
-                <ng-container matColumnDef="lastLogin">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> <b>Last time Login</b> </mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.lastLogin}} </mat-cell>
-                </ng-container>
-
-                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                <mat-row *matRowDef="let row; columns: displayedColumns;">
-                </mat-row>
-            </mat-table>
-
-            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        <div class="my-5">
+            <p class="h3 mr-5 mx-3">Chart</p>
+            <app-chart-student-have-without-tutor></app-chart-student-have-without-tutor>
         </div>
 
 
-    </div>
-
-
-
-
-    <div class="my-5">
-        <div class="row">
-            <p class="h3 mr-5 mx-3">Total Mess</p>
-            <p class="h3">Select week</p>
-            <div class="col-3">
-                <div class="form-group">
-                    <select class="form-control" id="exampleSelect1">
-                        <option>7 days</option>
-                        <option>14 days</option>
-                        <option>21 days</option>
-                        <option>28 days</option>
-                        <option>35 days</option>
-                        <option>42 days</option>
-                        <option>49 days</option>
-                    </select>
+        <div class="my-5">
+            <div class="row">
+                <p class="h3 mr-5 mx-3">Non-interaction</p>
+                <p class="h3">Select week</p>
+                <div class="col-3">
+                    <div class="form-group">
+                        <select #days class="form-control" id="exampleSelect1"
+                            (change)="getStudentNoInteraction(days.value)">
+                            <option>7 days</option>
+                            <option>14 days</option>
+                            <option>21 days</option>
+                            <option>28 days</option>
+                            <option>35 days</option>
+                            <option>42 days</option>
+                            <option>49 days</option>
+                        </select>
+                    </div>
                 </div>
+            </div>
+
+            <div class="example-container mat-elevation-z8">
+                <mat-table [dataSource]="dataSource" matSort>
+
+                    <ng-container matColumnDef="no">
+                        <mat-header-cell *matHeaderCellDef><b> NO. </b></mat-header-cell>
+                        <mat-cell *matCellDef="let i = index"> {{i + 1}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="id">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header><b>Student ID</b></mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="name">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> <b>Student Name</b> </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.name}}</mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="lastLogin">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> <b>Last time Login</b> </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.lastLogin}} </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;">
+                    </mat-row>
+                </mat-table>
+
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
             </div>
         </div>
 
-        <table class="table table-striped">
-            <thead class="table-info">
-                <tr>
-                    <th scope="col">No.</th>
-                    <th scope="col">ID Student</th>
-                    <th scope="col">Name Student</th>
-                    <th scope="col">Name Tutor</th>
-                    <th scope="col">Total Mess</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>GCH17645</td>
-                    <td>Trịnh Văn Duy</td>
-                    <td>Vũ Thanh Hải</td>
-                    <td>45</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>GCH17645</td>
-                    <td>Trịnh Văn Duy</td>
-                    <td>Vũ Thanh Hải</td>
-                    <td>99</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>GCH17645</td>
-                    <td>Trịnh Văn Duy</td>
-                    <td>Vũ Thanh Hải</td>
-                    <td>34</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>GCH17645</td>
-                    <td>Trịnh Văn Duy</td>
-                    <td>Vũ Thanh Hải</td>
-                    <td>65</td>
-                </tr>
-            </tbody>
-        </table>
+
+        <div class="my-5">
+            <div class="row">
+                <p class="h3 mr-5 mx-3">Total Mess</p>
+                <p class="h3">Select week</p>
+                <div class="col-3">
+                    <div class="form-group">
+                        <select class="form-control" id="exampleSelect1">
+                            <option>7 days</option>
+                            <option>14 days</option>
+                            <option>21 days</option>
+                            <option>28 days</option>
+                            <option>35 days</option>
+                            <option>42 days</option>
+                            <option>49 days</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <table class="table table-striped">
+                <thead class="table-info">
+                    <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">ID Student</th>
+                        <th scope="col">Name Student</th>
+                        <th scope="col">Name Tutor</th>
+                        <th scope="col">Total Mess</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>GCH17645</td>
+                        <td>Trịnh Văn Duy</td>
+                        <td>Vũ Thanh Hải</td>
+                        <td>45</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>GCH17645</td>
+                        <td>Trịnh Văn Duy</td>
+                        <td>Vũ Thanh Hải</td>
+                        <td>99</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>GCH17645</td>
+                        <td>Trịnh Văn Duy</td>
+                        <td>Vũ Thanh Hải</td>
+                        <td>34</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>GCH17645</td>
+                        <td>Trịnh Văn Duy</td>
+                        <td>Vũ Thanh Hải</td>
+                        <td>65</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
+</body>

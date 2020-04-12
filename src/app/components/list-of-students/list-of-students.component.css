@@ -1,9 +1,71 @@
-a {
-    text-decoration: none;
+body{
+  height: 100vh;
+}
+
+a{
+  color: black;
+}
+  
+a:hover {
+  color: brown;
+  font-size: medium;
+  text-decoration: none;
+}
+  
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 400px;
+}
+    
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 600px;
+}
+
+b{
+    font-size: medium;
     color: black;
 }
 
-a:hover {
-    color: brown;
-    font-size: large;
+mat-header-cell{
+    background-color:  #17a2b8;
+}
+
+.mat-column-no {
+  max-width: 10%;
+}
+
+.mat-column-id {
+  max-width: 15%;
+}
+
+.mat-column-name {
+  max-width: 20%;
+}
+
+.mat-column-email {
+  max-width: 20%;
+}
+
+.mat-column-phone {
+  max-width: 12%;
+}
+
+.mat-column-address {
+  max-width: 13%;
+}
+
+.mat-column-action {
+  max-width: 10%;
 }
