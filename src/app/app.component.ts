@@ -30,8 +30,8 @@ export class AppComponent implements OnInit {
 
   }
   ngDoCheck() {
+    this.user = this.etutoringService.setUser()
     this.showLogin()
-    // this.receiveData()
   }
   
   showLogin(){
