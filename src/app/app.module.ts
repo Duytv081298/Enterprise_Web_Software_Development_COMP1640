@@ -39,6 +39,10 @@ import { StudentBlogComponent } from './components/student-blog/student-blog.com
 import { TutorBlogComponent } from './components/tutor-blog/tutor-blog.component';
 import { DashboardClassComponent } from './components/dashboard-class/dashboard-class.component';
 import { ChartStudentHaveWithoutTutorComponent } from './components/chart-student-have-without-tutor/chart-student-have-without-tutor.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +75,10 @@ import { ChartStudentHaveWithoutTutorComponent } from './components/chart-studen
     MatToolbarModule,
     MatIconModule,
     FormsModule,
-    HttpClientModule 
+    HttpClientModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule
   ],
   providers: [StudentsService,
     EtutoringService,
