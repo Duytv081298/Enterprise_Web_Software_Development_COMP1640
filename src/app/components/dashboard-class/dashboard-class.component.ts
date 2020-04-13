@@ -1,9 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { TutorService } from '../list-of-tutors/tutor.service';
 import { map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { ListClassService } from '../list-class/list-class.service';
 import { StudentByTutor } from 'src/app/models/studentByTutor';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-dashboard-class',
@@ -11,19 +14,21 @@ import { StudentByTutor } from 'src/app/models/studentByTutor';
   styleUrls: ['./dashboard-class.component.css']
 })
 export class DashboardClassComponent implements OnInit {
-
   tutorStudent: StudentByTutor[] = []
+
+  displayedColumns = ['no', 'tutorName', 'studentName'];
+
+  dataSource: MatTableDataSource<StudentByTutor>;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(private tutorService: TutorService,
     private listClassService: ListClassService) { 
-
       this.getStudentByTutor();
-
     }
 
-
   ngOnInit(): void {
-    
   }
 
   getStudentByTutor() {
@@ -62,9 +67,9 @@ export class DashboardClassComponent implements OnInit {
       }),
       catchError(error => of([]))
     ).subscribe(data => {
-      this.tutorStudent = data
-      console.log(this.tutorStudent)
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     })
   }
-
 }

@@ -1,3 +1,46 @@
 body{
     height: 100vh;
+  }
+ 
+.example-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 400px;
 }
+    
+.example-header {
+    min-height: 64px;
+    padding: 8px 24px 0;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+.mat-table {
+    overflow: auto;
+    max-height: 600px;
+}
+
+b{
+    font-size: medium;
+    color: black;
+}
+
+mat-header-cell{
+    background-color:  #17a2b8;
+}
+
+.mat-column-no {
+    max-width: 10%;
+}
+
+.mat-column-tutorName {
+    max-width: 40%;
+}
+
+.mat-column-studentName {
+    ;
+}
+  

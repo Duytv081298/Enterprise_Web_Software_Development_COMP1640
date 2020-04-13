@@ -28,7 +28,6 @@ export class ListOfStudentsComponent implements OnInit {
     private shareStudent : StudentDetailService) { }
   ngOnInit(): void {
     this.getStudent();
-    
   }
 
   getStudent():void{
@@ -59,6 +58,7 @@ export class ListOfStudentsComponent implements OnInit {
       this.dataSource.sort = this.sort;
     } )
   }
+  
   onSelect(student: Student){
     this.shareStudent.shareStudent(student)
   }

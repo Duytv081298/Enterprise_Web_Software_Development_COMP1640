@@ -15,15 +15,14 @@ import { MatTableDataSource } from '@angular/material/table';
 export class DashboardStaffComponent implements OnInit {
 
   displayedColumns = ['no', 'id', 'name', 'lastLogin'];
-
   dataSource: MatTableDataSource<Student>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-
   numStudent: Number;
   numTutor: Number;
+  numMess: Number;
   students: Student[] = [];
 
   constructor(private dashboardStaffService: DashboardStaffService) { }
@@ -31,8 +30,8 @@ export class DashboardStaffComponent implements OnInit {
   ngOnInit(): void {
     this.getNumberStudent();
     this.getNumberTutor();
+    this.getNumberMess();
     this.getStudentNoInteraction("7");
-
   }
 
   getNumberStudent(): void {
@@ -41,6 +40,10 @@ export class DashboardStaffComponent implements OnInit {
 
   getNumberTutor(): void {
     this.dashboardStaffService.getNumberOfTutor().subscribe(data => this.numTutor = data);
+  }
+
+  getNumberMess(): void {
+    this.dashboardStaffService.getNumberOfMess().subscribe(data => this.numMess = data);
   }
 
   getStudentNoInteraction(days: string): void {

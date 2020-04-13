@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'
 import { from, Observable } from 'rxjs';
 import { Student } from 'src/app/models/student';
+import { getNumberOfStudent, getNumberOfTutor, getNumberOfStudentNoTutor, getStudentNonInteraction, getNumberOfMess } from 'src/app/models/api';
 
 @Injectable({
   providedIn: 'root'
@@ -9,30 +10,29 @@ import { Student } from 'src/app/models/student';
 export class DashboardStaffService {
 
   constructor( private http: HttpClient) {
-
   }
 
-  private getNumberOfStudentApi = 'http://localhost:8080/students/total'
   getNumberOfStudent() : Observable<number>{
-    return this.http.get<number>(this.getNumberOfStudentApi);
+    return this.http.get<number>(getNumberOfStudent.api);
   }
 
-  private getNumberOfTutorApi = 'http://localhost:8080/tutors/total'
+  
   getNumberOfTutor() : Observable<number>{
-    return this.http.get<number>(this.getNumberOfTutorApi);
+    return this.http.get<number>(getNumberOfTutor.api);
   }
 
-  private getNumberOfStudentNoTutorApi = 'http://localhost:8080/students/total-undeclared'
   getNumberOfStudentNoTutor() : Observable<number>{
-    return this.http.get<number>(this.getNumberOfStudentNoTutorApi);
+    return this.http.get<number>(getNumberOfStudentNoTutor.api);
   }
 
-  private getStudentNonInteractionApi = 'http://localhost:8080/students/no-interaction'
+  getNumberOfMess() : Observable<number>{
+    return this.http.get<number>(getNumberOfMess.api);
+  }
+
   getStudentNoInteraction(days : string) : Observable<Student[]> {
     const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'}); 
     let params = new HttpParams().set('days',days);
-
-    return this.http.get<Student[]>(this.getStudentNonInteractionApi , {headers: headers, params: params})
+    return this.http.get<Student[]>(getStudentNonInteraction.api , {headers: headers, params: params})
   }
   
 }

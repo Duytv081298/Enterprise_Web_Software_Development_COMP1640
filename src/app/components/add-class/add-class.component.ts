@@ -6,7 +6,6 @@ import { of } from 'rxjs';
 import { TutorService } from '../list-of-tutors/tutor.service';
 import { Tutor } from 'src/app/models/tutor';
 import { AddClassService } from './add-class.service';
-import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-add-class',
@@ -45,7 +44,7 @@ this.checkSuccess(this.isSuccess)
   }
 
   getStudent():void{
-    this.studentsService.getStudent().pipe(
+    this.studentsService.getStudentUndeclared().pipe(
       map(receivedStudents => 
         {
           let students: Student[] = []
