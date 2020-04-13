@@ -23,13 +23,47 @@ export class TimeTableComponent implements OnInit {
   day6: boolean;
   day7: boolean;
 
+  weeks = this.getWeek()
   slotArrays = [[]]
-
-  constructor(private etutoringService: EtutoringService,
-    private loginComponent: LoginComponent) { }
-
   schedules: Schedule;
 
+  constructor(private etutoringService: EtutoringService,
+    private loginComponent: LoginComponent) {
+  }
+
+  ngOnInit(): void {
+    this.receiveData()
+  }
+
+  getWeek(): string[] {
+
+    let curr = new Date();
+
+    let first = curr.getDate() - curr.getDay();
+    let firstday = this.formatDate(new Date(curr.setDate(first)).toUTCString()) 
+    let last = first + 6 ;
+    let lastday = this.formatDate(new Date(curr.setDate(last)).toUTCString()) 
+    let weeks = [firstday + ' to ' + lastday]
+
+    for (let i = 1; i <= 10; i++) {
+
+      let beforeFirsts = first + 7*i
+      let beforeFirstDays = this.formatDate(new Date(curr.setDate(beforeFirsts)).toUTCString())
+
+      let beforeLasts = beforeFirsts + 6
+      let beforeLastDays = this.formatDate(new Date(curr.setDate(beforeLasts)).toUTCString())
+      weeks.push( beforeFirstDays + ' to ' + beforeLastDays)
+     
+      let behindFirsts = first - 7*i
+
+      let bindFirstDays = this.formatDate(new Date(curr.setDate(behindFirsts)).toUTCString())
+      let behindLasts = behindFirsts - 6
+      let bindLastDays = this.formatDate(new Date(curr.setDate(behindLasts)).toUTCString())
+     
+      weeks.splice(0, 0, bindFirstDays + ' to ' + bindLastDays)
+    }
+    return weeks
+  }
   receiveData() {
     this.user = this.loginComponent.getUser()
     if (this.user != null) {
@@ -41,12 +75,19 @@ export class TimeTableComponent implements OnInit {
       } else if (this.user.type == 'tutor') {
         this.etutoringService.getTutor(this.loginComponent.getUser().username).subscribe(
           data => {
+            this.etutoringService.getSchedule('tutorId', data.id).subscribe(
+              data => {
+                this.schedules = data
+                this.addSlot(data)
+
+              }
+            )
 
           })
       } else if (this.user.type == 'student') {
         this.etutoringService.getStudent(this.loginComponent.getUser().username).subscribe(
           data => {
-            this.etutoringService.getSchedule(data.id).subscribe(
+            this.etutoringService.getSchedule('studentId', data.id).subscribe(
               data => {
                 this.schedules = data
                 this.addSlot(data)
@@ -57,9 +98,7 @@ export class TimeTableComponent implements OnInit {
       }
     }
   }
-  ngOnInit(): void {
-    this.receiveData()
-  }
+
   addSlot(data) {
     data.calendarDtoList.forEach(element => {
       var resultArray = Object.keys(element).map(function (personNamedIndex) {
@@ -97,4 +136,21 @@ export class TimeTableComponent implements OnInit {
       this.slots.push(slot)
     }
   }
+  formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+    return [year, month, day].join('-');
+}
+ 
+selectWeek(selectWeek){
+  let startDate = selectWeek.substring(0,10)
+  let endDate = selectWeek.slice(-10)
+}
 }

@@ -4,7 +4,12 @@
             <thead class="table-info text-center">
                 <tr>
                     <th>
-                        Weekly timetable
+                        <label>Weekly timetable</label>
+                        <div class="form-group">
+                            <select #week (change) = "selectWeek(week.value)" class="form-control">
+                                <option  *ngFor = "let week of weeks">{{week}}</option>
+                            </select>
+                        </div>
                     </th>
                     <th>MON</th>
                     <th>TUE</th>
@@ -39,7 +44,7 @@
                     <td class="text-center text-primary">
                         <p *ngIf="slot.day7 == true">Meeting</p>
                     </td>
-                    
+
 
                 </tr>
 
