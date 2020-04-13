@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
               this.router.navigate(['/tutor/ListClass'])
             }else if(this.user.type == 'student'){
               this.setUser(this.user)
-              this.router.navigate(['/staff/Dashboard'])
+              this.router.navigate(['/student/Schedule'])
             }
           }
         })

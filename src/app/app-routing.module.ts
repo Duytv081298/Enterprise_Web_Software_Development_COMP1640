@@ -19,6 +19,7 @@ import { AuthGaurdService } from './components/login/auth-gaurd.service';
 import { AddClassComponent } from './components/add-class/add-class.component';
 import { ListClassComponent } from './components/list-class/list-class.component';
 import { DashboardClassComponent } from './components/dashboard-class/dashboard-class.component';
+import { TimeTableComponent } from './components/time-table/time-table.component';
 
 
 const routes: Routes = [
@@ -35,6 +36,8 @@ const routes: Routes = [
   { path: 'staff/StudentDetail', component: StudentDetailComponent ,canActivate:[AuthGaurdService]},
 
   { path: 'tutor/ListClass', component: ListClassComponent ,canActivate:[AuthGaurdService]},
+
+  { path: 'student/Schedule', component: TimeTableComponent ,canActivate:[AuthGaurdService]},
 
   { path: 'login', component: LoginComponent },
 

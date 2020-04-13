@@ -61,7 +61,7 @@ export class SidebarComponent implements OnInit {
   }
   receiveData(){
     if(this.user != null){
-      console.log(this.loginComponent.getUser())
+      
       if(this.user.type == 'staff'){
         this.etutoringService.getStaff(this.loginComponent.getUser().username).subscribe(data =>{this.staff = data
           this.setData(this.staff.username, this.staff.name, this.staff.phoneNumber, this.staff.email, this.staff.dateOfBirth,this.staff.avatar)

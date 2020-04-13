@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { Student } from './models/student';
 import { Tutor } from './models/tutor';
 import { User } from './models/user';
+import { Schedule } from './models/schedule';
 
 
 
@@ -19,6 +20,8 @@ export class EtutoringService {
     private getStaffAPI = 'http://localhost:8080/staffs';
     private getStudentAPI = 'http://localhost:8080/students';
     private getTutorAPI = 'http://localhost:8080/tutors';
+    private getScheduleAPI = 'http://localhost:8080/schedules';
+    
 
     getStaff(username ): Observable<Staff>{
       const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'}); 
@@ -35,7 +38,16 @@ export class EtutoringService {
       let params = new HttpParams().set('username',username);
       return this.http.get<Tutor>(this.getTutorAPI,{ headers: headers, params: params })
     }
+
+    getSchedule(studentId ): Observable<Schedule>{
+      const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'}); 
+      let params = new HttpParams().set('studentId',studentId);
+      return this.http.get<Schedule>(this.getScheduleAPI,{ headers: headers, params: params })
+    }
+
+
     setUser(): User {
       return this.loginComponent.getUser()
     }
+
 }
