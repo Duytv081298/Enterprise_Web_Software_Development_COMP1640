@@ -28,6 +28,7 @@
                 </tbody>
             </table> -->
 
+
             <div class="example-container mat-elevation-z8">
                 <mat-table [dataSource]="dataSource" matSort>
                     
@@ -42,8 +43,8 @@
                     </ng-container>
 
                     <ng-container matColumnDef="studentName">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> <b> Student Name</b> </mat-header-cell>
-                        <mat-cell *matCellDef="let row"></mat-cell>
+                        <mat-header-cell *matHeaderCellDef mat-sort-header><b>Student Name</b> </mat-header-cell>
+                        <mat-cell *matCellDef="let row">{{row.studentName}}</mat-cell>
                     </ng-container>
 
                     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

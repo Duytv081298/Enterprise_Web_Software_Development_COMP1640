@@ -14,7 +14,8 @@ import { MatSort } from '@angular/material/sort';
   styleUrls: ['./dashboard-class.component.css']
 })
 export class DashboardClassComponent implements OnInit {
-  tutorStudent: StudentByTutor[] = []
+
+  studentTutors : StudentByTutor[];
 
   displayedColumns = ['no', 'tutorName', 'studentName'];
 
@@ -25,10 +26,11 @@ export class DashboardClassComponent implements OnInit {
 
   constructor(private tutorService: TutorService,
     private listClassService: ListClassService) { 
-      this.getStudentByTutor();
+      
     }
 
   ngOnInit(): void {
+    this.getStudentByTutor();
   }
 
   getStudentByTutor() {
@@ -59,17 +61,22 @@ export class DashboardClassComponent implements OnInit {
               return students
             }),
             catchError(error => of([]))
-          ).subscribe(data => {
-            this.tutorStudent = data
+          ).subscribe(data => {       
           })
         })
         return students
       }),
       catchError(error => of([]))
     ).subscribe(data => {
-      this.dataSource = new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
+      this.studentTutors = data;
     })
   }
+
+  ngDoCheck(){
+    console.log(this.studentTutors)
+    this.dataSource = new MatTableDataSource(this.studentTutors);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
 }
