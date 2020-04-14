@@ -38,6 +38,7 @@ import { ListClassComponent } from './components/list-class/list-class.component
 import { StudentBlogComponent } from './components/student-blog/student-blog.component';
 import { TutorBlogComponent } from './components/tutor-blog/tutor-blog.component';
 import { DashboardClassComponent } from './components/dashboard-class/dashboard-class.component';
+import { MessagesComponent } from './components/messages/messages.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +60,7 @@ import { DashboardClassComponent } from './components/dashboard-class/dashboard-
     StudentBlogComponent,
     TutorBlogComponent,
     DashboardClassComponent,
+    MessagesComponent,
 
   ],
   imports: [

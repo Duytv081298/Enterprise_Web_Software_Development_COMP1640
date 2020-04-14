@@ -1,0 +1,15 @@
+.image-upload > input {
+    display: none;
+}
+
+.image-upload img {
+    width: 25px;
+    cursor: pointer;
+}
+
+/* .input-group {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+} */
