@@ -44,7 +44,13 @@ import { ChartStudentHaveWithoutTutorComponent } from './components/chart-studen
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { VideoCallComponent } from './components/video-call/video-call.component';
+import { AngularAgoraRtcModule, AgoraConfig } from 'angular-agora-rtc';
 
+
+const agoraConfig: AgoraConfig = {
+  AppID: '4a34bc8ca1784f468e04c0a07b487f34',
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,6 +76,8 @@ import { MatTableModule } from '@angular/material/table';
 
     ChartStudentHaveWithoutTutorComponent,
 
+    VideoCallComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -82,7 +90,8 @@ import { MatTableModule } from '@angular/material/table';
     HttpClientModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    AngularAgoraRtcModule.forRoot(agoraConfig)
   ],
   providers: [StudentsService,
     EtutoringService,

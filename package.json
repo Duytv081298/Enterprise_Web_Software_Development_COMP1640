@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~9.0.2",
     "@angular/router": "~9.0.2",
     "@ng-bootstrap/ng-bootstrap": "^6.0.2",
+    "angular-agora-rtc": "^0.1.0",
     "angular-material": "^1.1.21",
     "chart.js": "^2.9.3",
     "rxjs": "~6.5.4",
