@@ -13,16 +13,17 @@ import { MatSort } from '@angular/material/sort';
   templateUrl: './dashboard-class.component.html',
   styleUrls: ['./dashboard-class.component.css']
 })
+
 export class DashboardClassComponent implements OnInit {
 
-  studentTutors : StudentByTutor[];
+  tutorStudent: StudentByTutor[] = []
 
-  displayedColumns = ['no', 'tutorName', 'studentName'];
+  // displayedColumns = ['no', 'tutorName', 'studentName'];
 
-  dataSource: MatTableDataSource<StudentByTutor>;
+  // dataSource: MatTableDataSource<StudentByTutor>;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  // @ViewChild(MatPaginator) paginator: MatPaginator;
+  // @ViewChild(MatSort) sort: MatSort;
 
   constructor(private tutorService: TutorService,
     private listClassService: ListClassService) { 
@@ -61,22 +62,62 @@ export class DashboardClassComponent implements OnInit {
               return students
             }),
             catchError(error => of([]))
-          ).subscribe(data => {       
+          ).subscribe(data => {
+            this.tutorStudent = data
           })
         })
         return students
       }),
       catchError(error => of([]))
     ).subscribe(data => {
-      this.studentTutors = data;
+      this.tutorStudent = data
+      console.log(this.tutorStudent)
     })
   }
 
-  ngDoCheck(){
-    console.log(this.studentTutors)
-    this.dataSource = new MatTableDataSource(this.studentTutors);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
+
+  // getStudentByTutor() {
+  //   this.tutorService.getTutor().pipe(
+  //     map(receivedTutor => {
+  //       let students: StudentByTutor[] = []
+  //       receivedTutor.forEach(a => {
+  //         let student: StudentByTutor = {
+  //           tutorId: a[0],
+  //           tutorName: a[1],
+  //         }
+  //         let tutorId = student.tutorId
+  //         let tutorName = student.tutorName
+
+  //         this.listClassService.getClass(tutorId).pipe(
+  //           map(receivedStudents => {     
+  //             let studentNames : string[] = []
+  //             receivedStudents.forEach(a => {
+  //               let studentName = a[1]
+  //               studentNames.push(studentName)
+  //             })
+  //             let student: StudentByTutor = {
+  //               tutorId: tutorId,
+  //               tutorName: tutorName,
+  //               studentName: studentNames,
+  //             }
+  //             students.push(student)
+  //             return students
+  //           }),
+  //           catchError(error => of([]))
+  //         ).subscribe(data => {    
+  //           this.studentTutors = data;   
+  //         })
+  //       })
+  //       return students
+  //     }),
+  //     catchError(error => of([]))
+  //   ).subscribe(data => {
+  //     this.studentTutors = data;
+  //     console.log(data)
+  //     // this.dataSource = new MatTableDataSource(this.studentTutors);
+  //     // this.dataSource.paginator = this.paginator;
+  //     // this.dataSource.sort = this.sort;
+  //   })
+  // }
 
 }
