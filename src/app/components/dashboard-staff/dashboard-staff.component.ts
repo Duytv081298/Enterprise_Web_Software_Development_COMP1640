@@ -47,9 +47,9 @@ export class DashboardStaffComponent implements OnInit {
   }
 
   getStudentNoInteraction(days: string): void {
-    console.log(days);
     let newstr = days.replace("days", " ");
     newstr = newstr.trim();
+    console.log(newstr);
 
     this.dashboardStaffService.getStudentNoInteraction(newstr).pipe(
       map(receivedStudents => {

@@ -34,7 +34,8 @@ export class ChartStudentHaveWithoutTutorComponent implements OnInit {
         },
         options: {
           responsive: false,
-          display: true
+          display: true,
+          font: 30
         }
       });
 

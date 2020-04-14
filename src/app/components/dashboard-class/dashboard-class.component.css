@@ -5,7 +5,7 @@ body{
 .example-container {
     display: flex;
     flex-direction: column;
-    min-width: 400px;
+    min-width: 30vh;
 }
     
 .example-header {
@@ -20,7 +20,7 @@ body{
 
 .mat-table {
     overflow: auto;
-    max-height: 600px;
+    max-height: 70vh;
 }
 
 b{
@@ -41,6 +41,6 @@ mat-header-cell{
 }
 
 .mat-column-studentName {
-    ;
+    max-width: 50%;
 }
   
