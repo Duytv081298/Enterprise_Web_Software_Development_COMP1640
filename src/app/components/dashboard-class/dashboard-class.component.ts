@@ -1,9 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { TutorService } from '../list-of-tutors/tutor.service';
 import { map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { ListClassService } from '../list-class/list-class.service';
 import { StudentByTutor } from 'src/app/models/studentByTutor';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-dashboard-class',
@@ -12,18 +15,22 @@ import { StudentByTutor } from 'src/app/models/studentByTutor';
 })
 export class DashboardClassComponent implements OnInit {
 
-  tutorStudent: StudentByTutor[] = []
+  studentTutors : StudentByTutor[];
+
+  displayedColumns = ['no', 'tutorName', 'studentName'];
+
+  dataSource: MatTableDataSource<StudentByTutor>;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(private tutorService: TutorService,
     private listClassService: ListClassService) { 
-
-      this.getStudentByTutor();
-
+      
     }
 
-
   ngOnInit(): void {
-    
+    this.getStudentByTutor();
   }
 
   getStudentByTutor() {
@@ -54,17 +61,22 @@ export class DashboardClassComponent implements OnInit {
               return students
             }),
             catchError(error => of([]))
-          ).subscribe(data => {
-            this.tutorStudent = data
+          ).subscribe(data => {       
           })
         })
         return students
       }),
       catchError(error => of([]))
     ).subscribe(data => {
-      this.tutorStudent = data
-      console.log(this.tutorStudent)
+      this.studentTutors = data;
     })
+  }
+
+  ngDoCheck(){
+    console.log(this.studentTutors)
+    this.dataSource = new MatTableDataSource(this.studentTutors);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
 }

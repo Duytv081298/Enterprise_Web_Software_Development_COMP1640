@@ -4,6 +4,7 @@ import {Tutor} from '../../models/tutor'
 
 import {Observable} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { getTutor } from 'src/app/models/api';
 
 
 @Injectable({
@@ -11,9 +12,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TutorService {
 
-  private getTutorAPI = 'http://localhost:8080/tutors';
   getTutor(): Observable<Tutor[]> {
-    return this.http.get<Tutor[]>(this.getTutorAPI)
+    return this.http.get<Tutor[]>(getTutor.api)
   }
   constructor(
     private http: HttpClient, 

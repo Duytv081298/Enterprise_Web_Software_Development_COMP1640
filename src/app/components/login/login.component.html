@@ -1,4 +1,5 @@
-<div class="modal fade " id="login" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="fxHeight">
+    <div class="modal fade " id="login" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered " role="document">
         <div class="modal-content">
             <div class="container bg-white p-5">
@@ -16,10 +17,11 @@
                     <p *ngIf="result" class="text-danger">Your e-mail or password incorrect. Please , try again</p>
                     <div class="row">
                         <button href="http://localhost:4200/staff/Dashboard" (click)="getTypeUser(username.value, password.value)" class="btn btn-primary mr-auto">Login</button>
-                        <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary closeLogin" data-dismiss="modal">Close</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+</div>
 </div>

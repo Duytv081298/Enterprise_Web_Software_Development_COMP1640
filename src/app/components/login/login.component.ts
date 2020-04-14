@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
           if( this.user == null){
             this.result = 'e-mail'
           }else{
-            let element: HTMLElement = document.getElementsByClassName('btn')[0] as HTMLElement;
+            let element: HTMLElement = document.getElementsByClassName('closeLogin')[0] as HTMLElement;
             element.click();
             if(this.user.type == 'staff'){
               this.setUser(this.user)
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
               this.router.navigate(['/tutor/ListClass'])
             }else if(this.user.type == 'student'){
               this.setUser(this.user)
-              this.router.navigate(['/staff/Dashboard'])
+              this.router.navigate(['/student/Schedule'])
             }
           }
         })

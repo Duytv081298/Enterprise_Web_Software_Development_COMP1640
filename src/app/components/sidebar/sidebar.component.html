@@ -1,8 +1,8 @@
 <nav id="sidebar">
     <div class="img bg-wrap text-center py-4" style="background-image: url(assets/images/bg_1.jpg);">
         <div class="user-logo">
-            <div class="img" style="background-image: url(assets/images/avatar.jpg);"></div>
-            <h3>{{user.username}}</h3>
+            <div class="img" style="background-image: url({{avatar}});"></div>
+            <h3>{{username}}</h3>
         </div>
     </div>
     <ul class="list-unstyled">
@@ -32,11 +32,7 @@
                 <i class="fa fa-dashboard mr-2"></i> ADD CLASS
             </a>
         </li>
-        <li *ngIf="accountStaff">
-            <a routerLink="/staff/Profile">
-                <i class="fa fa-dashboard mr-2"></i> PROFILE
-            </a>
-        </li>
+        
 
                  <!-- Tutor SideBar -->
         <li *ngIf="accountTutor">
@@ -46,12 +42,17 @@
             <a routerLink="/tutor/ListClass"> <i class="	fa fa-calendar mr-2"></i> CLASS LIST</a>
         </li>
         <li *ngIf="accountTutor">
-            <a routerLink="/admin/tutors"> <i class="	fa fa-calendar mr-2"></i> WEEKLY SCHEDULE</a>
+            <a routerLink="/tutor/Schedule"> <i class="	fa fa-calendar mr-2"></i> WEEKLY SCHEDULE</a>
         </li>
         <li *ngIf="accountStudent">
-            <a routerLink="/admin/tutors"> <i class="fa fa-book mr-2"></i> MY COURSES</a>
+            <a routerLink="/student/Schedule"> <i class="	fa fa-calendar mr-2"></i> WEEKLY SCHEDULE</a>
         </li>
-
+        <li>
+            <a routerLink="/profile">
+                <i class="fa fa-dashboard mr-2"></i> PROFILE
+            </a>
+        </li>
 
     </ul>
 </nav>
+

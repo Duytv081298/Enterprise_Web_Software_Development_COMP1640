@@ -5,6 +5,7 @@ import {Observable, from, of} from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams  } from '@angular/common/http';
 import {StudentsService} from '../list-of-students/students.service'
 import { map, catchError } from 'rxjs/operators';
+import { getUser } from 'src/app/models/api';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,6 @@ import { map, catchError } from 'rxjs/operators';
 export class LoginService {
 
   constructor(private http: HttpClient, ) { }
-  private getUserAPI = 'http://localhost:8080/login';
 
   // getTypeUser(username, password): Observable<any>{
   //   let dados = {
@@ -36,7 +36,7 @@ export class LoginService {
       password: password}
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let body = JSON.stringify(dados);
-    return this.http.post(this.getUserAPI, {username, password}).pipe(
+    return this.http.post(getUser.api, {username, password}).pipe(
       map(userData => {return userData}),
       catchError(error => of([])))
   }

@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { getStudent } from 'src/app/models/api';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AddClassService {
-  private addClassAPI = 'http://localhost:8080/classes'
+  
   constructor(private http : HttpClient) { }
   addClass(classId, studentId, tutorId) : Observable<boolean> {
-    return this.http.post<boolean>(this.addClassAPI,{classId, studentId, tutorId})
+    return this.http.post<boolean>(getStudent.api,{classId, studentId, tutorId})
   }
 
 }

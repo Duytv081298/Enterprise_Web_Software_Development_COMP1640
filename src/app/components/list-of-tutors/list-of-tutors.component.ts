@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import {Tutor} from '../../models/tutor'
 import {TutorService} from '../list-of-tutors/tutor.service'
 import { catchError, map } from 'rxjs/operators';
 import {of} from 'rxjs'
 import { TutorDetailService } from 'src/app/services/tutor-detail.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-list-of-tutors',
@@ -12,6 +15,16 @@ import { TutorDetailService } from 'src/app/services/tutor-detail.service';
   styleUrls: ['./list-of-tutors.component.css']
 })
 export class ListOfTutorsComponent implements OnInit {
+
+
+  displayedColumns = ['no', 'id', 'name', 'email', 'action'];
+
+  dataSource: MatTableDataSource<Tutor>;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
+
   tutors: Tutor[] = [];
   constructor(private tutorService: TutorService,
               private shareTutor : TutorDetailService) { }
@@ -42,6 +55,9 @@ export class ListOfTutorsComponent implements OnInit {
       catchError(error => of([]))
     ).subscribe(data =>{
       this.tutors = data
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     } )
   }
   onSelect(tutor: Tutor){

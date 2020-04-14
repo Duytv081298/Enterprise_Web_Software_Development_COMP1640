@@ -6,7 +6,6 @@ import { of } from 'rxjs';
 import { TutorService } from '../list-of-tutors/tutor.service';
 import { Tutor } from 'src/app/models/tutor';
 import { AddClassService } from './add-class.service';
-import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-add-class',
@@ -36,16 +35,16 @@ this.checkSuccess(this.isSuccess)
 
   checkSuccess(isSuccess){
     if (isSuccess == false) {
-      this.showDialogfalse = 'NGU'
+      this.showDialogfalse = 'False'
       this.showDialogtrue = null
     } else {
-      this.showDialogtrue = 'GIOI VAI LON'
+      this.showDialogtrue = 'True'
       this.showDialogfalse = null
     }
   }
 
   getStudent():void{
-    this.studentsService.getStudent().pipe(
+    this.studentsService.getStudentUndeclared().pipe(
       map(receivedStudents => 
         {
           let students: Student[] = []
