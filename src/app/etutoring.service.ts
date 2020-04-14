@@ -21,7 +21,6 @@ export class EtutoringService {
     private getStudentAPI = 'http://localhost:8080/students';
     private getTutorAPI = 'http://localhost:8080/tutors';
     private getScheduleAPI = 'http://localhost:8080/schedules';
-    
 
     getStaff(username ): Observable<Staff>{
       const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'}); 
@@ -44,8 +43,6 @@ export class EtutoringService {
       let params = new HttpParams().set(userId,id);
       return this.http.get<Schedule>(this.getScheduleAPI,{ headers: headers, params: params })
     }
-
-
     setUser(): User {
       return this.loginComponent.getUser()
     }

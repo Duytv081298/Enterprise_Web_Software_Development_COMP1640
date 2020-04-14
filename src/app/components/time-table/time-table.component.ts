@@ -128,7 +128,6 @@ export class TimeTableComponent implements OnInit {
           this.day7 = this.slotArrays[j][i]
         }
       }
-
       let slot: Slot = {
         timeout: this.timeOuts[i - 1],
         day1: this.day1, day2: this.day2, day3: this.day3, day4: this.day4, day5: this.day5, day6: this.day6, day7: this.day7

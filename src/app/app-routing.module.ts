@@ -20,6 +20,7 @@ import { AddClassComponent } from './components/add-class/add-class.component';
 import { ListClassComponent } from './components/list-class/list-class.component';
 import { DashboardClassComponent } from './components/dashboard-class/dashboard-class.component';
 import { TimeTableComponent } from './components/time-table/time-table.component';
+import { MessagesComponent } from './components/messages/messages.component';
 
 
 const routes: Routes = [
@@ -34,8 +35,10 @@ const routes: Routes = [
 
   { path: 'tutor/ListClass', component: ListClassComponent ,canActivate:[AuthGaurdService]},
   { path: 'tutor/Schedule', component: TimeTableComponent ,canActivate:[AuthGaurdService]},
+  { path: 'tutor/Messages', component: MessagesComponent ,canActivate:[AuthGaurdService]},
 
   { path: 'student/Schedule', component: TimeTableComponent ,canActivate:[AuthGaurdService]},
+  { path: 'student/Messages', component: MessagesComponent ,canActivate:[AuthGaurdService]},
 
 
   { path: 'login', component: LoginComponent },

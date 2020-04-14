@@ -6,7 +6,7 @@
         </div>
     </div>
     <ul class="list-unstyled">
-                        <!-- Staff SideBar -->
+        <!-- Staff SideBar -->
         <li *ngIf="accountStaff">
             <a routerLink="/staff/Dashboard">
                 <i class="fa fa-dashboard mr-2"></i> DASHBOARD
@@ -29,30 +29,37 @@
         </li>
         <li *ngIf="accountStaff">
             <a routerLink="/staff/AddClass">
-                <i class="fa fa-dashboard mr-2"></i> ADD CLASS
+                <i class="fa fa-dashboard mr-2"></i>ADD CLASS
             </a>
         </li>
-        
 
-                 <!-- Tutor SideBar -->
+
+        <!-- Tutor SideBar -->
         <li *ngIf="accountTutor">
-            <a routerLink="/admin/tutors"> <i class="	fa fa-calendar mr-2"></i> BLOG</a>
+            <a routerLink="/admin/tutors"> <i class="	fa fa-calendar mr-2"></i>BLOG</a>
         </li>
         <li *ngIf="accountTutor">
-            <a routerLink="/tutor/ListClass"> <i class="	fa fa-calendar mr-2"></i> CLASS LIST</a>
+            <a routerLink="/tutor/ListClass"> <i class="	fa fa-calendar mr-2"></i>CLASS LIST</a>
         </li>
         <li *ngIf="accountTutor">
-            <a routerLink="/tutor/Schedule"> <i class="	fa fa-calendar mr-2"></i> WEEKLY SCHEDULE</a>
+            <a routerLink="/tutor/Schedule"> <i class="	fa fa-calendar mr-2"></i>WEEKLY SCHEDULE</a>
+        </li>
+        <li *ngIf="accountTutor">
+            <a routerLink="/tutor/Messages"> <i class="	fa fa-calendar mr-2"></i>MESSAGES</a>
+        </li>
+
+        <!-- Student SideBar -->
+        <li *ngIf="accountStudent">
+            <a routerLink="/tutor/Schedule"> <i class="	fa fa-calendar mr-2"></i>WEEKLY SCHEDULE</a>
         </li>
         <li *ngIf="accountStudent">
-            <a routerLink="/student/Schedule"> <i class="	fa fa-calendar mr-2"></i> WEEKLY SCHEDULE</a>
+            <a routerLink="/student/Messages"> <i class="	fa fa-calendar mr-2"></i>MESSAGES</a>
         </li>
         <li>
             <a routerLink="/profile">
-                <i class="fa fa-dashboard mr-2"></i> PROFILE
+                <i class="fa fa-dashboard mr-2"></i>PROFILE
             </a>
         </li>
 
     </ul>
 </nav>
-
