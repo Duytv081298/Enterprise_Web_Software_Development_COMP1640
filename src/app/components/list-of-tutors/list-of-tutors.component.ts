@@ -4,7 +4,7 @@ import {Tutor} from '../../models/tutor'
 import {TutorService} from '../list-of-tutors/tutor.service'
 import { catchError, map } from 'rxjs/operators';
 import {of} from 'rxjs'
-import { TutorDetailService } from 'src/app/services/tutor-detail.service';
+
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
@@ -27,7 +27,7 @@ export class ListOfTutorsComponent implements OnInit {
 
   tutors: Tutor[] = [];
   constructor(private tutorService: TutorService,
-              private shareTutor : TutorDetailService) { }
+              ) { }
   ngOnInit(): void {
     this.getTutor();
   }
@@ -61,7 +61,10 @@ export class ListOfTutorsComponent implements OnInit {
     } )
   }
   onSelect(tutor: Tutor){
-    this.shareTutor.shareTutor(tutor)
+    sessionStorage.removeItem('tutor')
+    sessionStorage.removeItem('student')
+    sessionStorage.setItem('tutor', JSON.stringify(tutor))
+
   }
 
 }

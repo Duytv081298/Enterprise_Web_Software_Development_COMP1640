@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TutorDetailService } from 'src/app/services/tutor-detail.service';
+
 import {Tutor} from '../../models/tutor'
 
 @Component({
@@ -8,11 +8,15 @@ import {Tutor} from '../../models/tutor'
   styleUrls: ['./tutor-detail.component.css']
 })
 export class TutorDetailComponent implements OnInit {
-  selectTutor :Tutor;
-  constructor(private shareTutor : TutorDetailService) { }
+  // selectTutor :Tutor;
+  tutorDetail: Tutor;
+  constructor() { }
 
   ngOnInit(): void {
-    this.shareTutor.share.subscribe(x => this.selectTutor = x)
+    // this.shareTutor.share.subscribe(x => this.selectTutor = x)
+
+    this.tutorDetail = JSON.parse(sessionStorage.getItem('tutor'))
+    console.log(this.tutorDetail)
   }
 
 }

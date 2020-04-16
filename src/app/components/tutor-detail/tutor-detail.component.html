@@ -15,44 +15,44 @@
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">Username:</label>
                     <div class="col-lg-9">
-                        <input disabled class="form-control m-0" type="text" value="{{selectTutor.username}}" />
+                        <input disabled class="form-control m-0" type="text" value="{{tutorDetail.username}}" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">Full name:</label>
                     <div class="col-lg-9">
-                        <input disabled class="form-control m-0" type="text" value="{{selectTutor.name}}" />
+                        <input disabled class="form-control m-0" type="text" value="{{tutorDetail.name}}" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">Phone:</label>
                     <div class="col-lg-9">
-                        <input disabled class="form-control m-0" type="text" value="{{selectTutor.phoneNumber}}" />
+                        <input disabled class="form-control m-0" type="text" value="{{tutorDetail.phoneNumber}}" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">Email:</label>
                     <div class="col-lg-9">
-                        <input disabled class="form-control m-0" type="text" value="{{selectTutor.email}}" />
+                        <input disabled class="form-control m-0" type="text" value="{{tutorDetail.email}}" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">Address:</label>
                     <div class="col-lg-9">
-                        <input disabled class="form-control m-0" type="text" value="{{selectTutor.address}}" />
+                        <input disabled class="form-control m-0" type="text" value="{{tutorDetail.address}}" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">Day of birth:</label>
                     <div class="col-lg-9">
-                        <input disabled class="form-control m-0" type="date" value="" value="{{selectTutor.dateOfBirth}}" />
+                        <input disabled class="form-control m-0" type="date" value="" value="{{tutorDetail.dateOfBirth}}" />
                     </div>
                 </div>
             </form>
         </div>
         <div class="col-lg-4 order-lg-0 text-center p-3 ">
             <div class="border rounded m-0 p-0 row">
-                <img src="{{selectTutor.avatar}}" style="width: 200px; height: 200px;" class="align-self-center mx-auto my-5  img-fluid rounded-circle " alt="avatar" />
+                <img src="{{tutorDetail.avatar}}" style="width: 200px; height: 200px;" class="align-self-center mx-auto my-5  img-fluid rounded-circle " alt="avatar" />
             </div>
         </div>
     </div>
@@ -64,7 +64,7 @@
                 </div>
             </div>
         </div>
-        <app-time-table></app-time-table>
+        <app-time-table [tutor] = "tutorDetail"></app-time-table>
     </div>
 </div>
 </div>

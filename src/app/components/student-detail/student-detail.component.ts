@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StudentDetailService } from 'src/app/services/student-detail.service';
+
 import {Student} from '../../models/student'
 @Component({
   selector: 'app-student-detail',
@@ -7,13 +7,12 @@ import {Student} from '../../models/student'
   styleUrls: ['./student-detail.component.css']
 })
 export class StudentDetailComponent implements OnInit {
-  selectStudent :Student;
-
-  constructor(private shareStudent : StudentDetailService) { }
+  studentDetail: Student;
+  constructor() { }
 
   ngOnInit(): void {
-    this.shareStudent.share.subscribe(x => this.selectStudent = x)
-    console.log(this.selectStudent)
+    this.studentDetail = JSON.parse(sessionStorage.getItem('student'))
+    console.log(this.studentDetail)
   }
 
 }

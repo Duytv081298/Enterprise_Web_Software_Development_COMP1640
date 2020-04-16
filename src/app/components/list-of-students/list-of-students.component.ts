@@ -4,7 +4,6 @@ import {Student} from '../../models/student'
 import {StudentsService} from '../list-of-students/students.service'
 import { catchError, map } from 'rxjs/operators';
 import {of} from 'rxjs'
-import { StudentDetailService } from 'src/app/services/student-detail.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -25,7 +24,7 @@ export class ListOfStudentsComponent implements OnInit {
 
 
   constructor(private studentsService: StudentsService,
-    private shareStudent : StudentDetailService) { }
+    ) { }
   ngOnInit(): void {
     this.getStudent();
   }
@@ -61,7 +60,9 @@ export class ListOfStudentsComponent implements OnInit {
   }
   
   onSelect(student: Student){
-    this.shareStudent.shareStudent(student)
+    sessionStorage.removeItem('student')
+    sessionStorage.removeItem('tutor')
+    sessionStorage.setItem('student',JSON.stringify(student))
   }
 
 }

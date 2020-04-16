@@ -48,6 +48,7 @@ import { VideoCallComponent } from './components/video-call/video-call.component
 import { AngularAgoraRtcModule, AgoraConfig } from 'angular-agora-rtc';
 
 
+
 const agoraConfig: AgoraConfig = {
   AppID: '4a34bc8ca1784f468e04c0a07b487f34',
 };
@@ -77,6 +78,8 @@ const agoraConfig: AgoraConfig = {
     ChartStudentHaveWithoutTutorComponent,
 
     VideoCallComponent,
+
+    
 
   ],
   imports: [

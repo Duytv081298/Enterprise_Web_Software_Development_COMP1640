@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { EtutoringService } from 'src/app/etutoring.service';
 import { LoginComponent } from '../login/login.component';
 import { User } from 'src/app/models/user';
 import { Schedule, Slot } from 'src/app/models/schedule';
 import { map } from 'rxjs/operators';
+import { Tutor } from 'src/app/models/tutor';
+import { Student } from 'src/app/models/student';
 
 @Component({
   selector: 'app-time-table',
@@ -12,6 +14,8 @@ import { map } from 'rxjs/operators';
 })
 export class TimeTableComponent implements OnInit {
   user: User = this.loginComponent.getUser()
+  @Input() tutor: Tutor
+  @Input() student: Student
   slots: Slot[] = []
   timeOuts = ['Slot 1 (7:30-9:00)', 'Slot 2 (9:10-10:40)', 'Slot 3 (10:50-12:20)', 'Slot 4 (12:50-14:20)',
     'Slot 5 (14:30-16:00)', 'Slot 6 (16:10-17:40)', 'Slot 7 (17:50-19:20)', 'Slot 8 (19:30-21:00)']
@@ -33,6 +37,8 @@ export class TimeTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.receiveData()
+    this.getSchedule()
+  
   }
 
   getWeek(): string[] {
@@ -40,32 +46,33 @@ export class TimeTableComponent implements OnInit {
     let curr = new Date();
 
     let first = curr.getDate() - curr.getDay();
-    let firstday = this.formatDate(new Date(curr.setDate(first)).toUTCString()) 
-    let last = first + 6 ;
-    let lastday = this.formatDate(new Date(curr.setDate(last)).toUTCString()) 
+    let firstday = this.formatDate(new Date(curr.setDate(first)).toUTCString())
+    let last = first + 6;
+    let lastday = this.formatDate(new Date(curr.setDate(last)).toUTCString())
     let weeks = [firstday + ' to ' + lastday]
 
     for (let i = 1; i <= 10; i++) {
 
-      let beforeFirsts = first + 7*i
+      let beforeFirsts = first + 7 * i
       let beforeFirstDays = this.formatDate(new Date(curr.setDate(beforeFirsts)).toUTCString())
 
       let beforeLasts = beforeFirsts + 6
       let beforeLastDays = this.formatDate(new Date(curr.setDate(beforeLasts)).toUTCString())
-      weeks.push( beforeFirstDays + ' to ' + beforeLastDays)
-     
-      let behindFirsts = first - 7*i
+      weeks.push(beforeFirstDays + ' to ' + beforeLastDays)
+
+      let behindFirsts = first - 7 * i
 
       let bindFirstDays = this.formatDate(new Date(curr.setDate(behindFirsts)).toUTCString())
       let behindLasts = behindFirsts - 6
       let bindLastDays = this.formatDate(new Date(curr.setDate(behindLasts)).toUTCString())
-     
+
       weeks.splice(0, 0, bindFirstDays + ' to ' + bindLastDays)
     }
     return weeks
   }
   receiveData() {
     this.user = this.loginComponent.getUser()
+
     if (this.user != null) {
 
       if (this.user.type == 'staff') {
@@ -79,10 +86,8 @@ export class TimeTableComponent implements OnInit {
               data => {
                 this.schedules = data
                 this.addSlot(data)
-
               }
             )
-
           })
       } else if (this.user.type == 'student') {
         this.etutoringService.getStudent(this.loginComponent.getUser().username).subscribe(
@@ -91,14 +96,28 @@ export class TimeTableComponent implements OnInit {
               data => {
                 this.schedules = data
                 this.addSlot(data)
-
               })
-
           })
       }
     }
   }
-
+  getSchedule() {
+    if (this.tutor != null) {
+      this.etutoringService.getSchedule('tutorId', this.tutor.id).subscribe(
+        data => {
+          this.schedules = data
+          this.addSlot(data)
+        }
+      )
+    } if (this.student != null) {
+      this.etutoringService.getSchedule('studentId', this.student.id).subscribe(
+        data => {
+          this.schedules = data
+          this.addSlot(data)
+        }
+      )
+    }
+  }
   addSlot(data) {
     data.calendarDtoList.forEach(element => {
       var resultArray = Object.keys(element).map(function (personNamedIndex) {
@@ -137,19 +156,19 @@ export class TimeTableComponent implements OnInit {
   }
   formatDate(date) {
     var d = new Date(date),
-        month = '' + (d.getMonth() + 1),
-        day = '' + d.getDate(),
-        year = d.getFullYear();
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
 
-    if (month.length < 2) 
-        month = '0' + month;
-    if (day.length < 2) 
-        day = '0' + day;
+    if (month.length < 2)
+      month = '0' + month;
+    if (day.length < 2)
+      day = '0' + day;
     return [year, month, day].join('-');
-}
- 
-selectWeek(selectWeek){
-  let startDate = selectWeek.substring(0,10)
-  let endDate = selectWeek.slice(-10)
-}
+  }
+
+  selectWeek(selectWeek) {
+    let startDate = selectWeek.substring(0, 10)
+    let endDate = selectWeek.slice(-10)
+  }
 }
