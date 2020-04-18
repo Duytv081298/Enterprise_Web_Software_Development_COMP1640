@@ -1,39 +1,24 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
     <div class="row pt-3">
         <div class="col-sm-3">
             <h1 class="text-uppercase font-weight-bold">chats</h1>
         </div>
         <div class="col-sm-9 d-flex justify-content-between">
-            <h3 class="font-weight-bold"><i class="fa fa-user fa-2x pl-1"></i>&emsp;Dung ML</h3> 
+            <h3 class="font-weight-bold"><i class="fa fa-user fa-2x pl-1"></i>&emsp;Dung LM</h3> 
             <app-video-call></app-video-call>
         </div>
     </div>
-    <!---------- 1 ---------->
+
     <div class="row">
         <div class="col-sm-3">
             <div class="list-group " id="list-tab" role="tablist">
-                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#" role="tab" aria-controls="home">Dung ML</a>
+                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#" role="tab" aria-controls="home">Dung LM</a>
                 <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#" role="tab" aria-controls="profile">Le Hong Thu</a>
             </div>
         </div>
-        <!---------- 2 ---------->
         <div class="col-sm-6 border" style="height: 100%;">
             <div style="height: 86vh; background-color: rgba(255,0,0,0.1); overflow: auto;">
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
+
             </div>
             <div class="input-group mt-auto">
                 <div class="input-group-prepend">
@@ -54,13 +39,13 @@
                 </div>
             </div>
         </div>
-        <!---------- 3 ---------->
+
         <div class="col-sm-3">
             <div class="pt-5 pb-5">
                 <div class="row justify-content-center align-items-center">
                     <i class="fa fa-user fa-5x"></i>
                 </div>
-                <h3 class="font-weight-bold text-center">Dung ML</h3>
+                <h3 class="font-weight-bold text-center">Dung LM</h3>
             </div>
             <div id="accordion">
                 <div class="card">
@@ -74,13 +59,60 @@
                   <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body">
                         <div class="list-group " id="list-tab" role="tablist">
-                            <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#" role="tab" aria-controls="home">Dung ML</a>
+                            <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#" role="tab" aria-controls="home">Dung LM</a>
                             <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#" role="tab" aria-controls="profile">Le Hong Thu</a>
                         </div>
                     </div>
                   </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="container-fluid">
+    <div class="row">
+        <h2>Realtime Chat Application</h2>
+        <hr>
+    </div>
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" [(ngModel)]="user" class="form-control" id="username" placeholder="Enter username">
+
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <label for="roomInput">Choose room</label>
+            <select name="roomInput" id="roomInput" class="form-control" [(ngModel)]="room">
+                <option value="Lobby">Lobby</option>
+                <option value="Hall">Hall</option>
+                <option value="Deluxe">Deluxe</option>
+            </select>
+        </div>
+        <div class="col sm-2">
+            <div style="margin-top:19px;" class="pull-right"> 
+                <button type="button" class="btn btn-primary" (click)="join()">Join</button>
+                <button type="button" class="btn btn-default" (click)="leave()">Leave</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="well" style="height:200px; padding:15px;">
+            <div *ngFor="let item of messageArray">
+            <span><strong>{{item.user}} : </strong> {{item.message}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="messageText">            
+        </div>
+        <div class="col-sm-2">
+                <button type="button" class="btn btn-success pull-right" (click)="sendMessage()">Send</button>
         </div>
     </div>
 </div>
