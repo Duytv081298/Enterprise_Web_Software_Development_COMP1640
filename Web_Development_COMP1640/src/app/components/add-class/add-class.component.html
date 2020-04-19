@@ -1,35 +1,92 @@
 <body>
-    <div class="my-5 p-0 container">
-        <div class="row justify-content-center" *ngIf="showDialogfalse">
-            <div class="col-lg-8">
-                <div class="alert alert-danger alert-dismissable text-center">
-                    <p class="h3 m-0">add class fail</p>
-                </div>
-            </div>
+  <div class="my-5 p-0 container">
+    <div class="row justify-content-center" *ngIf="showDialogfalse">
+      <div class="col-lg-8">
+        <div class="alert alert-danger alert-dismissable text-center">
+          <p class="h3 m-0">add class fail</p>
         </div>
-        <div class="row justify-content-center" *ngIf="showDialogtrue">
-            <div class="col-lg-8">
-                <div class="alert alert-info alert-dismissable text-center">
-                    <p class="h3 m-0">add class success</p>
-                </div>
-            </div>
-        </div>
-        <form>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">Select Student</label>
-                <select #optionStudent class="form-control" id="exampleFormControlSelect1">
-                    <option *ngFor="let item of students" value={{item.id}}>{{item.id}}&emsp;-&emsp;{{item.name}}
-                    </option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">Select Tutor</label>
-                <select #optionTutor class="form-control" id="exampleFormControlSelect1">
-                    <option *ngFor="let item of tutors" value={{item.id}}> {{item.id}}&emsp;-&emsp;{{item.name}}
-                    </option>
-                </select>
-            </div>
-        </form>
-        <button routerLink="/staff/ListClass" (click)="addClass(optionStudent.value, optionTutor.value)">add</button>
+      </div>
     </div>
+    <div class="row justify-content-center" *ngIf="showDialogtrue">
+      <div class="col-lg-8">
+        <div class="alert alert-info alert-dismissable text-center">
+          <p class="h3 m-0">add class success</p>
+        </div>
+      </div>
+    </div>
+    <form>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Select Student</label>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+          STUDENT
+        </button>
+        <div *ngFor="let student of studentSelected" class="p-3">
+            <div class="border p-2 bg-light">{{student}}</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Select Tutor</label>
+        <select
+          #optionTutor
+          class="form-control"
+          id="exampleFormControlSelect1"
+        >
+          <option *ngFor="let item of tutors" value="{{ item.id }}">
+            {{ item.id }}&emsp;-&emsp;{{ item.name }}
+          </option>
+        </select>
+      </div>
+    </form>
+    <button
+      routerLink="/staff/ListClass"
+      (click)="addClass(optionTutor.value)"
+    >
+      add
+    </button>
+  </div>
+
+  <!--MODAL-->
+  <div
+    class="modal fade"
+    id="exampleModalCenter"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">
+            SELECT STUDENT
+          </h5>
+        </div>
+        <div class="modal-body">
+          <!--FORM-->
+          <form [formGroup]="form" (ngSubmit)="submitForm()" novalidate>
+            <p
+              class="error"
+              *ngIf="this.form.controls['checkArray'].errors?.required"
+            >
+              Checkbox is required, select atleast one value.
+            </p>
+            <div *ngFor="let student of students; let i = index">
+              <label>
+                <input
+                  type="checkbox"
+                  [value]="student.id + ' ' + student.name"
+                  (change)="onCheckboxChange($event)"
+                />
+                {{ student.name }}
+              </label>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary close-select-form" data-dismiss="modal"> Close </button>
+              <button type="submit" class="btn btn-primary "> Save </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>

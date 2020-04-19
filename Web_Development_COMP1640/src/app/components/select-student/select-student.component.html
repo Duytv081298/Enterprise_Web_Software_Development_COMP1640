@@ -1,0 +1,48 @@
+<!-- <div class="container bg-white border">
+  <mat-card class="result">
+    <mat-card-content>
+      <h2 class="example-h2">Result</h2>
+      <div #studentSelect>
+        <section class="example-section">
+          <mat-checkbox>
+            No.1
+          </mat-checkbox>
+        </section>
+        <section class="example-section">
+          <mat-checkbox>
+            No.2
+          </mat-checkbox>
+        </section>
+        <section class="example-section">
+          <mat-checkbox>
+            No.3
+          </mat-checkbox>
+        </section>
+        <section class="example-section">
+          <mat-checkbox>
+            No.4
+          </mat-checkbox>
+        </section>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <button type="button" class="btn btn-outline-dark">Cancel</button>
+  <button type="button" class="btn btn-outline-danger">ADD</button>
+</div> -->
+
+<form [formGroup]="form" (ngSubmit)="submitForm()" novalidate>
+  <p class="error" *ngIf="this.form.controls['checkArray'].errors?.required">
+    Checkbox is required, select atleast one value.
+  </p>
+  <div *ngFor="let student of students; let i = index">
+    <label>
+      <input
+        type="checkbox"
+        [value]="student.id + ' ' + student.name"
+        (change)="onCheckboxChange($event)"
+      />
+      {{ student.name }}
+    </label>
+  </div>
+  <input type="submit" value="Submit" />
+</form>
