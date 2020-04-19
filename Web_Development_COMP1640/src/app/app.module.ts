@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -42,6 +42,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { VideoCallComponent } from './components/video-call/video-call.component';
 import { AngularAgoraRtcModule, AgoraConfig } from 'angular-agora-rtc';
+import { SelectStudentComponent } from './components/select-student/select-student.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -66,12 +69,9 @@ const agoraConfig: AgoraConfig = {
     ListClassComponent,
     DashboardClassComponent,
     MessagesComponent,
-
     ChartStudentHaveWithoutTutorComponent,
-
     VideoCallComponent,
-
-    
+    SelectStudentComponent,
 
   ],
   imports: [
@@ -82,12 +82,16 @@ const agoraConfig: AgoraConfig = {
     MatToolbarModule,
     MatIconModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
+    MatCheckboxModule,
+    MatCardModule,
     AngularAgoraRtcModule.forRoot(agoraConfig)
   ],
+  
   providers: [StudentsService,
     EtutoringService,
     LoginComponent],
