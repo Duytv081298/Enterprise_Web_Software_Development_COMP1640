@@ -46,8 +46,6 @@ export class SidebarComponent implements OnInit {
       this.getUser = this.etutoringService.getUserbyUserName(this.user.type, this.user.username).subscribe(data => {
         this.username = data.username
         this.avatar = data.avatar
-        console.log(data.username)
-        console.log(this.username)
       })
     }
   }

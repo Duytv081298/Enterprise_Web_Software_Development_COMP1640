@@ -39,7 +39,6 @@ const routes: Routes = [
   { path: 'student/Messages', component: MessagesComponent ,canActivate:[AuthGaurdService]},
 
 
-  { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent,canActivate:[AuthGaurdService] },
 
   
