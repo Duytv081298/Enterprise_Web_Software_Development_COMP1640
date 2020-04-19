@@ -29,3 +29,7 @@ export const getStudentUndeclared = {nameApi: 'getStudentUndeclaredApi', api: 'h
 
 //Login
 export const getUser = {nameApi:'getUserAPI', api:'http://localhost:8080/login',}
+
+
+//Schedule
+export const getSchedule ={nameApi: 'getScheduleAPI', api: 'http://localhost:8080/schedules',};

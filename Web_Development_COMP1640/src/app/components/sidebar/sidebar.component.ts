@@ -29,6 +29,7 @@ export class SidebarComponent implements OnInit {
       this.getUser.unsubscribe()
     }
   }
+
   CheckAccount() {
 
     if (this.user.type == 'staff') {
@@ -41,13 +42,12 @@ export class SidebarComponent implements OnInit {
       this.accountStudent = 'student';
     }
   }
+
   receiveData() {
     if (this.user != null) {
       this.getUser = this.etutoringService.getUserbyUserName(this.user.type, this.user.username).subscribe(data => {
         this.username = data.username
         this.avatar = data.avatar
-        console.log(data.username)
-        console.log(this.username)
       })
     }
   }

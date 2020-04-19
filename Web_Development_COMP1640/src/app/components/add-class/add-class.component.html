@@ -1,35 +1,66 @@
 <body>
-    <div class="my-5 p-0 container">
-        <div class="row justify-content-center" *ngIf="showDialogfalse">
-            <div class="col-lg-8">
-                <div class="alert alert-danger alert-dismissable text-center">
-                    <p class="h3 m-0">add class fail</p>
-                </div>
-            </div>
+  <div class="my-5 p-0 container">
+    <div class="row justify-content-center" *ngIf="showDialogfalse">
+      <div class="col-lg-8">
+        <div class="alert alert-danger alert-dismissable text-center">
+          <p class="h3 m-0">add class fail</p>
         </div>
-        <div class="row justify-content-center" *ngIf="showDialogtrue">
-            <div class="col-lg-8">
-                <div class="alert alert-info alert-dismissable text-center">
-                    <p class="h3 m-0">add class success</p>
-                </div>
-            </div>
-        </div>
-        <form>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">Select Student</label>
-                <select #optionStudent class="form-control" id="exampleFormControlSelect1">
-                    <option *ngFor="let item of students" value={{item.id}}>{{item.id}}&emsp;-&emsp;{{item.name}}
-                    </option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">Select Tutor</label>
-                <select #optionTutor class="form-control" id="exampleFormControlSelect1">
-                    <option *ngFor="let item of tutors" value={{item.id}}> {{item.id}}&emsp;-&emsp;{{item.name}}
-                    </option>
-                </select>
-            </div>
-        </form>
-        <button routerLink="/staff/ListClass" (click)="addClass(optionStudent.value, optionTutor.value)">add</button>
+      </div>
     </div>
+    <div class="row justify-content-center" *ngIf="showDialogtrue">
+      <div class="col-lg-8">
+        <div class="alert alert-info alert-dismissable text-center">
+          <p class="h3 m-0">add class success</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-6">
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Select Tutor</label>
+          <select #optionTutor class="form-control" id="exampleFormControlSelect1">
+            <option *ngFor="let item of tutors" value="{{ item.id }}">
+              {{ item.id }}&emsp;-&emsp;{{ item.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="col-6">
+        <label class="mr-4" for="exampleFormControlSelect1">Select Student</label>
+        <form [formGroup]="form" (ngSubmit)="submitForm()" novalidate>
+          <!-- <p class="error" *ngIf="this.form.controls['checkArray'].errors?.required">
+            Select Student
+          </p> -->
+          <div class="overflow-auto border" style="height: 30vh;">
+            <div *ngFor="let student of students; let i = index">
+              <label>
+                <input type="checkbox" [value]="student.id + ' ' + student.name" (change)="onCheckboxChange($event)" />
+                {{ student.name }}
+              </label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block"> Save </button>
+        </form>
+      </div>
+
+      <div class="col-12">
+        <label for="exampleFormControlSelect1">Student Selected</label>
+
+        <div class="overflow-auto border">
+          <div *ngFor="let student of studentSelected; let i = index" class="p-3">
+            <div class="border p-2 bg-light">{{i+1}} -- {{student}}</div>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-block" (click)="addClass(optionTutor.value)">
+          ADD
+        </button>
+      </div>
+    </div>
+
+  </div>
+
 </body>
