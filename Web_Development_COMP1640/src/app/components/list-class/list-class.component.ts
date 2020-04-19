@@ -3,7 +3,6 @@ import { ListClassService } from './list-class.service';
 import { Class } from 'src/app/models/class';
 import { map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { LoginComponent } from '../login/login.component';
 import { EtutoringService } from 'src/app/etutoring.service';
 import { Tutor } from 'src/app/models/tutor';
 
@@ -15,9 +14,8 @@ import { Tutor } from 'src/app/models/tutor';
 export class ListClassComponent implements OnInit {
   class : Class[]=[]
   tutor : Tutor 
-  username = this.loginComponent.getUser().username
+  username = JSON.parse(sessionStorage.getItem('user'))
   constructor(private listClassService:ListClassService,
-              private loginComponent:LoginComponent,
               private etutoringService:EtutoringService) { }
 
   ngOnInit(): void {

@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 // Sidebar
 import { DashboardStaffComponent } from './components/dashboard-staff/dashboard-staff.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { ChancePasswordComponent } from './components/chance-password/chance-password.component';
 
 import { ListOfTutorsComponent } from './components/list-of-tutors/list-of-tutors.component';
 import { TutorDetailComponent } from './components/tutor-detail/tutor-detail.component';
@@ -25,7 +24,6 @@ import { MessagesComponent } from './components/messages/messages.component';
 
 const routes: Routes = [
   { path: 'staff/Dashboard', component: DashboardStaffComponent ,canActivate:[AuthGaurdService]},
-  { path: 'staff/ChancePassword', component: ChancePasswordComponent ,canActivate:[AuthGaurdService]},
   { path: 'staff/AddClass', component: AddClassComponent ,canActivate:[AuthGaurdService]},
   { path: 'staff/ListTutors', component: ListOfTutorsComponent ,canActivate:[AuthGaurdService]},
   { path: 'staff/TutorDetail', component: TutorDetailComponent ,canActivate:[AuthGaurdService]},

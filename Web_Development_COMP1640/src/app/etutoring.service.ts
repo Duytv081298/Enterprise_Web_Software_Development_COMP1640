@@ -37,6 +37,18 @@ export class EtutoringService {
       let params = new HttpParams().set('username',username);
       return this.http.get<Tutor>(this.getTutorAPI,{ headers: headers, params: params })
     }
+    getUserbyUserName( type,username){
+      if(type == 'staff'){
+        return this.getStaff(username)
+        
+  
+      }else if(type == 'tutor'){
+        return this.getTutor(username)
+  
+      }else if(type == 'student') {
+        return this.getStudent(username)
+      }
+    }
 
     getSchedule(userId: string, id  ): Observable<Schedule>{
       const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'}); 

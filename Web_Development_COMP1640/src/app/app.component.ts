@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
 
   }
   ngDoCheck() {
-    this.user = this.etutoringService.setUser()
+    this.user = JSON.parse(sessionStorage.getItem('user'))
     this.showLogin()
   }
 

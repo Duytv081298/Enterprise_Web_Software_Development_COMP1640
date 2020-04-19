@@ -12,7 +12,7 @@ import { Student } from 'src/app/models/student';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  user : User = this.loginComponent.getUser()
+  user : User = JSON.parse(sessionStorage.getItem('user'))
 
   staff:Staff
   tutor: Tutor
@@ -25,29 +25,16 @@ export class ProfileComponent implements OnInit {
   dateOfBirth:Date
 
   constructor(
-    private loginComponent :LoginComponent,
     private etutoringService : EtutoringService) { }
 
   ngOnInit(): void {
     this.receiveData()
   }
-  
-  receiveData(){
-    if(this.user != null){
-      console.log(this.loginComponent.getUser())
-      if(this.user.type == 'staff'){
-        this.etutoringService.getStaff(this.loginComponent.getUser().username).subscribe(data =>{this.staff = data
-          this.setData(this.staff.username, this.staff.name, this.staff.phoneNumber, this.staff.email, this.staff.dateOfBirth)
-        } )
-      }else if(this.user.type == 'tutor'){
-        this.etutoringService.getTutor(this.loginComponent.getUser().username).subscribe(data => {this.tutor = data
-          this.setData(this.tutor.username, this.tutor.name, this.tutor.phoneNumber, this.tutor.email, this.tutor.dateOfBirth)
-        })
-      }else if(this.user.type == 'student'){
-        this.etutoringService.getStudent(this.loginComponent.getUser().username).subscribe(data => { this.student = data
-          this.setData(this.student.username, this.student.name, this.student.phoneNumber, this.student.email, this.student.dateOfBirth)
-        })
-      }
+  receiveData() {
+    if (this.user != null) {
+      this.etutoringService.getUserbyUserName(this.user.type, this.user.username).subscribe(data => {
+        this.setData(data.username, data.name, data.phoneNumber, data.email, data.dateOfBirth)
+      })
     }
   }
   setData(username: string,name:string,phoneNumber: string,email:string,dateOfBirth:Date){
