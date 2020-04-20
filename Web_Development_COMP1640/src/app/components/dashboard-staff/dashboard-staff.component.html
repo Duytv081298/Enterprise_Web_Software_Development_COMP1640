@@ -1,140 +1,124 @@
 <body>
     <div class="container p-0">
-        <div class="my-5 row justify-content-around text-center">
-            <div class="col-3 p-2 m-2 bg-info text-white">
-                <p class="h5">Student</p>
-                <p class="h5 m-0">{{numStudent}}</p>
-                <p><i class="fa fa-users mt-2" style="font-size:36px"></i></p>
+
+        <p class="h2 mt-4">Admin Dashboard</p>
+
+        <mat-card>
+            <div class="row justify-content-around text-center">
+                <mat-card class="col row p-3 m-2 bg-primary  text-white">
+                    <div class="row">
+                        <p class="col-4"><i class="fa fa-users mt-2" style="font-size: xx-large"></i></p>
+                        <div class="col-8">
+                            <p class="h5">Total students</p>
+                            <p class="h4 m-0">{{numStudent}}</p>
+                        </div>
+                    </div>
+                </mat-card>
+                <mat-card class="col row p-3 m-2 bg-success  text-white">
+                    <div class="row">
+                        <p class="col-4"><i class="fa fa-user mt-2" style="font-size: xx-large"></i></p>
+                        <div class="col-8">
+                            <p class="h5">Total tutors</p>
+                            <p class="h4 m-0">{{numTutor}}</p>
+                        </div>
+                    </div>
+                </mat-card>
+                <mat-card class="col row p-3 m-2 bg-danger  text-white">
+                    <div class="row">
+                        <p class="col-4"><i class="fa fa-comments-o mt-2" style="font-size: xx-large"></i></p>
+                        <div class="col-8">
+                            <p class="h5">Total message</p>
+                            <p class="h4 m-0">{{numMess}}</p>
+                        </div>
+                    </div>
+                </mat-card>
             </div>
-            <div class="col-3 p-2 m-2 bg-info text-white">
-                <p class="h5">Tutor</p>
-                <p class="h5 m-0">{{numTutor}}</p>
-                <p><i class="fa fa-user mt-2" style="font-size:36px"></i></p>
+        </mat-card>
+
+        <div class="row justify-content-around text-center my-5">
+            <div class="col-lg-6 col-sm-12">
+                <mat-card>
+                    <p class="h3 mr-5 mx-3">Chart</p>
+                    <canvas id="myChart" width="400" height="300"></canvas>
+                </mat-card>
             </div>
-            <div class="col-3 p-2 m-2 bg-info text-white">
-                <p class="h5">Total message</p>
-                <p class="h5 m-0">{{numMess}}</p>
-                <p><i class="fa fa-comments-o mt-2" style="font-size:36px"></i></p>
+            <div class="col-lg-6 col-sm-12">
+                <mat-card style="height: 100%">
+                    <p class="h3 mr-5 mx-3">Average message</p>
+                    <mat-card class="p-3 my-5 bg-warning text-white">
+                        <div class="row">
+                            <p class="col-4"><i class="fa fa-comments-o mt-2" style="font-size: xx-large"></i></p>
+                            <div class="col-8">
+                                <p class="h5">Average message of tutor</p>
+                                <p class="h4 m-0">{{averageTutorMess}}</p>
+                            </div>
+                        </div>
+                    </mat-card>
+                    <mat-card class="p-3 bg-info text-white">
+                        <div class="row">
+                            <p class="col-4"><i class="fa fa-comments-o mt-2" style="font-size: xx-large"></i></p>
+                            <div class="col-8">
+                                <p class="h5">Average message of student</p>
+                                <p class="h4 m-0">{{averageStudentMess}}</p>
+                            </div>
+                        </div>
+                    </mat-card>
+                </mat-card>
             </div>
         </div>
 
         <div class="my-5">
-            <p class="h3 mr-5 mx-3">Chart</p>
-            <app-chart-student-have-without-tutor></app-chart-student-have-without-tutor>
-        </div>
-
-        <div class="my-5">
-            <div class="row">
-                <p class="h3 mr-5 mx-3">Non-interaction</p>
-                <p class="h3">Select week</p>
-                <div class="col-3">
-                    <div class="form-group">
-                        <select #days class="form-control" id="exampleSelect1"
-                            (change)="getStudentNoInteraction(days.value)">
-                            <option>7 days</option>
-                            <option>14 days</option>
-                            <option>21 days</option>
-                            <option>28 days</option>
-                            <option>35 days</option>
-                            <option>42 days</option>
-                            <option>49 days</option>
-                        </select>
+            <mat-card>
+                <div class="row">
+                    <p class="h3 mr-5 mx-3">Non-interaction</p>
+                    <p class="h3">Select week</p>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <select #days class="form-control" id="exampleSelect1"
+                                (change)="getStudentNoInteraction(days.value)">
+                                <option>7 days</option>
+                                <option>14 days</option>
+                                <option>21 days</option>
+                                <option>28 days</option>
+                                <option>35 days</option>
+                                <option>42 days</option>
+                                <option>49 days</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="example-container mat-elevation-z8">
-                <mat-table [dataSource]="dataSource" matSort>
-
-                    <ng-container matColumnDef="no">
-                        <mat-header-cell *matHeaderCellDef><b> NO. </b></mat-header-cell>
-                        <mat-cell *matCellDef="let i = index"> {{i + 1}} </mat-cell>
-                    </ng-container>
-
-                    <ng-container matColumnDef="id">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header><b>Student ID</b></mat-header-cell>
-                        <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
-                    </ng-container>
-
-                    <ng-container matColumnDef="name">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> <b>Student Name</b> </mat-header-cell>
-                        <mat-cell *matCellDef="let row"> {{row.name}}</mat-cell>
-                    </ng-container>
-
-                    <ng-container matColumnDef="lastLogin">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> <b>Last time Login</b> </mat-header-cell>
-                        <mat-cell *matCellDef="let row"> {{row.lastLogin}} </mat-cell>
-                    </ng-container>
-
-                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                    <mat-row *matRowDef="let row; columns: displayedColumns;">
-                    </mat-row>
-                </mat-table>
-
-                <mat-paginator [pageSizeOptions]="[5, 10]"></mat-paginator>
-            </div>
-        </div>
-
-        <!-- <div class="my-5">
-            <div class="row">
-                <p class="h3 mr-5 mx-3">Total Mess</p>
-                <p class="h3">Select week</p>
-                <div class="col-3">
-                    <div class="form-group">
-                        <select class="form-control" id="exampleSelect1">
-                            <option>7 days</option>
-                            <option>14 days</option>
-                            <option>21 days</option>
-                            <option>28 days</option>
-                            <option>35 days</option>
-                            <option>42 days</option>
-                            <option>49 days</option>
-                        </select>
-                    </div>
+                
+                <div class="example-container mat-elevation-z8">
+                    <mat-table [dataSource]="dataSource" matSort>
+    
+                        <ng-container matColumnDef="no">
+                            <mat-header-cell *matHeaderCellDef><b> NO. </b></mat-header-cell>
+                            <mat-cell *matCellDef="let row; let i = index"> {{i + 1}} </mat-cell>
+                        </ng-container>
+    
+                        <ng-container matColumnDef="id">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header><b>Student ID</b></mat-header-cell>
+                            <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+                        </ng-container>
+    
+                        <ng-container matColumnDef="name">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> <b>Student Name</b> </mat-header-cell>
+                            <mat-cell *matCellDef="let row"> {{row.name}}</mat-cell>
+                        </ng-container>
+    
+                        <ng-container matColumnDef="lastLogin">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> <b>Last time Login</b> </mat-header-cell>
+                            <mat-cell *matCellDef="let row"> {{row.lastLogin}} </mat-cell>
+                        </ng-container>
+    
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;">
+                        </mat-row>
+                    </mat-table>
+    
+                    <mat-paginator [pageSizeOptions]="[5, 10]"></mat-paginator>
                 </div>
-            </div>
-
-            <table class="table table-striped">
-                <thead class="table-info">
-                    <tr>
-                        <th scope="col">No.</th>
-                        <th scope="col">ID Student</th>
-                        <th scope="col">Name Student</th>
-                        <th scope="col">Name Tutor</th>
-                        <th scope="col">Total Mess</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>GCH17645</td>
-                        <td>Trịnh Văn Duy</td>
-                        <td>Vũ Thanh Hải</td>
-                        <td>45</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>GCH17645</td>
-                        <td>Trịnh Văn Duy</td>
-                        <td>Vũ Thanh Hải</td>
-                        <td>99</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>GCH17645</td>
-                        <td>Trịnh Văn Duy</td>
-                        <td>Vũ Thanh Hải</td>
-                        <td>34</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>GCH17645</td>
-                        <td>Trịnh Văn Duy</td>
-                        <td>Vũ Thanh Hải</td>
-                        <td>65</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div> -->
+            </mat-card>
+        </div>
     </div>
 </body>

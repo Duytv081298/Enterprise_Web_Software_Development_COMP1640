@@ -7,6 +7,10 @@ mat-sidenav {
     height: 100%;
 }
 
+mat-sidenav-container{
+    background-color: white;
+}
+
 .toolbar-spacer {
     flex: 1 1 auto;
 }
@@ -15,14 +19,19 @@ mat-sidenav {
     display: none
 }
 
-@media screen and (max-width: 800px) {
-    #search-form {
-        visibility: hidden;
-    }
+.border{
+    border-radius: 30px;
 }
 
-@media screen and (max-width: 400px) {
-    #search-form {
-        visibility: hidden;
-    }
+#main{
+    margin-top: 62px;
 }
+
+@media only screen and (max-width: 592px) {
+    #main {margin-top: 100px;}
+}
+
+@media only screen and (max-width: 343px) {
+    #main {margin-top: 138px;}
+}
+

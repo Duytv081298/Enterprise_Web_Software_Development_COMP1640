@@ -40,6 +40,7 @@ export class LoginService {
       map(userData => {return userData}),
       catchError(error => of([])))
   }
+  
   // getUser(username ): Observable<User>{
   //   const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'}); 
   //   let params = new HttpParams().set('username',username);

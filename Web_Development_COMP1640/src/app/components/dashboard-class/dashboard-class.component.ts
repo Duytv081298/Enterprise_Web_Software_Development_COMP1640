@@ -17,7 +17,6 @@ import { MatSort } from '@angular/material/sort';
 
 export class DashboardClassComponent implements OnInit {
 
-  // tutorStudent: StudentByTutor[] = []
 
   displayedColumns = ['no', 'tutorName', 'studentName'];
 
@@ -49,7 +48,7 @@ export class DashboardClassComponent implements OnInit {
             map(receivedStudents => {     
               let studentNames : string[] = []
               receivedStudents.forEach(a => {
-                let studentName = a[1]
+              let studentName = a[2] + " "
                 studentNames.push(studentName)
               })
               let student: StudentByTutor = {
@@ -71,7 +70,6 @@ export class DashboardClassComponent implements OnInit {
       }),
       catchError(error => of([]))
     ).subscribe(data => {
-      // this.dataSource = new MatTableDataSource(data);
     })
   }
 

@@ -1,70 +1,69 @@
-
-
-<div class="fxHeight">
+<body>
     <div class="container py-2">
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <div class="alert alert-info alert-dismissable text-center my-4">
-                <p class="h3 m-0 ">Tutor detail</p>
-            </div>
-        </div>
-    </div>
-    <div class="row my-5">
-        <div class="col-lg-8 order-lg-1 personal-info">
-            <form role="form">
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">Username:</label>
-                    <div class="col-lg-9">
-                        <input disabled class="form-control m-0" type="text" value="{{tutorDetail.username}}" />
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">Full name:</label>
-                    <div class="col-lg-9">
-                        <input disabled class="form-control m-0" type="text" value="{{tutorDetail.name}}" />
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">Phone:</label>
-                    <div class="col-lg-9">
-                        <input disabled class="form-control m-0" type="text" value="{{tutorDetail.phoneNumber}}" />
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">Email:</label>
-                    <div class="col-lg-9">
-                        <input disabled class="form-control m-0" type="text" value="{{tutorDetail.email}}" />
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">Address:</label>
-                    <div class="col-lg-9">
-                        <input disabled class="form-control m-0" type="text" value="{{tutorDetail.address}}" />
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">Day of birth:</label>
-                    <div class="col-lg-9">
-                        <input disabled class="form-control m-0" type="date" value="" value="{{tutorDetail.dateOfBirth}}" />
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class="col-lg-4 order-lg-0 text-center p-3 ">
-            <div class="border rounded m-0 p-0 row">
-                <img src="{{tutorDetail.avatar}}" style="width: 200px; height: 200px;" class="align-self-center mx-auto my-5  img-fluid rounded-circle " alt="avatar" />
-            </div>
-        </div>
-    </div>
-    <div>
         <div class="row justify-content-center">
-            <div class="col-lg-4">
+            <div class="col-lg-8">
                 <div class="alert alert-info alert-dismissable text-center my-4">
-                    <p class="h4 m-0">Schedule</p>
+                    <p class="h3 m-0 ">Tutor detail</p>
                 </div>
             </div>
         </div>
-        <app-time-table [tutor] = "tutorDetail"></app-time-table>
+        <div class="row my-5">
+            <div class="col-lg-8 order-lg-1 personal-info">
+                <form role="form">
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Username:</label>
+                        <div class="col-lg-9">
+                            <input disabled class="form-control m-0" type="text" value="{{tutorDetail.username}}" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Full name:</label>
+                        <div class="col-lg-9">
+                            <input disabled class="form-control m-0" type="text" value="{{tutorDetail.name}}" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Phone:</label>
+                        <div class="col-lg-9">
+                            <input disabled class="form-control m-0" type="text" value="{{tutorDetail.phoneNumber}}" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Email:</label>
+                        <div class="col-lg-9">
+                            <input disabled class="form-control m-0" type="text" value="{{tutorDetail.email}}" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Address:</label>
+                        <div class="col-lg-9">
+                            <input disabled class="form-control m-0" type="text" value="{{tutorDetail.address}}" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Day of birth:</label>
+                        <div class="col-lg-9">
+                            <input disabled class="form-control m-0" type="date" value="" value="{{tutorDetail.dateOfBirth}}" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-4 order-lg-0 text-center p-3 ">
+                <div class="border rounded m-0 p-0 row">
+                    <img src="{{tutorDetail.avatar}}" style="width: 200px; height: 200px;" class="align-self-center mx-auto my-5  img-fluid rounded-circle " alt="avatar" />
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="row justify-content-center">
+                <div class="col-lg-4">
+                    <div class="alert alert-info alert-dismissable text-center my-4">
+                        <p class="h4 m-0">Schedule</p>
+                    </div>
+                </div>
+            </div>
+            <app-time-table [tutor] = "tutorDetail"></app-time-table>
+        </div>
     </div>
-</div>
-</div>
+
+</body>

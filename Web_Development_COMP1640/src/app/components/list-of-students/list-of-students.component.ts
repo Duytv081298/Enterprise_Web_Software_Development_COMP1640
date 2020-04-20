@@ -15,12 +15,12 @@ import { MatSort } from '@angular/material/sort';
 })
 export class ListOfStudentsComponent implements OnInit {
 
-  displayedColumns = ['no', 'id', 'name', 'email', 'phone', 'address', 'action'];
+  displayedColumns = ['no', 'id', 'name', 'dob', 'email', 'phone', 'address', 'action'];
 
   dataSource: MatTableDataSource<Student>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
 
   constructor(private studentsService: StudentsService,

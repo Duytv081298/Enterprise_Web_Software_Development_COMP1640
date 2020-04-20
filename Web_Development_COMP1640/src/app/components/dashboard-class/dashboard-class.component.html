@@ -1,17 +1,25 @@
 <body>
     <div class="container">
-        <div class="my-5">
-            <div class="row justify-content-center">
+        <!-- Breadcrumb -->
+        <div class="mt-4">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a routerLink="/staff/Dashboard">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">List of classes</li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="mt-5">
+            <div class="row justify-content-center my-4">
                 <div class="col-lg-8">
-                    <div class="alert alert-info alert-dismissable text-center">
-                        <p class="h3 m-0">List of classes</p>
-                    </div>
+                    <mat-card class="text-center h4 bg-info">LIST OF CLASSES</mat-card>
                 </div>
             </div>
 
             <div class="example-container mat-elevation-z8">
                 <mat-table [dataSource]="dataSource" matSort>
-                    
+
                     <ng-container matColumnDef="no">
                         <mat-header-cell *matHeaderCellDef><b> NO. </b></mat-header-cell>
                         <mat-cell *matCellDef="let i = index"> {{i + 1}} </mat-cell>

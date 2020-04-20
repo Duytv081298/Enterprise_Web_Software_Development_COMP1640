@@ -6,3 +6,9 @@ export class Class {
     tutorName: string;
 
 }
+
+export class AddClass{
+    classId: number;
+    studentId: string;
+    tutorId: string;
+}

@@ -43,21 +43,33 @@ mat-header-cell{
 }
 
 .mat-column-no {
-  max-width: 10%;
+  max-width: 7%;
 }
 
 .mat-column-id {
-  max-width: 15%;
+  max-width: 10%;
 }
 
 .mat-column-name {
-  max-width: 30%;
+  max-width: 16%;
+}
+
+.mat-column-dob {
+  max-width: 12%;
 }
 
 .mat-column-email {
-  max-width: 30%;
+  max-width: 20%;
+}
+
+.mat-column-phone {
+  max-width: 12%;
+}
+
+.mat-column-address {
+  max-width: 13%;
 }
 
 .mat-column-action {
-  max-width: 15%;
+  max-width: 10%;
 }

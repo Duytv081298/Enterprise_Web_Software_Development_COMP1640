@@ -17,7 +17,7 @@ import { MatSort } from '@angular/material/sort';
 export class ListOfTutorsComponent implements OnInit {
 
 
-  displayedColumns = ['no', 'id', 'name', 'email', 'action'];
+  displayedColumns = ['no', 'id', 'name', 'dob', 'email', 'phone', 'address', 'action'];
 
   dataSource: MatTableDataSource<Tutor>;
 
