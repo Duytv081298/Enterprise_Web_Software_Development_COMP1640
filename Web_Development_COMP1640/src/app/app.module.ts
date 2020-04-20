@@ -43,6 +43,7 @@ import { AngularAgoraRtcModule, AgoraConfig } from 'angular-agora-rtc';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { TutorDashboardComponent } from './components/tutor-dashboard/tutor-dashboard.component';
 
 
 
@@ -68,6 +69,7 @@ const agoraConfig: AgoraConfig = {
     DashboardClassComponent,
     MessagesComponent,
     VideoCallComponent,
+    TutorDashboardComponent,
 
   ],
   imports: [

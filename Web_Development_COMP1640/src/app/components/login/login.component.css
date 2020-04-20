@@ -1,0 +1,8 @@
+#login{
+    background: #f5d6d6 url("../../../assets/images/bg-login.png") no-repeat right top;
+}
+
+.modal-content{
+    opacity : 0.9;
+    background-color: rgba(255,0,0,0.1);
+}

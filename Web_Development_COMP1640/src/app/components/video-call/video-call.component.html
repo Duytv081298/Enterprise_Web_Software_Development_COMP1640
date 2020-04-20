@@ -1,7 +1,10 @@
-<div id="agora_local">
-</div>
+<button class="btn btn-outline-primary" type="button" (click)="startCall()">
+   <i class="fa fa-phone" style="font-size: xx-large;"></i>
+</button>
+
+<div id="agora_local"></div>
 <div class="remote-containers">
-  <div class="remote_calls" *ngFor="let remote of remoteCalls;" [id]="remote">
-  </div>
+   <div class="remote_calls" *ngFor="let remote of remoteCalls;" [id]="remote">
+   </div>
 </div>
-<button (click)="startCall()">Start Call</button>
+

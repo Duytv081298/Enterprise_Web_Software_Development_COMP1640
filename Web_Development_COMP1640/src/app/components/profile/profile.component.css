@@ -2,9 +2,15 @@ body{
     height: 100vh;
 }
 
-a {
-    text-decoration: none;
+a{
+    color: black;
 }
+    
+a:hover {
+    color: brown;
+    font-size: medium;
+    text-decoration: none;
+  }
 
 input[type="text"]:disabled {
     background: white;

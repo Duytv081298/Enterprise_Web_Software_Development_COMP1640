@@ -5,7 +5,7 @@
 
         <mat-card>
             <div class="row justify-content-around text-center">
-                <mat-card class="col row p-3 m-2 bg-primary  text-white">
+                <mat-card class="col-5 row p-3 m-2 bg-primary  text-white">
                     <div class="row">
                         <p class="col-4"><i class="fa fa-users mt-2" style="font-size: xx-large"></i></p>
                         <div class="col-8">
@@ -14,7 +14,7 @@
                         </div>
                     </div>
                 </mat-card>
-                <mat-card class="col row p-3 m-2 bg-success  text-white">
+                <mat-card class="col-5 row p-3 m-2 bg-success  text-white">
                     <div class="row">
                         <p class="col-4"><i class="fa fa-user mt-2" style="font-size: xx-large"></i></p>
                         <div class="col-8">
@@ -23,21 +23,12 @@
                         </div>
                     </div>
                 </mat-card>
-                <mat-card class="col row p-3 m-2 bg-danger  text-white">
-                    <div class="row">
-                        <p class="col-4"><i class="fa fa-comments-o mt-2" style="font-size: xx-large"></i></p>
-                        <div class="col-8">
-                            <p class="h5">Total message</p>
-                            <p class="h4 m-0">{{numMess}}</p>
-                        </div>
-                    </div>
-                </mat-card>
             </div>
         </mat-card>
 
         <div class="row justify-content-around text-center my-5">
             <div class="col-lg-6 col-sm-12">
-                <mat-card>
+                <mat-card style="height: 100%">
                     <p class="h3 mr-5 mx-3">Chart</p>
                     <canvas id="myChart" width="400" height="300"></canvas>
                 </mat-card>
@@ -45,18 +36,27 @@
             <div class="col-lg-6 col-sm-12">
                 <mat-card style="height: 100%">
                     <p class="h3 mr-5 mx-3">Average message</p>
-                    <mat-card class="p-3 my-5 bg-warning text-white">
+                    <mat-card class="p-3 my-3 bg-danger text-white">
                         <div class="row">
                             <p class="col-4"><i class="fa fa-comments-o mt-2" style="font-size: xx-large"></i></p>
+                            <div class="col-8">
+                                <p class="h5">Total message in 7 days</p>
+                                <p class="h4 m-0">{{numMess}}</p>
+                            </div>
+                        </div>
+                    </mat-card>
+                    <mat-card class="p-3 my-3 bg-warning text-white">
+                        <div class="row">
+                            <p class="col-4"><i class="fa fa-commenting mt-2" style="font-size: xx-large"></i></p>
                             <div class="col-8">
                                 <p class="h5">Average message of tutor</p>
                                 <p class="h4 m-0">{{averageTutorMess}}</p>
                             </div>
                         </div>
                     </mat-card>
-                    <mat-card class="p-3 bg-info text-white">
+                    <mat-card class="p-3 my-3 bg-info text-white">
                         <div class="row">
-                            <p class="col-4"><i class="fa fa-comments-o mt-2" style="font-size: xx-large"></i></p>
+                            <p class="col-4"><i class="fa fa-commenting-o mt-2" style="font-size: xx-large"></i></p>
                             <div class="col-8">
                                 <p class="h5">Average message of student</p>
                                 <p class="h4 m-0">{{averageStudentMess}}</p>
@@ -87,35 +87,36 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="example-container mat-elevation-z8">
                     <mat-table [dataSource]="dataSource" matSort>
-    
+
                         <ng-container matColumnDef="no">
                             <mat-header-cell *matHeaderCellDef><b> NO. </b></mat-header-cell>
                             <mat-cell *matCellDef="let row; let i = index"> {{i + 1}} </mat-cell>
                         </ng-container>
-    
+
                         <ng-container matColumnDef="id">
                             <mat-header-cell *matHeaderCellDef mat-sort-header><b>Student ID</b></mat-header-cell>
                             <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
                         </ng-container>
-    
+
                         <ng-container matColumnDef="name">
                             <mat-header-cell *matHeaderCellDef mat-sort-header> <b>Student Name</b> </mat-header-cell>
                             <mat-cell *matCellDef="let row"> {{row.name}}</mat-cell>
                         </ng-container>
-    
+
                         <ng-container matColumnDef="lastLogin">
-                            <mat-header-cell *matHeaderCellDef mat-sort-header> <b>Last time Login</b> </mat-header-cell>
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> <b>Last time Login</b>
+                            </mat-header-cell>
                             <mat-cell *matCellDef="let row"> {{row.lastLogin}} </mat-cell>
                         </ng-container>
-    
+
                         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                         <mat-row *matRowDef="let row; columns: displayedColumns;">
                         </mat-row>
                     </mat-table>
-    
+
                     <mat-paginator [pageSizeOptions]="[5, 10]"></mat-paginator>
                 </div>
             </mat-card>

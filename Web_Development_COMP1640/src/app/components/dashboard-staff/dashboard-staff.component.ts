@@ -98,7 +98,6 @@ export class DashboardStaffComponent implements OnInit {
   }
 
 
-
   // Chart
   title = 'angular8chartjs';
   canvas: any;

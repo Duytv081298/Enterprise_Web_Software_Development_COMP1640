@@ -35,10 +35,10 @@ export class LoginComponent implements OnInit {
               this.router.navigate(['/staff/Dashboard'])
             }else if(this.user.type == 'tutor'){
               this.setUser(this.user)
-              this.router.navigate(['/tutor/ListClass'])
+              this.router.navigate(['/tutor/Messages'])
             }else if(this.user.type == 'student'){
               this.setUser(this.user)
-              this.router.navigate(['/student/Schedule'])
+              this.router.navigate(['/student/Messages'])
             }
           }
         })

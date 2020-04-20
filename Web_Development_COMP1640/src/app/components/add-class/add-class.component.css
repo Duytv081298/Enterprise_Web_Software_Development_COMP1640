@@ -9,3 +9,13 @@
     height: 20vh;
     overflow: scroll;
 }
+
+a{
+    color: black;
+  }
+    
+a:hover {
+    color: brown;
+    font-size: medium;
+    text-decoration: none;
+  }

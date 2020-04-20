@@ -42,8 +42,8 @@ a:focus {
     right: 0;
     bottom: 0;
     content: '';
-    background: #000;
-    opacity: .3;
+    background: rgb(48, 46, 46);
+    opacity: 0.3;
 }
 
 .bg-wrap {
