@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Staff } from './models/staff';
 import { LoginComponent } from './components/login/login.component';
 import { Student } from './models/student';
 import { Tutor } from './models/tutor';
 import { User } from './models/user';
+import { File } from './models/files';
 import { Schedule } from './models/schedule';
-import { getStaff, getStudent, getTutor, getSchedule } from './models/api';
+import { getStaff, getStudent, getTutor, getSchedule, getFile, uploadFile } from './models/api';
+import { map, catchError } from 'rxjs/operators';
 
 
 @Injectable({
@@ -56,5 +58,16 @@ export class EtutoringService {
     setUser(): User {
       return this.loginComponent.getUser()
     }
-
+    getFile(classId ): Observable<File[]>{
+      const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'}); 
+      let params = new HttpParams().set('classId',classId);
+      return this.http.get<File[]>(getFile.api,{ headers: headers, params: params })
+    }
+    uploadFile(classId, nameFile ): Observable<boolean>{
+      const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'}); 
+      let params = new HttpParams().set('classId',classId).set('file', nameFile)
+      return this.http.post<boolean>(uploadFile.api,{ headers: headers, params: params }).pipe(
+        map(userData => {return true}),
+        catchError(error => of(false)))
+    }
 }

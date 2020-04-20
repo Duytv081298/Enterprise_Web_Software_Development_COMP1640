@@ -46,3 +46,9 @@ export const getSchedule ={nameApi: 'getScheduleApi', api: 'http://localhost:808
 // Messages
 export const getMessage = {nameApi: 'getMessageApi', api:'http://localhost:8080/messages'}
 
+export const getFile = {nameApi: 'getFileApi', api:'http://localhost:8080/files'}
+
+export const uploadFile = {nameApi: 'uploadFileApi', api:'http://localhost:8080/files'}
+
+
+

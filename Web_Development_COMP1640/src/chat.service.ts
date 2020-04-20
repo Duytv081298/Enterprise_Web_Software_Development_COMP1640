@@ -20,13 +20,11 @@ export class ChatService{
         let params = new HttpParams().set('classId',classId);
         
         return this.http.get<Message[]>(getMessage.api, {headers: headers, params: params})
-      } 
+    } 
     
       constructor(private http:HttpClient) {
-  
-       }
 
-
+    }
 
     private socket = io('http://localhost:3000');
 
