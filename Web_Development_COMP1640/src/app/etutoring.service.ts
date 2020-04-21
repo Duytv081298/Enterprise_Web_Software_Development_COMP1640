@@ -55,9 +55,11 @@ export class EtutoringService {
       }
     }
 
-    getSchedule(userId: string, id  ): Observable<Schedule>{
+    getSchedule(userId: string, id, fromDate, toDate ): Observable<Schedule>{
       const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'}); 
-      let params = new HttpParams().set(userId,id);
+      let params = new HttpParams().set(userId,id).set('fromDate',fromDate).set('toDate',toDate)
+      // params.append('fromDate',fromDate)
+      // params.append('toDate',toDate)
       return this.http.get<Schedule>(getSchedule.api,{ headers: headers, params: params })
     }
 
