@@ -17,7 +17,7 @@ export const getStudent = {nameApi:'getStudentApi', api:'http://localhost:8080/s
 
 // Class
 export const addClass = {nameApi:'addClassApi', api:'http://localhost:8080/classes'}
-export const getClass = {nameApi:'getClassApi', api:'http://localhost:8080/classes'}
+export const getClassByTutor = {nameApi:'getClassByTutorApi', api:'http://localhost:8080/classes/tutors'}
 export const getNumberStudentOfTutor = {nameApi: 'getNumberStudentOfTutorApi', api: 'http://localhost:8080/tutors/students'}
 
 
@@ -49,6 +49,10 @@ export const getMessage = {nameApi: 'getMessageApi', api:'http://localhost:8080/
 export const getFile = {nameApi: 'getFileApi', api:'http://localhost:8080/files'}
 
 export const uploadFile = {nameApi: 'uploadFileApi', api:'http://localhost:8080/files'}
+
+export const getClassByStudent = {nameApi: 'getClassByStudentApi', api : 'http://localhost:8080/classes/students'}
+
+export const getTutorById = {nameApi: 'getTutorByIdApi', api : 'http://localhost:8080/tutors'}
 
 
 

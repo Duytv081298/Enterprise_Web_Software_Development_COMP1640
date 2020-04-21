@@ -22,6 +22,8 @@ export class AppComponent implements OnInit {
   login = null;
   logout = null;
 
+  isSideBarCls = false;
+
   constructor(private etutoringService: EtutoringService,
     private loginComponent: LoginComponent
   ) {
@@ -44,8 +46,22 @@ export class AppComponent implements OnInit {
       this.logout = null;
     }
   }
-  logOut() {
-    this.loginComponent.logOut();
+  logOut() { 
+    if(this.isSideBarCls == true){
+      let element: HTMLElement = document.getElementsByClassName('closeSidebar')[0] as HTMLElement;
+      element.click();
+    } 
+    if(this.isSideBarCls == false){
+      let element: HTMLElement = document.getElementsByClassName('clickLogout')[0] as HTMLElement;
+      element.click();
+      this.loginComponent.logOut();
+    }
+  }
+
+  checkSidebar(){
+    if(this.isSideBarCls == false) this.isSideBarCls = true;
+    else this.isSideBarCls = false;
+    console.log(this.isSideBarCls)
   }
   
 }

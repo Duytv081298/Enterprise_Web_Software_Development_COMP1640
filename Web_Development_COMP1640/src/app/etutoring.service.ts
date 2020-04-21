@@ -38,6 +38,12 @@ export class EtutoringService {
       return this.http.get<Tutor>(getTutor.api,{ headers: headers, params: params })
     }
 
+    getTutorById(id ): Observable<Tutor>{
+      const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'}); 
+      let params = new HttpParams().set('id',id);
+      return this.http.get<Tutor>(getTutor.api,{ headers: headers, params: params })
+    }
+
     getUserbyUserName( type,username){
       if(type == 'staff'){
         return this.getStaff(username)
@@ -58,11 +64,13 @@ export class EtutoringService {
     setUser(): User {
       return this.loginComponent.getUser()
     }
+
     getFile(classId ): Observable<File[]>{
       const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'}); 
       let params = new HttpParams().set('classId',classId);
       return this.http.get<File[]>(getFile.api,{ headers: headers, params: params })
     }
+
     uploadFile(classId, nameFile ): Observable<boolean>{
       const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'}); 
       let params = new HttpParams().set('classId',classId).set('file', nameFile)
