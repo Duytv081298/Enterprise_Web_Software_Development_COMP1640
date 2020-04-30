@@ -1,70 +1,73 @@
+<body>
+    <div class="container">
 
-<div class="fxHeight">
-    <div class="container py-2">
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <div class="alert alert-info alert-dismissable text-center my-4">
-                <p class="h3 m-0 ">Student detail</p>
-            </div>
+        <!-- Breadcrumb -->
+        <div class="mt-4">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a routerLink="/staff/Dashboard">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a routerLink="/staff/ListStudents">List of students</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Student detail</li>
+                </ol>
+            </nav>
         </div>
-    </div>
-    <div class="row my-5">
-        <div class="col-lg-8 order-lg-1 personal-info">
-            <form role="form">
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">Username:</label>
-                    <div class="col-lg-9">
-                        <input disabled class="form-control m-0" type="text" value="{{studentDetail.username}}" />
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">Full name:</label>
-                    <div class="col-lg-9">
-                        <input disabled class="form-control m-0" type="text" value="{{studentDetail.name}}" />
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">Phone:</label>
-                    <div class="col-lg-9">
-                        <input disabled class="form-control m-0" type="text" value="{{studentDetail.phoneNumber}}" />
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">Email:</label>
-                    <div class="col-lg-9">
-                        <input disabled class="form-control m-0" type="text" value="{{studentDetail.email}}" />
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">Address:</label>
-                    <div class="col-lg-9">
-                        <input disabled class="form-control m-0" type="text" value="{{studentDetail.address}}" />
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">Day of birth:</label>
-                    <div class="col-lg-9">
-                        <input disabled class="form-control m-0" type="date" value="" value="{{studentDetail.dateOfBirth}}" />
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class="col-lg-4 order-lg-0 text-center p-3 ">
-            <div class="border rounded m-0 p-0 row">
-                <img src="{{studentDetail.avatar}}" style="width: 200px; height: 200px;" class="align-self-center mx-auto my-5  img-fluid rounded-circle " alt="avatar" />
-            </div>
-        </div>
-    </div>
-    <div>
-        <div class="row justify-content-center">
-            <div class="col-lg-4">
-                <div class="alert alert-info alert-dismissable text-center my-4">
-                    <p class="h4 m-0">Schedule</p>
-                </div>
-            </div>
-        </div>
-        <app-time-table [student]= "studentDetail" ></app-time-table>
-    </div>
-</div>
 
-</div>
+        <div class="mt-5">
+            <div class="row justify-content-center my-4">
+                <div class="col-lg-8">
+                    <mat-card class="text-center h4 bg-info">PROFILE</mat-card>
+                </div>
+            </div>
+        </div>
+
+
+        <mat-card>
+            <div class="row justify-content-center form-group">
+                <div class="col-3">
+                    <img class="m-4" src="{{studentDetail.avatar}}" alt="avatar"
+                        style="width: 100%; height: 85%; border-radius: 30%;">
+                </div>
+
+                <div class="col-9">
+                    <div class="row justify-content-center">
+                        <p class="col-3 align-self-center h5">UserName:</p>
+                        <div class="col-8">
+                            <input disabled class="form-control" type="text" value="{{studentDetail.username}}" />
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <p class="col-3 align-self-center h5">Full Name:</p>
+                        <div class="col-8">
+                            <input disabled class="form-control" type="text" value="{{studentDetail.name}}" />
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <p class="col-3 align-self-center h5">Date Of Birth:</p>
+                        <div class="col-8">
+                            <input disabled class="form-control" type="text" value="{{studentDetail.dateOfBirth}}" />
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <p class="col-3 align-self-center h5">Phone Number:</p>
+                        <div class="col-8">
+                            <input disabled class="form-control" type="text" value="{{studentDetail.phoneNumber}}" />
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <p class="col-3 align-self-center h5">Email:</p>
+                        <div class="col-8">
+                            <input disabled class="form-control" type="text" value="{{studentDetail.email}}" />
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <p class="col-3 align-self-center h5">Address:</p>
+                        <div class="col-8">
+                            <input disabled class="form-control" type="text" value="{{studentDetail.address}}" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-card>
+        <app-time-table [student]="studentDetail"></app-time-table>
+    </div>
+</body>

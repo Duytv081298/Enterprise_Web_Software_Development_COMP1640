@@ -23,11 +23,6 @@ a:hover {
   padding: 8px 24px 0;
 }
 
-.mat-form-field {
-  font-size: 14px;
-  width: 100%;
-}
-
 .mat-table {
   overflow: auto;
   max-height: 600px;
@@ -43,15 +38,19 @@ mat-header-cell{
 }
 
 .mat-column-no {
-  max-width: 10%;
+  max-width: 7%;
 }
 
 .mat-column-id {
-  max-width: 15%;
+  max-width: 10%;
 }
 
 .mat-column-name {
-  max-width: 20%;
+  max-width: 16%;
+}
+
+.mat-column-dob {
+  max-width: 12%;
 }
 
 .mat-column-email {
@@ -69,3 +68,4 @@ mat-header-cell{
 .mat-column-action {
   max-width: 10%;
 }
+

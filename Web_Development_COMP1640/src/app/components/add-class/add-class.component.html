@@ -1,71 +1,83 @@
-<body>
-    <div class="my-5 p-0 container">
-        <div class="row justify-content-center" *ngIf="showDialogfalse">
-            <div class="col-lg-8">
-                <div class="alert alert-danger alert-dismissable text-center">
-                    <p class="h3 m-0">add class fail</p>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center" *ngIf="showDialogtrue">
-            <div class="col-lg-8">
-                <div class="alert alert-info alert-dismissable text-center">
-                    <p class="h3 m-0">add class success</p>
-                </div>
-            </div>
-        </div>
-        <form>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">Select Student</label>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                    STUDENT
-                </button>
-                <div *ngFor="let student of studentSelected" class="p-3">
-                    <div class="border p-2 bg-light">{{student}}</div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">Select Tutor</label>
-                <select #optionTutor class="form-control" id="exampleFormControlSelect1">
-                    <option *ngFor="let item of tutors" value="{{ item.id }}">
-                        {{ item.id }}&emsp;-&emsp;{{ item.name }}
-                    </option>
-                </select>
-            </div>
-        </form>
-        <button routerLink="/staff/ListClass" (click)="addClass(optionTutor.value)">
-            ADD
-        </button>
-    </div>
+<div class="container">
+   <!-- Breadcrumb -->
+   <div class="mt-4">
+      <nav aria-label="breadcrumb">
+         <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/staff/Dashboard">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Add new class</li>
+         </ol>
+      </nav>
+   </div>
 
-    <!--MODAL-->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">
-                        SELECT STUDENT
-                    </h5>
-                </div>
-                <div class="modal-body">
-                    <!--FORM-->
-                    <form [formGroup]="form" (ngSubmit)="submitForm()" novalidate>
-                        <p class="error" *ngIf="this.form.controls['checkArray'].errors?.required">
-                            Checkbox is required, select atleast one value.
-                        </p>
-                        <div *ngFor="let student of students; let i = index">
-                            <label>
-                                <input type="checkbox" [value]="student.id + ' ' + student.name" (change)="onCheckboxChange($event)"/>
-                                {{ student.name }}
-                            </label>
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary close-select-form" data-dismiss="modal"> Close </button>
-                        <button type="submit" class="btn btn-primary "> Save </button>
-                        </div>
-                    </form>
-                </div>
+   <div class="mt-5">
+      <div class="row justify-content-center mt-4 mb-5">
+         <div class="col-lg-8">
+            <mat-card class="text-center h4 bg-info">ADD NEW CLASS</mat-card>
+         </div>
+      </div>
+      
+      <div class="row justify-content-around">
+         <div class="col-6">
+            <div class="form-group">
+               <p class="h5" for="exampleFormControlSelect1">Select Tutor</p>
+               <select #optionTutor class="form-control" id="exampleFormControlSelect1">
+                  <option *ngFor="let item of tutors" value="{{ item.id }}">
+                     {{ item.id }}&emsp;-&emsp;{{ item.name }}
+                  </option>
+               </select>
             </div>
-        </div>
-    </div>
-</body>
+         </div>
+
+         <div class="col-6">
+            <p class="h5" for="exampleFormControlSelect1">Select Student
+               <span class="error" *ngIf="this.form.controls['checkArray'].errors?.required"
+                  style="color: red; font-size: 14px;">
+                  (* Select at least one student)
+               </span>
+            </p>
+            <form [formGroup]="form" (ngSubmit)="submitForm()" novalidate>
+               <div class="overflows border">
+                  <div *ngFor="let student of students; let i = index">
+                     <label>
+                        <input type="checkbox" [value]="student.id + ' ' + student.name"
+                           (change)="onCheckboxChange($event)" />
+                        {{ student.name }}
+                     </label>
+                  </div>
+               </div>
+               <button type="submit" class="btn btn-primary btn-block mt-3"> Save </button>
+            </form>
+         </div>
+
+         <div class="col-12">
+            <p class="h5" for="exampleFormControlSelect1">Student Selected</p>
+            <div class="overflow border">
+               <p *ngFor="let student of studentSelected; let i = index">{{i+1}} -- {{student}}</p>
+            </div>
+
+            <p *ngIf="selectedMax" class="text-danger">Select max {{10 - num}}</p>
+            <p *ngIf="selectedMin" class="text-danger">Please select student before add</p>
+
+            <div class="row justify-content-center" *ngIf="showDialogfalse">
+               <div class="col-lg-8">
+                  <div class="alert alert-danger alert-dismissable text-center">
+                     <p class="h3 m-0">Add class fail</p>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center" *ngIf="showDialogtrue">
+               <div class="col-lg-8">
+                  <div class="alert alert-info alert-dismissable text-center">
+                     <p class="h3 m-0">Add class success</p>
+                  </div>
+               </div>
+            </div>
+
+            <button class="btn btn-success btn-block mt-3 mb-5" (click)="addClass(optionTutor.value)">
+               ADD
+            </button>
+         </div>
+      </div>
+   
+   </div>
+</div>

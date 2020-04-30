@@ -1,6 +1,13 @@
-a {
+a{
+    color: black;
+  }
+  
+a:hover {
+    color: brown;
+    font-size: medium;
     text-decoration: none;
 }
+
 
 input[type="text"]:disabled,
 input[type="date"]:disabled {

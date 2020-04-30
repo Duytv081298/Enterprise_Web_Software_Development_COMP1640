@@ -26,7 +26,6 @@ import {EtutoringService} from './etutoring.service'
 
 
 import { HttpClientModule } from '@angular/common/http';
-import { from } from 'rxjs';
 import { LoginComponent } from './components/login/login.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 
@@ -36,15 +35,15 @@ import { ListClassComponent } from './components/list-class/list-class.component
 import { DashboardClassComponent } from './components/dashboard-class/dashboard-class.component';
 
 import { MessagesComponent } from './components/messages/messages.component';
-import { ChartStudentHaveWithoutTutorComponent } from './components/chart-student-have-without-tutor/chart-student-have-without-tutor.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { VideoCallComponent } from './components/video-call/video-call.component';
 import { AngularAgoraRtcModule, AgoraConfig } from 'angular-agora-rtc';
-import { SelectStudentComponent } from './components/select-student/select-student.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
+import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { TutorDashboardComponent } from './components/tutor-dashboard/tutor-dashboard.component';
 
 
 
@@ -69,9 +68,8 @@ const agoraConfig: AgoraConfig = {
     ListClassComponent,
     DashboardClassComponent,
     MessagesComponent,
-    ChartStudentHaveWithoutTutorComponent,
     VideoCallComponent,
-    SelectStudentComponent,
+    TutorDashboardComponent,
 
   ],
   imports: [
@@ -89,6 +87,7 @@ const agoraConfig: AgoraConfig = {
     MatTableModule,
     MatCheckboxModule,
     MatCardModule,
+    MatFormFieldModule,
     AngularAgoraRtcModule.forRoot(agoraConfig)
   ],
   

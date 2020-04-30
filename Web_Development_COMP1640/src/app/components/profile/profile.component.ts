@@ -23,6 +23,8 @@ export class ProfileComponent implements OnInit {
   phoneNumber: string
   email:string
   dateOfBirth:Date
+  avatar: string
+  address: string
 
   constructor(
     private etutoringService : EtutoringService) { }
@@ -33,16 +35,18 @@ export class ProfileComponent implements OnInit {
   receiveData() {
     if (this.user != null) {
       this.etutoringService.getUserbyUserName(this.user.type, this.user.username).subscribe(data => {
-        this.setData(data.username, data.name, data.phoneNumber, data.email, data.dateOfBirth)
+        this.setData(data.username, data.name, data.phoneNumber, data.email, data.dateOfBirth, data.avatar, data.address)
       })
     }
   }
-  setData(username: string,name:string,phoneNumber: string,email:string,dateOfBirth:Date){
+  setData(username:string, name:string, phoneNumber:string, email:string, dateOfBirth:Date, avatar:string, address:string){
     this.username = username
     this.name = name
     this.phoneNumber = phoneNumber
     this.email = email
     this.dateOfBirth = dateOfBirth
+    this.avatar = avatar
+    this.address = address
     }
 
 }

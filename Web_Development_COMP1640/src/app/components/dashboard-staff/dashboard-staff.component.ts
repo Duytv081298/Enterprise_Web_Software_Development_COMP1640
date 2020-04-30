@@ -7,6 +7,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
+import * as Chart from 'chart.js'
+
+
 @Component({
   selector: 'app-dashboard-staff',
   templateUrl: './dashboard-staff.component.html',
@@ -23,6 +26,8 @@ export class DashboardStaffComponent implements OnInit {
   numStudent: Number;
   numTutor: Number;
   numMess: Number;
+  averageStudentMess : Number;
+  averageTutorMess : Number;
   students: Student[] = [];
 
   constructor(private dashboardStaffService: DashboardStaffService) { }
@@ -31,7 +36,12 @@ export class DashboardStaffComponent implements OnInit {
     this.getNumberStudent();
     this.getNumberTutor();
     this.getNumberMess();
+    this.getAverageStudentMess();
+    this.getAverageTutorMess();
+
     this.getStudentNoInteraction("7");
+
+    this.getNumberOfStudentNoTutor();
   }
 
   getNumberStudent(): void {
@@ -44,6 +54,14 @@ export class DashboardStaffComponent implements OnInit {
 
   getNumberMess(): void {
     this.dashboardStaffService.getNumberOfMess().subscribe(data => this.numMess = data);
+  }
+
+  getAverageStudentMess(): void {
+    this.dashboardStaffService.getAverageStudentMess().subscribe(data => this.averageStudentMess = data);
+  }
+
+  getAverageTutorMess(): void {
+    this.dashboardStaffService.getAverageTutorMess().subscribe(data => this.averageTutorMess = data);
   }
 
   getStudentNoInteraction(days: string): void {
@@ -78,5 +96,51 @@ export class DashboardStaffComponent implements OnInit {
       this.dataSource.sort = this.sort;
     })
   }
+
+
+  // Chart
+  title = 'angular8chartjs';
+  canvas: any;
+  ctx: any;
+
+  ngAfterViewInit(numStudent: number, numStudentNoTutor: number) {
+      let numStudentHaveTutor = numStudent - numStudentNoTutor;
+
+      this.canvas = document.getElementById('myChart');
+      this.ctx = this.canvas.getContext('2d');
+      let myChart = new Chart(this.ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ["Students have a personal tutor", "Students without a personal tutor"],
+          datasets: [{
+            label: 'Messages',
+            data: [numStudentHaveTutor, numStudentNoTutor],
+            backgroundColor: [
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 99, 132, 1)'
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: false,
+          display: true,
+          font: 30
+        }
+      });
+  }
+  //get number for chart
+  getNumberOfStudentNoTutor(): void {
+    let numStudent : number;
+    let numStudentNoTutor : number;
+    this.dashboardStaffService.getNumberOfStudent().subscribe(data => {
+      numStudent = data
+      this.dashboardStaffService.getNumberOfStudentNoTutor().subscribe(data => {
+        numStudentNoTutor = data
+        this.ngAfterViewInit(numStudent, numStudentNoTutor);
+      });
+    }); 
+  }
+
 
 }

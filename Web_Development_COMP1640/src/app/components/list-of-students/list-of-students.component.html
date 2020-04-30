@@ -1,11 +1,20 @@
 <body>
     <div class="container">
-        <div class="my-5">
+
+        <!-- Breadcrumb -->
+        <div class="mt-4">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a routerLink="/staff/Dashboard">Dashboard</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">List of students</li>
+                </ol>
+              </nav>
+        </div>
+
+        <div class="mt-5">
             <div class="row justify-content-center my-4">
                 <div class="col-lg-8">
-                    <div class="alert alert-info alert-dismissable text-center">
-                        <p class="h3 m-0">List of students</p>
-                    </div>
+                    <mat-card class="text-center h3 m-0 bg-info">LIST OF STUDENTS</mat-card>
                 </div>
             </div>
 
@@ -18,13 +27,18 @@
                     </ng-container>
 
                     <ng-container matColumnDef="id">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header><b>Student ID</b></mat-header-cell>
+                        <mat-header-cell *matHeaderCellDef mat-sort-header><b>ID</b></mat-header-cell>
                         <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
                     </ng-container>
 
                     <ng-container matColumnDef="name">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> <b>Student Name</b> </mat-header-cell>
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> <b>Full Name</b> </mat-header-cell>
                         <mat-cell *matCellDef="let row"> {{row.name}}</mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="dob">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> <b>Date of birth</b> </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.dateOfBirth}}</mat-cell>
                     </ng-container>
 
                     <ng-container matColumnDef="email">
@@ -43,7 +57,7 @@
                     </ng-container>
 
                     <ng-container matColumnDef="action">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> <b>Action</b> </mat-header-cell>
+                        <mat-header-cell *matHeaderCellDef> <b>Action</b> </mat-header-cell>
                         <mat-cell *matCellDef="let row">
                             <a (click)="onSelect(row)" routerLink="/staff/StudentDetail">Detail</a>
                         </mat-cell>
@@ -57,6 +71,7 @@
                 <mat-paginator [pageSizeOptions]="[5, 10, 25, 50, 100]"></mat-paginator>
 
             </div>
+        
         </div>
     </div>
 </body>

@@ -4,34 +4,33 @@
             <h1 class="text-uppercase font-weight-bold">chats</h1>
         </div>
         <div class="col-sm-9 d-flex justify-content-between">
-            <h3 class="font-weight-bold"><i class="fa fa-user fa-2x pl-1"></i>&emsp;Dung ML</h3> 
             <app-video-call></app-video-call>
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-3">
-            <div class="list-group " id="list-tab" role="tablist">
-                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#" role="tab" aria-controls="home">Dung ML</a>
-                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#" role="tab" aria-controls="profile">Le Hong Thu</a>
+
+        <div class="col-3"  *ngIf="accountTutor">
+            <div class="list-group" id="list-tab" role="tablist" *ngFor = "let item of class">
+                <a class="list-group-item list-group-item-action" (click)="selectStudent(item)">{{item.studentName}}</a>
             </div>
         </div>
-        <div class="col-sm-6 border" style="height: 100%;">
+
+        <div class="col-3"  *ngIf="accountStudent">
+
+            <div class="pt-5 pb-5">
+                <div class="row justify-content-center align-items-center">
+                    <img src="{{avatar}}" class="rounded-circle" style="width: 150px; height: 150px;">
+                </div>
+                <h2 class="font-weight-bold text-center mt-3">{{name}}</h2>
+            </div>
+
+        </div>
+        
+        <div class="col-6 border p-0">
             <div style="height: 86vh; background-color: rgba(255,0,0,0.1); overflow: auto;">
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
-                <p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>
+                <div *ngFor="let item of messageArray">
+                    <span> {{item.message}}</span>
+                </div> 
             </div>
             <div class="input-group mt-auto">
                 <div class="input-group-prepend">
@@ -44,20 +43,21 @@
                         </div>
                     </button>
                 </div>
-                <input type="text" class="form-control" placeholder="Aa" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="text" class="form-control" placeholder="Aa" aria-label="Recipient's username" aria-describedby="basic-addon2" [(ngModel)]="messageText">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button">
+                    <button class="btn btn-outline-secondary" type="button" (click)="sendMessage()">
                         <i class="fa fa-paper-plane"></i>
                     </button>   
                 </div>
             </div>
         </div>
-        <div class="col-sm-3">
+        
+        <div class="col-3">
             <div class="pt-5 pb-5">
                 <div class="row justify-content-center align-items-center">
-                    <i class="fa fa-user fa-5x"></i>
+                    <img src="{{avatar}}" class="rounded-circle" style="width: 150px; height: 150px;">
                 </div>
-                <h3 class="font-weight-bold text-center">Dung ML</h3>
+                <h2 class="font-weight-bold text-center mt-3">{{name}}</h2>
             </div>
             <div id="accordion">
                 <div class="card">
@@ -70,10 +70,11 @@
                   </div>
                   <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body">
-                        <div class="list-group " id="list-tab" role="tablist">
-                            <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#" role="tab" aria-controls="home">Dung ML</a>
-                            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#" role="tab" aria-controls="profile">Le Hong Thu</a>
+                        <div class="list-group " id="list-tab" role="tablist" *ngFor = "let item of files">
+                            <a class="list-group-item list-group-item-action mt-3" >{{item.name}}</a>
                         </div>
+                        <input id="file-input"  type="file" #valueFile/>
+                        <button type="button" class="btn btn-secondary" (click) = "addFile(valueFile.value)">Add File</button>
                     </div>
                   </div>
                 </div>
@@ -82,48 +83,97 @@
     </div>
 </div> -->
 
-<div class="container-fluid">
-    <div class="row">
-        <h2>Realtime Chat Application</h2>
-        <hr>
-    </div>
-    <div class="row">
-        <div class="col-sm-5">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" [(ngModel)]="user" class="form-control" id="username" placeholder="Enter username">
+<body>
+    <div class="container-fluid">
+        <mat-card class="pt-3 bg-light my-2">
+            <p class="h3 text-uppercase font-weight-bold">chats</p>
+            <!-- <app-video-call></app-video-call>    -->
+        </mat-card>
 
-            </div>
-        </div>
-        <div class="col-sm-5">
-            <label for="roomInput">Choose room</label>
-            <select name="roomInput" id="roomInput" class="form-control" [(ngModel)]="room">
-                <option value="Lobby">Lobby</option>
-                <option value="Hall">Hall</option>
-                <option value="Deluxe">Deluxe</option>
-            </select>
-        </div>
-        <div class="col sm-2">
-            <div style="margin-top:19px;" class="pull-right"> 
-                <button type="button" class="btn btn-primary" (click)="join()">Join</button>
-                <button type="button" class="btn btn-default" (click)="leave()">Leave</button>
-            </div>
-        </div>
-    </div>
+        <div class="row justify-content-around">
+            <!-- left -->
+            <mat-card class="col-3 border p-0" *ngIf="accountTutor">
+                <mat-card class="h5">List of students</mat-card>
+                <div class="list-group" id="list-tab" role="tablist" *ngFor="let item of class; let i = index">
+                    <a class="list-group-item list-group-item-action" (click)="selectStudent(item)">
+                        {{i + 1}} - {{item.studentName}}
+                    </a>
+                </div>
+            </mat-card>
 
-    <div class="row">
-        <div class="well" style="height:200px; padding:15px;">
-            <div *ngFor="let item of messageArray">
-            <span><strong>{{item.user}} : </strong> {{item.message}}</span>
-            </div>
+            <mat-card class="col-3 border p-0" *ngIf="accountStudent">    
+                <div class="pt-5 pb-5">
+                    <div class="row justify-content-center align-items-center">
+                        <img src="{{avatar}}" class="borderImg" style="width: 50%;">
+                    </div>
+                    <h2 class="font-weight-bold text-center mt-3">{{name}}</h2>
+                </div>
+            </mat-card>
+
+            <!-- middle -->
+            <mat-card class="col-5 border p-0">
+                <div style="height: 80vh; overflow: auto; background: linear-gradient(to bottom, #99ccff 0%, #ffccff 100%);">
+                    <div *ngFor="let item of messageArray">
+                        <p class="borderMes ml-auto text-center">{{item.message}}</p>
+                    </div>
+                </div>
+                <div class="input-group mt-auto">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-primary" type="button">
+                            <div class="image-upload">
+                                <label for="file-input">
+                                    <i class="fa fa-cloud fa-1x pt-2"></i>
+                                </label>
+                                <input id="file-input" type="file" />
+                            </div>
+                        </button>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Aa" aria-label="Recipient's username"
+                        aria-describedby="basic-addon2" [(ngModel)]="messageText">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-primary" type="button" (click)="sendMessage()">
+                            <i class="fa fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </mat-card>
+
+            <!-- right -->
+            <mat-card class="col-3 border p-0">
+                <div *ngIf="accountTutor" class="pt-5 pb-5">
+                    <div class="row justify-content-center align-items-center">
+                        <img src="{{avatar}}" class="borderImg" style="width: 50%;">
+                    </div>
+                    <h2 class="font-weight-bold text-center mt-3">{{name}}</h2>
+                </div>
+                <div id="accordion">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                    aria-expanded="true" aria-controls="collapseOne">
+                                    SHARED FILES
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                            data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="list-group " id="list-tab" role="tablist" *ngFor="let item of files">
+                                    <a class="list-group-item list-group-item-action mt-3">{{item.name}}</a>
+                                </div>
+                                <input id="file-input" type="file" #valueFile />
+                                <button type="button" class="btn btn-success" (click)="addFile(valueFile.value)">
+                                    Add File
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-card>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-10">
-            <input type="text" class="form-control" [(ngModel)]="messageText">            
-        </div>
-        <div class="col-sm-2">
-                <button type="button" class="btn btn-success pull-right" (click)="sendMessage()">Send</button>
-        </div>
-    </div>
-</div>
+</body>
+
+
+

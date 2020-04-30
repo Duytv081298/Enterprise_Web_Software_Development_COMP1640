@@ -7,14 +7,10 @@ import { TutorService } from "../list-of-tutors/tutor.service";
 import { Tutor } from "src/app/models/tutor";
 import { AddClassService } from "./add-class.service";
 
-import {
-  FormBuilder,
-  FormGroup,
-  FormArray,
-  FormControl,
-  Validators,
-} from "@angular/forms";
-import { ValueTransformer } from "@angular/compiler/src/util";
+import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from "@angular/forms";
+import { AddClass } from 'src/app/models/class';
+
+
 
 @Component({
   selector: "app-add-class",
@@ -24,11 +20,18 @@ import { ValueTransformer } from "@angular/compiler/src/util";
 export class AddClassComponent implements OnInit {
   students: Student[] = [];
   tutors: Tutor[] = [];
-  studentSelected
+
+  idStudent = [];
+  num: number;
+
+  studentSelected = [];
   form: FormGroup;
   isSuccess: boolean;
   showDialogfalse = null;
   showDialogtrue = null;
+  selectedMax = null;
+  selectedMin = null;
+
   constructor(
     private studentsService: StudentsService,
     private tutorService: TutorService,
@@ -43,18 +46,32 @@ export class AddClassComponent implements OnInit {
   ngOnInit(): void {
     this.getStudent();
     this.getTutor();
+
   }
 
-  addClass( tutorId) {
-  //   this.addClassService
-  //     .addClass("1", studentId, tutorId)
-  //     .subscribe((data) => (this.isSuccess = data));
-  //   this.checkSuccess(this.isSuccess);
-  this.takeIdStudent(this.studentSelected);
+  addClass(tutorId) {
+    this.addClassService.getNumberStudent(tutorId).subscribe(data => {
+      this.num = data
+      if(this.idStudent.length == 0){
+        this.selectedMin = "min";
+        this.selectedMax = null;
+      }
+      else if (this.idStudent.length > 10 - data) {
+        this.selectedMax = "max";
+        this.selectedMin = null;
+      }
+      else {
+        this.selectedMax = null;
+        this.selectedMin = null;
+        this.addClassService.addClass(this.idStudent, tutorId).subscribe(data => console.log(data));
+        this.checkSuccess();
+      }
+      
+    });
   }
 
-  checkSuccess(isSuccess) {
-    if (isSuccess == false) {
+  checkSuccess() {
+    if (this.isSuccess == false) {
       this.showDialogfalse = "False";
       this.showDialogtrue = null;
     } else {
@@ -139,27 +156,31 @@ export class AddClassComponent implements OnInit {
   }
 
   submitForm() {
-    console.log(this.form.value);
     let objectStudent = this.form.value
-    let resultArray = Object.keys(objectStudent).map(function(personNamedIndex){
+    let resultArray = Object.keys(objectStudent).map(function (personNamedIndex) {
       let person = objectStudent[personNamedIndex];
       return person;
     });
-    this.studentSelected = resultArray;
-    console.log(this.studentSelected);
-    let element: HTMLElement = document.getElementsByClassName('close-select-form')[0] as HTMLElement;
-        element.click();
+
+    let studentArr = []
+    resultArray.forEach(element => {
+      element.forEach(element => {
+        studentArr.push(element)
+      });
+    });
+    this.studentSelected = studentArr;
+
+    this.takeIdStudent(this.studentSelected)
   }
 
   takeIdStudent(studentSelected) {
     studentSelected.forEach(element => {
-      element.forEach(element => {
-        console.log(element)
-        let index = element.indexOf(" ");
-        let idStudent = element.substring(0,index);
-        console.log(idStudent)
-      });
+
+      let index = element.indexOf(" ");
+      let idStudent: string = element.substring(0, index);
+
+      this.idStudent.push(idStudent);
     });
-      
   }
+
 }

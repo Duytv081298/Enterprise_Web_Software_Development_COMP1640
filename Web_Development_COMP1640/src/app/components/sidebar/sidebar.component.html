@@ -8,57 +8,49 @@
     <ul class="list-unstyled">
         <!-- Staff SideBar -->
         <li *ngIf="accountStaff">
-            <a routerLink="/staff/Dashboard">
-                <i class="fa fa-dashboard mr-2"></i> DASHBOARD
-            </a>
+            <a routerLink="/staff/Dashboard"><i class="fa fa-home mr-2"></i> DASHBOARD</a>
         </li>
         <li *ngIf="accountStaff">
-            <a routerLink="/staff/ListStudents">
-                <i class="fa fa-dashboard mr-2"></i> MANAGE STUDENT
-            </a>
+            <a routerLink="/staff/ListStudents"><i class="fa fa-users mr-2"></i> MANAGE STUDENT</a>
         </li>
         <li *ngIf="accountStaff">
-            <a routerLink="/staff/ListTutors">
-                <i class="fa fa-dashboard mr-2"></i> MANAGE TUTOR
-            </a>
+            <a routerLink="/staff/ListTutors"><i class="fa fa-user mr-2"></i> MANAGE TUTOR</a>
         </li>
         <li *ngIf="accountStaff">
-            <a routerLink="/staff/ListClass">
-                <i class="fa fa-dashboard mr-2"></i> LIST CLASS
-            </a>
+            <a routerLink="/staff/ListClass"><i class="fa fa-paw mr-2"></i> LIST CLASS</a>
         </li>
         <li *ngIf="accountStaff">
-            <a routerLink="/staff/AddClass">
-                <i class="fa fa-dashboard mr-2"></i>ADD CLASS
-            </a>
+            <a routerLink="/staff/AddClass"><i class="fa fa-handshake-o mr-2"></i>ALLOCATION</a>
         </li>
-
 
         <!-- Tutor SideBar -->
         <li *ngIf="accountTutor">
-            <a routerLink="/admin/tutors"> <i class="	fa fa-calendar mr-2"></i>BLOG</a>
+            <a routerLink="/tutor/Messages"><i class="fa fa-home mr-2"></i>DASHBOARD</a>
         </li>
         <li *ngIf="accountTutor">
-            <a routerLink="/tutor/ListClass"> <i class="	fa fa-calendar mr-2"></i>CLASS LIST</a>
+            <a routerLink="/tutor/ListClass"><i class="fa fa-users mr-2"></i>LIST OF STUDENTS</a>
         </li>
         <li *ngIf="accountTutor">
-            <a routerLink="/tutor/Schedule"> <i class="	fa fa-calendar mr-2"></i>WEEKLY SCHEDULE</a>
+            <a routerLink="/tutor/Schedule"><i class="	fa fa-calendar mr-2"></i>WEEKLY SCHEDULE</a>
         </li>
         <li *ngIf="accountTutor">
-            <a routerLink="/tutor/Messages"> <i class="	fa fa-calendar mr-2"></i>MESSAGES</a>
+            <a routerLink="/tutor/Messages"><i class="fa fa-comments mr-2"></i>MESSAGES</a>
         </li>
 
         <!-- Student SideBar -->
         <li *ngIf="accountStudent">
-            <a routerLink="/tutor/Schedule"> <i class="	fa fa-calendar mr-2"></i>WEEKLY SCHEDULE</a>
+            <a routerLink="/student/Messages"><i class="fa fa-home mr-2"></i>DASHBOARD</a>
         </li>
         <li *ngIf="accountStudent">
-            <a routerLink="/student/Messages"> <i class="	fa fa-calendar mr-2"></i>MESSAGES</a>
+            <a routerLink="/student/Schedule"><i class="fa fa-calendar mr-2"></i>WEEKLY SCHEDULE</a>
         </li>
+        <li *ngIf="accountStudent">
+            <a routerLink="/student/Messages"><i class="fa fa-comments mr-2"></i>MESSAGES</a>
+        </li>
+
+        <!-- profile -->
         <li>
-            <a routerLink="/profile">
-                <i class="fa fa-dashboard mr-2"></i>PROFILE
-            </a>
+            <a routerLink="/profile"><i class="fa fa-address-card-o mr-2"></i>PROFILE</a>
         </li>
 
     </ul>

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'
 import { from, Observable } from 'rxjs';
 import { Student } from 'src/app/models/student';
-import { getNumberOfStudent, getNumberOfTutor, getNumberOfStudentNoTutor, getStudentNonInteraction, getNumberOfMess } from 'src/app/models/api';
+import { getNumberOfStudent, getNumberOfTutor, getNumberOfStudentNoTutor, getStudentNonInteraction, getNumberOfMess, getAverageTutorMess, getAverageStudentMess } from 'src/app/models/api';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +27,14 @@ export class DashboardStaffService {
 
   getNumberOfMess() : Observable<number>{
     return this.http.get<number>(getNumberOfMess.api);
+  }
+
+  getAverageTutorMess() : Observable<number>{
+    return this.http.get<number>(getAverageTutorMess.api);
+  }
+
+  getAverageStudentMess() : Observable<number>{
+    return this.http.get<number>(getAverageStudentMess.api);
   }
 
   getStudentNoInteraction(days : string) : Observable<Student[]> {
