@@ -1,23 +1,19 @@
 import { Component, OnInit, Input, DoCheck } from '@angular/core';
 import { EtutoringService } from 'src/app/etutoring.service';
 import { LoginComponent } from '../login/login.component';
-import { User } from 'src/app/models/user';
+
 import { Schedule, Slot } from 'src/app/models/schedule';
-import { map } from 'rxjs/operators';
-import { Tutor } from 'src/app/models/tutor';
-import { Student } from 'src/app/models/student';
+
 
 @Component({
-  selector: 'app-time-table',
-  templateUrl: './time-table.component.html',
-  styleUrls: ['./time-table.component.css']
+  selector: 'app-schedule',
+  templateUrl: './schedule.component.html',
+  styleUrls: ['./schedule.component.css']
 })
 
-export class TimeTableComponent implements OnInit, DoCheck {
-  user: User = this.loginComponent.getUser()
-  @Input() tutor: Tutor
-  @Input() student: Student
-  @Input() studentId: string
+export class ScheduleComponent implements OnInit, DoCheck {
+
+  studentId: string
   fromDate: string
   toDate: string
   slots: Slot[] = []
@@ -38,16 +34,14 @@ export class TimeTableComponent implements OnInit, DoCheck {
   slotArrays = [[]]
   schedules: Schedule;
 
-  constructor(private etutoringService: EtutoringService,
-    private loginComponent: LoginComponent) {
+  constructor(private etutoringService: EtutoringService) {
   }
   ngOnInit(): void {
-    this.receiveData(this.fromDate,this.toDate)
-    this.getSchedule(this.fromDate,this.toDate)
     this.getScheduleByStudent(this.fromDate,this.toDate)
   }
   ngDoCheck() {
    this.studentId = sessionStorage.getItem("idStudent")
+   
   }
   getWeekOne(): string[]{
       let cur = new Date();
@@ -127,59 +121,12 @@ export class TimeTableComponent implements OnInit, DoCheck {
     return weeks
   }
   
-  receiveData(fromDate,toDate) {
-    this.user = this.loginComponent.getUser()
-
-    if (this.user != null) {
-
-      if (this.user.type == 'staff') {
-        this.etutoringService.getStaff(this.loginComponent.getUser().username).subscribe(
-          data => {
-          })
-      } else if (this.user.type == 'tutor') {
-        this.etutoringService.getTutor(this.loginComponent.getUser().username).subscribe(
-          data => {
-            this.etutoringService.getSchedule('tutorId', data.id,fromDate,toDate).subscribe(
-              data => {
-                this.schedules = data
-                this.addSlot(data)
-              }
-            )
-          })
-      } else if (this.user.type == 'student'){
-        this.etutoringService.getStudent(this.loginComponent.getUser().username).subscribe(
-          data => {
-            this.etutoringService.getSchedule('studentId', data.id,fromDate,toDate).subscribe(
-              data => {
-                this.schedules = data
-                this.addSlot(data)
-              })
-          })
-      }
-    }
-  }
-  getSchedule(fromDate, toDate) {
-    if (this.tutor != null) {
-      this.etutoringService.getSchedule('tutorId', this.tutor.id,fromDate, toDate).subscribe(
-        data => {
-          this.schedules = data
-          this.addSlot(data)
-        }
-      )
-    } if (this.student != null) {
-      this.etutoringService.getSchedule('studentId', this.student.id, fromDate, toDate).subscribe(
-        data => {
-          this.schedules = data
-          this.addSlot(data)
-        }
-      )
-    }
-  }
   getScheduleByStudent(fromDate, toDate){
     this.etutoringService.getSchedule('studentId', this.studentId,fromDate, toDate).subscribe(
       data => {
         this.schedules = data
         this.addSlot(data)
+        
       }
     )
   }
@@ -242,7 +189,7 @@ export class TimeTableComponent implements OnInit, DoCheck {
   selectWeek(selectWeek) {
     this.fromDate = selectWeek.substring(0, 10)
     this.toDate = selectWeek.slice(-10)
-    this.receiveData(selectWeek.substring(0, 10),selectWeek.slice(-10))
-    this.getSchedule(selectWeek.substring(0, 10),selectWeek.slice(-10))
+    this.getScheduleByStudent(selectWeek.substring(0, 10),selectWeek.slice(-10))
+
   }
 }

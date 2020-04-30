@@ -1,0 +1,53 @@
+<body>
+    <div class="container py-4">
+        <table class="table table-bordered ">
+            <thead class="table-info text-center">
+                <tr>
+                    <th>
+                        <label>Weekly timetable</label>
+                        <div class="form-group">
+                            <select #week (change) = "selectWeek(week.value)" class="form-control">
+                                <option  *ngFor = "let week of weeks">{{week}}</option>
+                            </select>
+                        </div>
+                    </th>
+                    <th>SUN</th>
+                    <th>MON</th>
+                    <th>TUE</th>
+                    <th>WED</th>
+                    <th>THU</th>
+                    <th>FRI</th>
+                    <th>SAT</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let slot of slots ">
+                <tr>
+                    <td>{{slot.timeout}} </td>
+                    <td class="text-center text-primary">
+                        <p *ngIf="slot.day1 == true">Meeting</p>
+                    </td>
+                    <td class="text-center text-primary">
+                        <p *ngIf="slot.day2 == true">Meeting</p>
+                    </td>
+                    <td class="text-center text-primary">
+                        <p *ngIf="slot.day3 == true">Meeting</p>
+                    </td>
+                    <td class="text-center text-primary">
+                        <p *ngIf="slot.day4 == true">Meeting</p>
+                    </td>
+                    <td class="text-center text-primary">
+                        <p *ngIf="slot.day5 == true">Meeting</p>
+                    </td>
+                    <td class="text-center text-primary">
+                        <p *ngIf="slot.day6 == true">Meeting</p>
+                    </td>
+                    <td class="text-center text-primary">
+                        <p *ngIf="slot.day7 == true">Meeting</p>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+</body>

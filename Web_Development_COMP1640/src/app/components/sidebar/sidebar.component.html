@@ -28,6 +28,9 @@
             <a routerLink="/tutor/Messages"><i class="fa fa-home mr-2"></i>DASHBOARD</a>
         </li> -->
         <li *ngIf="accountTutor">
+            <a routerLink="/tutor/AddSchedule"> <i class="	fa fa-calendar mr-2"></i>ADD SCHEDULE</a>
+        </li>
+        <li *ngIf="accountTutor">
             <a routerLink="/tutor/ListClass"><i class="fa fa-users mr-2"></i>LIST OF STUDENTS</a>
         </li>
         <li *ngIf="accountTutor">
