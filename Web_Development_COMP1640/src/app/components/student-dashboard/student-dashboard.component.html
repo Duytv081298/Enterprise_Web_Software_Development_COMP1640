@@ -1,1 +1,20 @@
-<p>Hi</p>
+<body class="container-fluid px-5">
+    <p class="h2 mt-4">Student Dashboard</p>
+
+    <div class="row">
+        <div class="col-lg-5 col-sm-12">
+            <div class="py-4 my-4">
+                <mat-card class="h5">Tutor information</mat-card>
+                <div class="pt-5 pb-5">
+                    <div class="row justify-content-center align-items-center">
+                        <img src="{{tutorByStudent.avatar}}" class="borderImg" style="width: 50%;">
+                    </div>
+                    <h2 class="font-weight-bold text-center mt-3">{{tutorByStudent.name}}</h2>
+                    <p class="h6 text-center"><i class="fa fa-phone"></i> {{tutorByStudent.phoneNumber}}</p>
+                    <p class="h6 text-center"><i class="fa fa-envelope"></i> {{tutorByStudent.email}}</p>
+                </div>
+            </div>
+        </div>
+        <app-time-table class="col-lg-7 col-sm-12"></app-time-table>
+    </div>
+</body>

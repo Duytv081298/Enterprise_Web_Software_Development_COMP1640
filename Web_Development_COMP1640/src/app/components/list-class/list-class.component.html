@@ -1,13 +1,13 @@
 <body>
-  <div class="container my-4">
-    <div class="m-5 pt-3 border-bottom text-uppercase font-weight-bold h5">class list</div>
-    <div class="list-group" *ngFor="let item of class; let i = index">
-      <a href="#" class="m-2 list-group-item list-group-item-action">
-        <div class="d-flex w-100 justify-content-between">
-          <h5>{{i+1}}</h5>
-          <h5 class="mb-1">{{item.studentName}}</h5>
-        </div>
-      </a>
-    </div>
-  </div>
+   <div class="container my-4">
+      <div class="m-5 pt-3 border-bottom text-uppercase font-weight-bold h5">List of students</div>
+      <div class="list-group" *ngFor="let item of class; let i = index">
+         <a routerLink="/tutor/Dashboard/Messages" class="m-2 list-group-item list-group-item-action">
+            <div class="d-flex w-90 justify-content-between" style="font-size: medium;">
+               <p>{{i+1}}</p>
+               <p class="mb-1">{{item.studentName}}</p>
+            </div>
+         </a>
+      </div>
+   </div>
 </body>

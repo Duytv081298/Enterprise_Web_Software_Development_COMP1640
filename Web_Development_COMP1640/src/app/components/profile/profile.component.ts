@@ -47,6 +47,6 @@ export class ProfileComponent implements OnInit {
     this.dateOfBirth = dateOfBirth
     this.avatar = avatar
     this.address = address
-    }
-
+  }
+  
 }

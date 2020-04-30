@@ -25,8 +25,9 @@ export class AppComponent implements OnInit {
   login = null;
   logout = null;
 
-  isSideBarCls = false;
-  isShowSideBar = null;
+  accountStaff = null;
+  accountStudent = null;
+  accountTutor = null;
 
   constructor(private router: Router) { }
   ngOnInit(): void {
@@ -42,27 +43,28 @@ export class AppComponent implements OnInit {
       this.login = null;
       this.logout = 'logout';
       if(this.user.type == 'staff'){
-        this.isShowSideBar = "show";
-      }
-      else{
-        this.isShowSideBar = null;
+        this.accountStaff = "show";
+      } else if(this.user.type == 'student'){
+        this.accountStudent = "show";
+      } else if(this.user.type == 'tutor'){
+        this.accountTutor = "show";
+      } else{
+        this.accountStaff = null;
+        this.accountStudent = null;
+        this.accountTutor = null;
       }
     } else {
       this.login = 'login';
       this.logout = null;
-      this.isShowSideBar = null;
+      this.accountStaff = null;
+      this.accountTutor = null;
+      this.accountStudent = null;
     }
   }
 
   logOut() {
     sessionStorage.removeItem('user')
     this.router.navigate(['/Homepage'])
-  }
-
-  checkSidebar() {
-    if (this.isSideBarCls == false) this.isSideBarCls = true;
-    else this.isSideBarCls = false;
-    console.log(this.isSideBarCls)
   }
 
 }

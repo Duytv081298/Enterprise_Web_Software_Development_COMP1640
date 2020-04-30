@@ -39,7 +39,6 @@ export const getStudentUndeclared = {nameApi: 'getStudentUndeclaredApi', api: 'h
 // Login
 export const getUser = {nameApi:'getUserApi', api:'http://localhost:8080/login'}
 
-
 // Schedule
 export const getSchedule ={nameApi: 'getScheduleApi', api: 'http://localhost:8080/schedules'};
 export const addSchedule ={nameApi: 'addScheduleApi', api: 'http://localhost:8080/schedules'};
@@ -54,6 +53,8 @@ export const uploadFile = {nameApi: 'uploadFileApi', api:'http://localhost:8080/
 export const getClassByStudent = {nameApi: 'getClassByStudentApi', api : 'http://localhost:8080/classes/students'}
 
 export const getTutorById = {nameApi: 'getTutorByIdApi', api : 'http://localhost:8080/tutors'}
+
+export const addMess = {nameApi: 'addMessApi', api : 'http://localhost:8080/messages'}
 
 
 

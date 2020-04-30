@@ -15,6 +15,7 @@ import * as moment from 'moment';
   styleUrls: ['./messages.component.css'],
   providers: [ChatService]
 })
+
 export class MessagesComponent implements OnInit {
   typeUser = JSON.parse(sessionStorage.getItem('user')).type
   messageUser = JSON.parse(sessionStorage.getItem('user'))
@@ -62,8 +63,15 @@ export class MessagesComponent implements OnInit {
   }
 
   sendMessage() {
-    const currentTime = moment().format('hh:mm:ss a');
+    const currentTime = moment().format('YYYY-MM-DD HH:mm:ss');
     console.log(this.messageArray)
+    console.log(this.room);
+    console.log(this.messageText);
+    console.log(this.user);
+    this.etutoringService.addMess(0, this.room, null, this.messageText, this.user).subscribe(data => {
+      console.log(data);
+      
+    })
     this._chatService.sendMessage({ user: this.user, room: this.room, message: this.messageText, time: currentTime });
   }
 
@@ -173,7 +181,6 @@ export class MessagesComponent implements OnInit {
     this.etutoringService.getTutorById(id).subscribe(data => {
       this.tutorByStudent = data; 
     });
-    
   }
 
 

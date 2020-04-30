@@ -14,8 +14,7 @@ export class SidebarComponent implements OnInit {
   avatar: string
   getUser: SubscriptionLike
   accountStaff = null;
-  accountTutor = null;
-  accountStudent = null;
+  
   constructor(private etutoringService: EtutoringService) { }
 
   ngOnInit(): void {
@@ -32,16 +31,14 @@ export class SidebarComponent implements OnInit {
   }
 
   CheckAccount() {
-
     if (this.user.type == 'staff') {
       this.accountStaff = 'staff';
-
-    } else if (this.user.type == 'tutor') {
-      this.accountTutor = 'tutor';
-
-    } else if (this.user.type == 'student') {
-      this.accountStudent = 'student';
     }
+    //  else if(this.user.type == 'student'){
+    //   this.accountStaff = 'student';
+    // } else if(this.user.type == 'tutor'){
+    //   this.accountStaff = 'tutor';
+    // }
   }
 
   receiveData() {
