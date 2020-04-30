@@ -38,8 +38,12 @@
             <!-- middle -->
             <mat-card class="col-5 border p-0">
                 <div style="height: 80vh; overflow: auto;">
-                    <div *ngFor="let item of messageArray">
-                        <p class="borderMes ml-auto text-center">{{item.message}}</p>
+                    <div *ngFor="let item of messageArray ">
+                        <p class="borderMes ml-auto text-center bg-warning" *ngIf="item.user == user">{{item.message}}</p>
+                        <p class="borderMes ml-auto text-center bg-warning" *ngIf="item.user == user">{{item.user}}</p>
+                       
+                        <p class="borderMes mr-auto text-center" *ngIf="item.user != user">{{item.message}}</p>
+
                     </div>
                 </div>
                 <div class="input-group mt-auto">
@@ -53,8 +57,7 @@
                             </div>
                         </button>
                     </div>
-                    <input type="text" class="form-control" placeholder="Aa" aria-label="Recipient's username"
-                        aria-describedby="basic-addon2" [(ngModel)]="messageText">
+                    <input type="text" class="form-control" placeholder="Enter message..." [(ngModel)]="messageText">
                     <div class="input-group-append">
                         <button class="btn btn-outline-primary" type="button" (click)="sendMessage()">
                             <i class="fa fa-paper-plane"></i>
