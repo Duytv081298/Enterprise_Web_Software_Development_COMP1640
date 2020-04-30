@@ -69,3 +69,36 @@ mat-header-cell{
   max-width: 10%;
 }
 
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .example-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 350px;
+  }
+      
+  .example-header {
+    min-height: 64px;
+    padding: 8px 24px 0;
+  }
+  
+  .mat-table {
+    overflow: auto;
+    max-height: 550px;
+  }
+  
+  b{
+      font-size: x-small;
+      color: black;
+  }
+
+  mat-header-cell{
+      background-color:  #17a2b8;
+  }
+
+  .mat-cell{
+    font-size: 8px;
+  }
+
+}
