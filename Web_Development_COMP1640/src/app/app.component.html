@@ -1,10 +1,9 @@
 <header>
-
-    <nav class="navbar fixed-top bg-light">
-        <button *ngIf="logout" type="button" (click)="sidenav.toggle()" class="navbar-toggler sidebar-toggle-mobile">
-    <nav class="navbar fixed-top bg-warning">
+    <nav class="navbar fixed-top" style="background: rgb(255, 111, 97)">
         <i class="fa fa-graduation-cap mr-3" style="font-size: xx-large;">E-Tutoring</i>
-        <button *ngIf="logout" type="button" (click)="sidenav.toggle()" class="navbar-toggler sidebar-toggle-mobile mr-auto">
+
+        <button *ngIf="logout" type="button" (click)="sidenav.toggle()" (click)="checkSidebar()" class="navbar-toggler sidebar-toggle-mobile mr-auto closeSidebar">
+
             <i class="fa fa-bars" style="font-size: 1.4em;"></i>
         </button>
 
@@ -41,12 +40,12 @@
                     <a class=" dropdown-item" routerLink="/profile"><i class="fa fa-user-circle-o mr-2"></i> Profile</a>
                     <a class="dropdown-item" href="#"> <i class="fa fa-cog mr-2"></i> Setting</a>
                     <div class="dropdown-divider"></div>
-                    <a *ngIf="logout" class="dropdown-item" (click)="logOut()"><i class="fa fa-sign-out mr-2"></i> Sign Out</a>
+                    <a *ngIf="logout" class="dropdown-item clickLogout" (click)="logOut()"><i class="fa fa-sign-out mr-2"></i> Sign Out</a>
                 </div>
             </li>
             
             <li *ngIf="login" class="nav-item dropdown align-self-center">
-                <a type="button" class="btn btn-light border px-5" data-toggle="modal" data-target="#login"><b>Sign In</b></a>
+                <a type="button" class="btn border px-5" data-toggle="modal" data-target="#login"><b>Sign In</b></a>
             </li>
         </ul>
     </nav>

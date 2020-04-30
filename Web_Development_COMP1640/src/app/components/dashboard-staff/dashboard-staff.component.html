@@ -5,7 +5,7 @@
 
         <mat-card>
             <div class="row justify-content-around text-center">
-                <mat-card class="col-5 row p-3 m-2 bg-primary  text-white">
+                <mat-card class="col-lg-5 col-sm-12 row p-3 m-2 bg-primary  text-white">
                     <div class="row">
                         <p class="col-4"><i class="fa fa-users mt-2" style="font-size: xx-large"></i></p>
                         <div class="col-8">
@@ -14,7 +14,7 @@
                         </div>
                     </div>
                 </mat-card>
-                <mat-card class="col-5 row p-3 m-2 bg-success  text-white">
+                <mat-card class="col-lg-5 col-sm-12 row p-3 m-2 bg-success text-white">
                     <div class="row">
                         <p class="col-4"><i class="fa fa-user mt-2" style="font-size: xx-large"></i></p>
                         <div class="col-8">
@@ -28,9 +28,9 @@
 
         <div class="row justify-content-around text-center my-5">
             <div class="col-lg-6 col-sm-12">
-                <mat-card style="height: 100%">
-                    <p class="h3 mr-5 mx-3">Chart</p>
-                    <canvas id="myChart" width="400" height="300"></canvas>
+                <mat-card class="text-align-center" style="height: 100%">
+                    <p class="h3">Chart</p>
+                    <canvas id="myChart"></canvas>
                 </mat-card>
             </div>
             <div class="col-lg-6 col-sm-12">
@@ -70,9 +70,8 @@
         <div class="my-5">
             <mat-card>
                 <div class="row">
-                    <p class="h3 mr-5 mx-3">Non-interaction</p>
-                    <p class="h3">Select week</p>
-                    <div class="col-3">
+                    <div class="h3 col-sm-12 col-lg-10">Non-interaction</div>
+                    <div class="h5 col-sm-12 col-lg-2">
                         <div class="form-group">
                             <select #days class="form-control" id="exampleSelect1"
                                 (change)="getStudentNoInteraction(days.value)">
@@ -92,8 +91,8 @@
                     <mat-table [dataSource]="dataSource" matSort>
 
                         <ng-container matColumnDef="no">
-                            <mat-header-cell *matHeaderCellDef><b> NO. </b></mat-header-cell>
-                            <mat-cell *matCellDef="let row; let i = index"> {{i + 1}} </mat-cell>
+                            <mat-header-cell *matHeaderCellDef class="pl-2"><b> NO. </b></mat-header-cell>
+                            <mat-cell *matCellDef="let row; let i = index" class="pl-2"> {{i + 1}} </mat-cell>
                         </ng-container>
 
                         <ng-container matColumnDef="id">

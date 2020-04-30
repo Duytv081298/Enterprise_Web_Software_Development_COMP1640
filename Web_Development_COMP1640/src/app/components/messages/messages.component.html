@@ -1,93 +1,13 @@
-<!-- <div class="container-fluid">
-    <div class="row pt-3">
-        <div class="col-sm-3">
-            <h1 class="text-uppercase font-weight-bold">chats</h1>
-        </div>
-        <div class="col-sm-9 d-flex justify-content-between">
-            <app-video-call></app-video-call>
-        </div>
-    </div>
-    <div class="row">
+<body *ngIf="isVideoCall" >
+    <app-video-call></app-video-call>
+    <button class="btn btn-primary" (click)="closeVideo()" >End Video Call</button>
+</body>
 
-        <div class="col-3"  *ngIf="accountTutor">
-            <div class="list-group" id="list-tab" role="tablist" *ngFor = "let item of class">
-                <a class="list-group-item list-group-item-action" (click)="selectStudent(item)">{{item.studentName}}</a>
-            </div>
-        </div>
-
-        <div class="col-3"  *ngIf="accountStudent">
-
-            <div class="pt-5 pb-5">
-                <div class="row justify-content-center align-items-center">
-                    <img src="{{avatar}}" class="rounded-circle" style="width: 150px; height: 150px;">
-                </div>
-                <h2 class="font-weight-bold text-center mt-3">{{name}}</h2>
-            </div>
-
-        </div>
-        
-        <div class="col-6 border p-0">
-            <div style="height: 86vh; background-color: rgba(255,0,0,0.1); overflow: auto;">
-                <div *ngFor="let item of messageArray">
-                    <span> {{item.message}}</span>
-                </div> 
-            </div>
-            <div class="input-group mt-auto">
-                <div class="input-group-prepend">
-                    <button class="btn btn-outline-secondary" type="button">
-                        <div class="image-upload">
-                            <label for="file-input">
-                                <i class="fa fa-cloud fa-1x pt-2"></i>
-                            </label>
-                            <input id="file-input" type="file"/>
-                        </div>
-                    </button>
-                </div>
-                <input type="text" class="form-control" placeholder="Aa" aria-label="Recipient's username" aria-describedby="basic-addon2" [(ngModel)]="messageText">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" (click)="sendMessage()">
-                        <i class="fa fa-paper-plane"></i>
-                    </button>   
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-3">
-            <div class="pt-5 pb-5">
-                <div class="row justify-content-center align-items-center">
-                    <img src="{{avatar}}" class="rounded-circle" style="width: 150px; height: 150px;">
-                </div>
-                <h2 class="font-weight-bold text-center mt-3">{{name}}</h2>
-            </div>
-            <div id="accordion">
-                <div class="card">
-                  <div class="card-header" id="headingOne">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            SHARED FILES    
-                        </button>
-                    </h5>
-                  </div>
-                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                    <div class="card-body">
-                        <div class="list-group " id="list-tab" role="tablist" *ngFor = "let item of files">
-                            <a class="list-group-item list-group-item-action mt-3" >{{item.name}}</a>
-                        </div>
-                        <input id="file-input"  type="file" #valueFile/>
-                        <button type="button" class="btn btn-secondary" (click) = "addFile(valueFile.value)">Add File</button>
-                    </div>
-                  </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-<body>
+<body *ngIf="isMes">
     <div class="container-fluid">
         <mat-card class="pt-3 bg-light my-2">
             <p class="h3 text-uppercase font-weight-bold">chats</p>
-            <!-- <app-video-call></app-video-call>    -->
+            <button class="btn btn-primary" (click) = "openVideo()">Video Call</button>     
         </mat-card>
 
         <div class="row justify-content-around">
@@ -102,19 +22,28 @@
             </mat-card>
 
             <mat-card class="col-3 border p-0" *ngIf="accountStudent">    
+                <mat-card class="h5">Tutor information</mat-card>
                 <div class="pt-5 pb-5">
                     <div class="row justify-content-center align-items-center">
-                        <img src="{{avatar}}" class="borderImg" style="width: 50%;">
+                        <img src="{{tutorByStudent.avatar}}" class="borderImg" style="width: 50%;">
                     </div>
-                    <h2 class="font-weight-bold text-center mt-3">{{name}}</h2>
+                    <h2 class="font-weight-bold text-center mt-3">{{tutorByStudent.name}}</h2>
+                    <p class="h6 text-center"><i class="fa fa-phone"></i> {{tutorByStudent.phoneNumber}}</p>
+                    <p class="h6 text-center"><i class="fa fa-envelope"></i> {{tutorByStudent.email}}</p>
+
+                    
                 </div>
             </mat-card>
 
             <!-- middle -->
             <mat-card class="col-5 border p-0">
-                <div style="height: 80vh; overflow: auto; background: linear-gradient(to bottom, #99ccff 0%, #ffccff 100%);">
-                    <div *ngFor="let item of messageArray">
-                        <p class="borderMes ml-auto text-center">{{item.message}}</p>
+                <div style="height: 80vh; overflow: auto;">
+                    <div *ngFor="let item of messageArray ">
+                        <p class="borderMes ml-auto text-center bg-warning" *ngIf="item.user == user">{{item.message}}</p>
+                        <p class="borderMes ml-auto text-center bg-warning" *ngIf="item.user == user">{{item.user}}</p>
+                       
+                        <p class="borderMes mr-auto text-center" *ngIf="item.user != user">{{item.message}}</p>
+
                     </div>
                 </div>
                 <div class="input-group mt-auto">
@@ -128,8 +57,7 @@
                             </div>
                         </button>
                     </div>
-                    <input type="text" class="form-control" placeholder="Aa" aria-label="Recipient's username"
-                        aria-describedby="basic-addon2" [(ngModel)]="messageText">
+                    <input type="text" class="form-control" placeholder="Enter message..." [(ngModel)]="messageText">
                     <div class="input-group-append">
                         <button class="btn btn-outline-primary" type="button" (click)="sendMessage()">
                             <i class="fa fa-paper-plane"></i>
@@ -140,7 +68,7 @@
 
             <!-- right -->
             <mat-card class="col-3 border p-0">
-                <div *ngIf="accountTutor" class="pt-5 pb-5">
+                <div  class="pt-5 pb-5">
                     <div class="row justify-content-center align-items-center">
                         <img src="{{avatar}}" class="borderImg" style="width: 50%;">
                     </div>

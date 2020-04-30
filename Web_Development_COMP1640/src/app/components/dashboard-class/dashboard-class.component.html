@@ -21,8 +21,8 @@
                 <mat-table [dataSource]="dataSource" matSort>
 
                     <ng-container matColumnDef="no">
-                        <mat-header-cell *matHeaderCellDef><b> NO. </b></mat-header-cell>
-                        <mat-cell *matCellDef="let i = index"> {{i + 1}} </mat-cell>
+                        <mat-header-cell *matHeaderCellDef class="pl-2"><b> NO. </b></mat-header-cell>
+                        <mat-cell *matCellDef="let i = index" class="pl-2"> {{i + 1}} </mat-cell>
                     </ng-container>
 
                     <ng-container matColumnDef="tutorName">

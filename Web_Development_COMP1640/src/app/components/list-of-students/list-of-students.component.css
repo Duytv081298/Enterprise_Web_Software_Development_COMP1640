@@ -15,7 +15,6 @@ a:hover {
 .example-container {
   display: flex;
   flex-direction: column;
-  min-width: 400px;
 }
     
 .example-header {
@@ -37,35 +36,253 @@ mat-header-cell{
     background-color:  #17a2b8;
 }
 
-.mat-column-no {
-  max-width: 7%;
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .example-container {
+    max-width: 100%;
+  }
+  
+  b{
+    font-size: x-small;
+  }
+  
+  .mat-cell{
+    font-size: xx-small;
+  }
+
+  .mat-column-no {
+    max-width: 10%;
+  }
+  
+  .mat-column-id {
+    max-width: 15%;
+  }
+  
+  .mat-column-name {
+    max-width: 25%;
+  }
+  
+  .mat-column-dob {
+    max-width: 0;
+    display: none;
+  }
+  
+  .mat-column-email {
+    max-width: 40%;
+  }
+  
+  .mat-column-phone {
+    max-width: 0;
+    display: none;
+  }
+  
+  .mat-column-address {
+    max-width: 0;
+    display: none;
+  }
+  
+  .mat-column-action {
+    max-width: 10%;
+  }
 }
 
-.mat-column-id {
-  max-width: 10%;
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .example-container {
+    max-width: 100%;
+  }
+  
+  b{
+    font-size: x-small;
+  }
+  
+  .mat-cell{
+    font-size: xx-small;
+  }
+
+  .mat-column-no {
+    max-width: 10%;
+  }
+  
+  .mat-column-id {
+    max-width: 15%;
+  }
+  
+  .mat-column-name {
+    max-width: 25%;
+  }
+  
+  .mat-column-dob {
+    max-width: 0;
+    display: none;
+  }
+  
+  .mat-column-email {
+    max-width: 40%;
+  }
+  
+  .mat-column-phone {
+    max-width: 0;
+    display: none;
+  }
+  
+  .mat-column-address {
+    max-width: 0;
+    display: none;
+  }
+  
+  .mat-column-action {
+    max-width: 10%;
+  }
 }
 
-.mat-column-name {
-  max-width: 16%;
-}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .example-container {
+    max-width: 100%;
+  }
+  
+  b{
+    font-size: small;
+  }
+  
+  .mat-cell{
+    font-size: x-small;
+  }
 
-.mat-column-dob {
-  max-width: 12%;
-}
+  .mat-column-no {
+    max-width: 5%;
+  }
+  
+  .mat-column-id {
+    max-width: 10%;
+  }
+  
+  .mat-column-name {
+    max-width: 20%;
+  }
+  
+  .mat-column-dob {
+    max-width: 11%;
+    display: inline-flex;
+  }
+  
+  .mat-column-email {
+    max-width: 25%;
+  }
+  
+  .mat-column-phone {
+    max-width: 10%;
+    display: inline-flex;
+  }
+  
+  .mat-column-address {
+    max-width: 11%;
+    display: inline-flex;
+  }
+  
+  .mat-column-action {
+    max-width: 8%;
+  }
+} 
 
-.mat-column-email {
-  max-width: 20%;
-}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .example-container {
+    max-width: 100%;
+  }
+  
+  b{
+    font-size: medium;
+  }
+  
+  .mat-cell{
+    font-size: small;
+  }
 
-.mat-column-phone {
-  max-width: 12%;
-}
+  .mat-column-no {
+    max-width: 5%;
+  }
+  
+  .mat-column-id {
+    max-width: 10%;
+  }
+  
+  .mat-column-name {
+    max-width: 20%;
+  }
+  
+  .mat-column-dob {
+    max-width: 11%;
+    display: inline-flex;
+  }
+  
+  .mat-column-email {
+    max-width: 25%;
+  }
+  
+  .mat-column-phone {
+    max-width: 10%;
+    display: inline-flex;
+  }
+  
+  .mat-column-address {
+    max-width: 13%;
+    display: inline-flex;
+  }
+  
+  .mat-column-action {
+    max-width: 6%;
+  }
+} 
 
-.mat-column-address {
-  max-width: 13%;
-}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .example-container {
+    max-width: 100%;
+  }
+  
+  b{
+    font-size: large;
+  }
+  
+  .mat-cell{
+    font-size: medium;
+  }
 
-.mat-column-action {
-  max-width: 10%;
+  .mat-column-no {
+    max-width: 5%;
+  }
+  
+  .mat-column-id {
+    max-width: 10%;
+  }
+  
+  .mat-column-name {
+    max-width: 20%;
+  }
+  
+  .mat-column-dob {
+    max-width: 11%;
+    display: inline-flex;
+  }
+  
+  .mat-column-email {
+    max-width: 25%;
+  }
+  
+  .mat-column-phone {
+    max-width: 10%;
+    display: inline-flex;
+  }
+  
+  .mat-column-address {
+    max-width: 13%;
+    display: inline-flex;
+  }
+  
+  .mat-column-action {
+    max-width: 6%;
+  }
 }
 

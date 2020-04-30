@@ -24,11 +24,19 @@ mat-sidenav-container{
     margin-top: 54px;
 }
 
-@media only screen and (max-width: 592px) {
-    #main {margin-top: 100px;}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    #main {
+        margin-top: 100px;
+
+    }
+    /* header {
+        font-size: 50%;
+    } */
 }
 
 @media only screen and (max-width: 343px) {
     #main {margin-top: 138px;}
 }
+
 

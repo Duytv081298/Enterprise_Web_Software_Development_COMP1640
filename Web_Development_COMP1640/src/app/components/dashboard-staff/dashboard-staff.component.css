@@ -20,7 +20,6 @@
 }
 
 b{
-    font-size: medium;
     color: black;
 }
 
@@ -28,18 +27,158 @@ mat-header-cell{
     background-color: #17a2b8;
 }
 
-.mat-column-no {
-  max-width: 10%;
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  #myChart {
+    width: 350px;
+  }
+
+  b {
+    font-size: x-small;
+  }
+
+  .mat-cell{
+    font-size: xx-small;
+  }
+
+  .mat-column-no {
+    max-width: 10%;
+  }
+  
+  .mat-column-id {
+    max-width: 20%;
+  }
+  
+  .mat-column-name {
+    max-width: 35%;
+  }
+  
+  .mat-column-lastLogin {
+    max-width: 35%;
+  }
 }
 
-.mat-column-id {
-  max-width: 20%;
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  #myChart {
+    width: 500px;
+  }
+
+  b {
+    font-size: small;
+  }
+
+  .mat-cell{
+    font-size: x-small;
+  }
+
+  .mat-column-no {
+    max-width: 10%;
+  }
+  
+  .mat-column-id {
+    max-width: 18%;
+  }
+  
+  .mat-column-name {
+    max-width: 37%;
+  }
+  
+  .mat-column-lastLogin {
+    max-width: 35%;
+  }
 }
 
-.mat-column-name {
-  max-width: 30%;
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  #myChart {
+    width: 700px;
+  }
+
+  b {
+    font-size: medium;
+  }
+
+  .mat-cell{
+    font-size: small;
+  }
+
+  .mat-column-no {
+    max-width: 10%;
+  }
+  
+  .mat-column-id {
+    max-width: 18%;
+  }
+  
+  .mat-column-name {
+    max-width: 37%;
+  }
+  
+  .mat-column-lastLogin {
+    max-width: 35%;
+  }
 }
 
-.mat-column-lastLogin {
-  max-width: 40%;
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  #myChart {
+    width: 440px;
+  }
+
+  b {
+    font-size: large;
+  }
+
+  .mat-cell{
+    font-size: medium;
+  }
+
+  .mat-column-no {
+    max-width: 10%;
+  }
+  
+  .mat-column-id {
+    max-width: 18%;
+  }
+  
+  .mat-column-name {
+    max-width: 37%;
+  }
+  
+  .mat-column-lastLogin {
+    max-width: 35%;
+  }
 }
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  #myChart {
+    width: 530px;
+  }
+
+  b {
+    font-size: large;
+  }
+
+  .mat-cell{
+    font-size: large;
+  }
+
+  .mat-column-no {
+    max-width: 10%;
+  }
+  
+  .mat-column-id {
+    max-width: 18%;
+  }
+  
+  .mat-column-name {
+    max-width: 37%;
+  }
+  
+  .mat-column-lastLogin {
+    max-width: 35%;
+  }
+}
+
