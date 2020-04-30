@@ -80,11 +80,19 @@ export class MessagesComponent implements OnInit {
       data => {
         this.files = data
         console.log(this.files)
+
       }
     )
   }
 
+  downloadFile(file: File){
+    console.log(file)
+    window.open(file.uri);
+  }
+
   addFile(file) {
+    file = '/' + file;
+    file = file.split('\\').join('/')
     console.log(file)
     this.etutoringService.uploadFile(this.classId, file).subscribe(data => {
       console.log(data)

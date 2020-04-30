@@ -6,6 +6,12 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatCardModule} from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,14 +41,9 @@ import { ListClassComponent } from './components/list-class/list-class.component
 import { DashboardClassComponent } from './components/dashboard-class/dashboard-class.component';
 
 import { MessagesComponent } from './components/messages/messages.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
-import { MatTableModule } from '@angular/material/table';
 import { VideoCallComponent } from './components/video-call/video-call.component';
 import { AngularAgoraRtcModule, AgoraConfig } from 'angular-agora-rtc';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatCardModule} from '@angular/material/card';
-import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+
 import { TutorDashboardComponent } from './components/tutor-dashboard/tutor-dashboard.component';
 import { AddScheduleComponent } from './components/add-schedule/add-schedule.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
@@ -52,6 +53,7 @@ import { ScheduleComponent } from './components/schedule/schedule.component';
 const agoraConfig: AgoraConfig = {
   AppID: '4a34bc8ca1784f468e04c0a07b487f34',
 };
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,7 +76,6 @@ const agoraConfig: AgoraConfig = {
     TutorDashboardComponent,
     AddScheduleComponent,
     ScheduleComponent,
-
   ],
   imports: [
     BrowserModule,

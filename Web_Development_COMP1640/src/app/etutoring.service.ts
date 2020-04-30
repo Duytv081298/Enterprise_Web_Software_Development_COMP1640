@@ -63,10 +63,6 @@ export class EtutoringService {
       return this.http.get<Schedule>(getSchedule.api,{ headers: headers, params: params })
     }
 
-    setUser(): User {
-      return this.loginComponent.getUser()
-    }
-
     getFile(classId ): Observable<File[]>{
       const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'}); 
       let params = new HttpParams().set('classId',classId);
@@ -75,8 +71,8 @@ export class EtutoringService {
 
     uploadFile(classId, nameFile ): Observable<boolean>{
       const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'}); 
-      let params = new HttpParams().set('classId',classId).set('file', nameFile)
-      return this.http.post<boolean>(uploadFile.api,{ headers: headers, params: params }).pipe(
+      let params = new HttpParams().set('classId',classId).set('file', '')
+      return this.http.post<boolean>(uploadFile.api,{ headers: headers, params: params }, nameFile ).pipe(
         map(userData => {return true}),
         catchError(error => of(false)))
     }

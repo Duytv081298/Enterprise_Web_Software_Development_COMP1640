@@ -88,7 +88,7 @@
                             data-parent="#accordion">
                             <div class="card-body">
                                 <div class="list-group " id="list-tab" role="tablist" *ngFor="let item of files">
-                                    <a class="list-group-item list-group-item-action mt-3">{{item.name}}</a>
+                                    <a class="list-group-item list-group-item-action mt-3" (click)="downloadFile(item)">{{item.name}}</a>
                                 </div>
                                 <input id="file-input" type="file" #valueFile />
                                 <button type="button" class="btn btn-success" (click)="addFile(valueFile.value)">
