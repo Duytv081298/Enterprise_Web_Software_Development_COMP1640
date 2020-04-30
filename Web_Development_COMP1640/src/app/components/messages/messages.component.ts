@@ -7,7 +7,7 @@ import { EtutoringService } from 'src/app/etutoring.service';
 import { catchError, map } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { File } from '../../models/files';
-
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-messages',
@@ -38,8 +38,9 @@ export class MessagesComponent implements OnInit {
   class: Class[] = [];
   user: string;
   room: string;
+  time: Date
   messageText: string;
-  messageArray: Array<{ user: string, message: string }> = [];
+  messageArray: Array<{ user: string, message: string, time: Date }> = [];
 
 
   constructor(private _chatService: ChatService,
@@ -61,8 +62,9 @@ export class MessagesComponent implements OnInit {
   }
 
   sendMessage() {
+    const currentTime = moment().format('hh:mm:ss a');
     console.log(this.messageArray)
-    this._chatService.sendMessage({ user: this.user, room: this.room, message: this.messageText });
+    this._chatService.sendMessage({ user: this.user, room: this.room, message: this.messageText, time: currentTime });
   }
 
   selectStudent(classes: Class) {
@@ -153,6 +155,8 @@ export class MessagesComponent implements OnInit {
     this.listClassService.getClassByStudent(studentId).subscribe(data => {
       this.classByStudent = data;
       this._chatService.joinRoom({ user: data.studentId, room: data.classId});
+      this.user = data.studentId
+      this.room = data.classId + ""
       this.getTutorByStudent(data.tutorId);
     })
   }
