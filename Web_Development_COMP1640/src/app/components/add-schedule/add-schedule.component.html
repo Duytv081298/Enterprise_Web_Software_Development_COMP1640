@@ -1,0 +1,57 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 col-sm-12">
+            <select #selectStudent (change)="onSelect(selectStudent.value)" class="form-control"
+                id="exampleFormControlSelect1">
+                <label for="exampleFormControlSelect1">Select Student</label>
+                <option *ngFor="let item of class">{{item.studentId}} {{item.studentName}}</option>
+            </select>
+            <app-schedule></app-schedule>
+        </div>
+        <app-time-table class="col-lg-6 col-sm-12"></app-time-table>
+    </div>
+    <div class="row">
+        
+        <div class="form-group col-3">
+            <label for="exampleFormControlSelect1">Select Date</label>
+            <input #inputDate type="date">
+        </div>
+        <!-- <mat-form-field>
+                <mat-label>Angular forms</mat-label>
+                <input matInput [matDatepicker]="picker1" [formControl]="date">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field> -->
+
+        <div class="form-group col-3">
+            <label for="exampleFormControlSelect1">Select Slot</label>
+            <select #inputSlot class="form-control" id="exampleFormControlSelect1">
+                <option value="0">slot1</option>
+                <option value="1">slot2</option>
+                <option value="2">slot3</option>
+                <option value="3">slot4</option>
+                <option value="4">slot5</option>
+                <option value="5">slot6</option>
+                <option value="6">slot7</option>
+                <option value="7">slot8</option>
+            </select>
+        </div>
+    </div>
+    <p *ngIf ="isDialog" class="text-danger">{{dataDialog}}</p>
+    <div class="row justify-content-center" *ngIf="showDialogfalse">
+        <div class="col-lg-8">
+           <div class="alert alert-danger alert-dismissable text-center">
+              <p class="h3 m-0">Add class fail</p>
+           </div>
+        </div>
+     </div>
+     <div class="row justify-content-center" *ngIf="showDialogtrue">
+        <div class="col-lg-8">
+           <div class="alert alert-info alert-dismissable text-center">
+              <p class="h3 m-0">Add class success</p>
+           </div>
+        </div>
+     </div>
+    <button (click)="addSchedule(inputDate.value, inputSlot.value)" class="btn btn-primary">Add Schedule</button>
+
+</div>

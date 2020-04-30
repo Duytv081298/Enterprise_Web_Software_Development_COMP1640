@@ -44,6 +44,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { TutorDashboardComponent } from './components/tutor-dashboard/tutor-dashboard.component';
+import { AddScheduleComponent } from './components/add-schedule/add-schedule.component';
+import { ScheduleComponent } from './components/schedule/schedule.component';
 
 
 
@@ -70,6 +72,8 @@ const agoraConfig: AgoraConfig = {
     MessagesComponent,
     VideoCallComponent,
     TutorDashboardComponent,
+    AddScheduleComponent,
+    ScheduleComponent,
 
   ],
   imports: [

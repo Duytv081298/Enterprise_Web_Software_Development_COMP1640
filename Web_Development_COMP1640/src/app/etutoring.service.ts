@@ -8,7 +8,7 @@ import { Tutor } from './models/tutor';
 import { User } from './models/user';
 import { File } from './models/files';
 import { Schedule } from './models/schedule';
-import { getStaff, getStudent, getTutor, getSchedule, getFile, uploadFile } from './models/api';
+import { getStaff, getStudent, getTutor, getSchedule, getFile, uploadFile, addSchedule } from './models/api';
 import { map, catchError } from 'rxjs/operators';
 
 
@@ -79,5 +79,12 @@ export class EtutoringService {
       return this.http.post<boolean>(uploadFile.api,{ headers: headers, params: params }).pipe(
         map(userData => {return true}),
         catchError(error => of(false)))
+    }
+
+    addSchedule(id,date,slot1,slot2,slot3,slot4,slot5,slot6,slot7,slot8): Observable<boolean>{
+      return this.http.post<boolean> (addSchedule.api,{id,date,slot1,slot2,slot3,slot4,slot5,slot6,slot7,slot8}).pipe(
+        catchError(error => of(false)),
+        map(scheduleData => {return true})
+      )
     }
 }
