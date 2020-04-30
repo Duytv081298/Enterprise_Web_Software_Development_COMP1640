@@ -17,10 +17,10 @@
                     </div>
                     <p *ngIf="result" class="text-danger">Your e-mail or password incorrect. Please , try again</p>
                     <div class="row justify-content-around">
-                        <button (click)="getTypeUser(username.value, password.value)" class="btn btn-success col-4">
+                        <button (click)="getTypeUser(username.value, password.value)" class="btn btn-outline-success col-4">
                             Login
                         </button>
-                        <button class="btn btn-warning text-white closeLogin col-4" data-dismiss="modal">Close</button>
+                        <button class="btn btn-outline-danger closeLogin col-4" data-dismiss="modal">Close</button>
                     </div>
                 </form>        
             </div>
