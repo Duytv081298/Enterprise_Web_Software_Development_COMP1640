@@ -42,6 +42,7 @@ export const getUser = {nameApi:'getUserApi', api:'http://localhost:8080/login'}
 
 // Schedule
 export const getSchedule ={nameApi: 'getScheduleApi', api: 'http://localhost:8080/schedules'};
+export const addSchedule ={nameApi: 'addScheduleApi', api: 'http://localhost:8080/schedules'};
 
 // Messages
 export const getMessage = {nameApi: 'getMessageApi', api:'http://localhost:8080/messages'}

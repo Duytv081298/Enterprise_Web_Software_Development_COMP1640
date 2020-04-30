@@ -23,3 +23,4 @@ export class Slot{
     day6: boolean;
     day7: boolean;
 }
+

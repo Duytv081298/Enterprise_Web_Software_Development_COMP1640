@@ -45,6 +45,8 @@ import { VideoCallComponent } from './components/video-call/video-call.component
 import { AngularAgoraRtcModule, AgoraConfig } from 'angular-agora-rtc';
 
 import { TutorDashboardComponent } from './components/tutor-dashboard/tutor-dashboard.component';
+import { AddScheduleComponent } from './components/add-schedule/add-schedule.component';
+import { ScheduleComponent } from './components/schedule/schedule.component';
 
 
 
@@ -72,7 +74,8 @@ const agoraConfig: AgoraConfig = {
     MessagesComponent,
     VideoCallComponent,
     TutorDashboardComponent,
-    
+    AddScheduleComponent,
+    ScheduleComponent,
   ],
   imports: [
     BrowserModule,
