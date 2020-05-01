@@ -1,10 +1,12 @@
-<body *ngIf="isVideoCall">
-    <app-video-call></app-video-call>
-    <button class="btn btn-primary" (click)="closeVideo()">End Video Call</button>
+<body *ngIf="isVideoCall" style="background: linear-gradient(to top right, #6699ff 0%, #ffccff 100%);">
+    <div class="container-fluid p-5">
+        <app-video-call></app-video-call>
+        <button class="btn btn-primary" (click)="closeVideo()">End Video Call</button>
+    </div> 
 </body>
 
 <body *ngIf="isMes">
-    <div class="container-fluid">
+    <div class="container-fluid p-5">
 
         <!-- Breadcrumb -->
         <div *ngIf="accountTutor">

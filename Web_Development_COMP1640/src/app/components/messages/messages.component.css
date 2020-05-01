@@ -1,6 +1,4 @@
-body{
-    background: linear-gradient(to top right, #6699ff 0%, #ffccff 100%);
-}
+
 .image-upload > input {
     display: none;
 }

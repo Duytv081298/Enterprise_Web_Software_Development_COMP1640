@@ -88,7 +88,6 @@ export class MessagesComponent implements OnInit {
       data => {
         this.files = data
         console.log(this.files)
-
       }
     )
   }
