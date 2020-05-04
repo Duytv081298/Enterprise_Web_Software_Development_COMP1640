@@ -21,33 +21,29 @@ export class SidebarComponent implements OnInit {
   }
   
   ngDoCheck() {
-    let newUser = this.user
-    this.user = JSON.parse(sessionStorage.getItem('user'))
+    
     this.CheckAccount();
-    this.receiveData()
-    if(newUser.username === this.user.username){
-      this.getUser.unsubscribe()
-    }
+    console.log(this.user)
   }
 
   CheckAccount() {
+    let newUser = this.user
+    this.user = JSON.parse(sessionStorage.getItem('user'))
     if (this.user.type == 'staff') {
-      this.accountStaff = 'staff';
+      
+        this.accountStaff = 'staff';
+        this.receiveData()
+        if(newUser.username == this.user.username){
+          this.getUser.unsubscribe()
+        }
     }
-    //  else if(this.user.type == 'student'){
-    //   this.accountStaff = 'student';
-    // } else if(this.user.type == 'tutor'){
-    //   this.accountStaff = 'tutor';
-    // }
+    
   }
 
   receiveData() {
-    if (this.user != null) {
       this.getUser = this.etutoringService.getUserbyUserName(this.user.type, this.user.username).subscribe(data => {
         this.username = data.username
         this.avatar = data.avatar
       })
-    }
   }
-
 }

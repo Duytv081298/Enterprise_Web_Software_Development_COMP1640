@@ -68,11 +68,12 @@ export class MessagesComponent implements OnInit {
     console.log(this.room);
     console.log(this.messageText);
     console.log(this.user);
+    
     this.etutoringService.addMess(0, this.room, null, this.messageText, this.user).subscribe(data => {
       console.log(data);
-      
     })
     this._chatService.sendMessage({ user: this.user, room: this.room, message: this.messageText, time: currentTime });
+    this.messageText = null
   }
 
   selectStudent(classes: Class) {
