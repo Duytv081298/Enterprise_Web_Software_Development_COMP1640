@@ -11,7 +11,10 @@ import { Class } from 'src/app/models/class';
 })
 export class StudentDashboardComponent implements OnInit {
 
+  student = JSON.parse(sessionStorage.getItem('student'));
+
   typeUser = JSON.parse(sessionStorage.getItem('user')).type
+
   name
   avatar
   user: string;
@@ -26,17 +29,26 @@ export class StudentDashboardComponent implements OnInit {
   }
 
   getId() {
+    if(this.student != null){
+      this.etutoringService.getUserbyUserName("student", this.student.username).subscribe(
+          data => {
+            this.name = data.name
+            this.avatar = data.avatar
+            this.CheckAccount(data.id);
+          }
+        )
+    }
     this.etutoringService.getUserbyUserName(this.typeUser,
       JSON.parse(sessionStorage.getItem('user')).username).subscribe(
         data => {
           this.name = data.name
           this.avatar = data.avatar
-          this.CheckAccount(data.id, data);
+          this.CheckAccount(data.id);
         }
       )
   }
 
-  CheckAccount(userId, user) {
+  CheckAccount(userId) {
     this.accountStudent = 'student';
     this.getClassByStudent(userId);
   }

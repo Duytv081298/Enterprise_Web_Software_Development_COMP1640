@@ -1,42 +1,39 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-
-import {Student} from '../../models/student'
-import {StudentsService} from '../list-of-students/students.service'
-import { catchError, map } from 'rxjs/operators';
-import {of} from 'rxjs'
 import { MatTableDataSource } from '@angular/material/table';
+import { Staff } from 'src/app/models/staff';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { EtutoringService } from 'src/app/etutoring.service';
+import { catchError, map } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
-  selector: 'app-list-of-students',
-  templateUrl: './list-of-students.component.html',
-  styleUrls: ['./list-of-students.component.css']
+  selector: 'app-list-of-staff',
+  templateUrl: './list-of-staff.component.html',
+  styleUrls: ['./list-of-staff.component.css']
 })
-export class ListOfStudentsComponent implements OnInit {
-
+export class ListOfStaffComponent implements OnInit {
   displayedColumns = ['no', 'id', 'name', 'dob', 'email', 'phone', 'address', 'action'];
 
-  dataSource: MatTableDataSource<Student>;
+  dataSource: MatTableDataSource<Staff>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  user = JSON.parse(sessionStorage.getItem('user'))
+  
+  constructor(private etutoringService: EtutoringService) { }
 
-  constructor(private studentsService: StudentsService,
-    ) { }
   ngOnInit(): void {
-    this.getStudent();
+    this.getStaff();
   }
 
-  getStudent():void{
-    this.studentsService.getStudent().pipe(
+  getStaff():void{
+    this.etutoringService.getListStaff().pipe(
       map(receivedStudents => 
         {
-          let students: Student[] = []
+          let staffs: Staff[] = []
           receivedStudents.forEach(a => {
-            let student:Student = {
+            let staff:Staff = {
               id :a[0],
               name:a[1],
               phoneNumber: a[2],
@@ -44,26 +41,23 @@ export class ListOfStudentsComponent implements OnInit {
               address: a[4],
               dateOfBirth: a[5],
               avatar:a[6],
-              username: a[7],
-              lastLogin: a[8]
+              username: a[7]
             }
-            students.push(student)
+            staffs.push(staff)
           })
-          return students
+          return staffs
       }) ,
       catchError(error => of([]))
     ).subscribe(data =>{
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-      
     } )
   }
-  
-  onSelect(student: Student){
-    sessionStorage.removeItem('student')
-    sessionStorage.removeItem('tutor')
-    sessionStorage.setItem('student',JSON.stringify(student))
+
+  onSelect(staff: Staff){
+    sessionStorage.removeItem('superStaffSelectStaff')
+    sessionStorage.setItem('superStaffSelectStaff',JSON.stringify(staff))
   }
 
 }

@@ -23,6 +23,8 @@ export class DashboardStaffComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
+  staff = JSON.parse(sessionStorage.getItem('superStaffSelectStaff'));
+
   numStudent: Number;
   numTutor: Number;
   numMess: Number;
@@ -42,6 +44,8 @@ export class DashboardStaffComponent implements OnInit {
     this.getStudentNoInteraction("7");
 
     this.getNumberOfStudentNoTutor();
+
+    console.log(this.staff)
   }
 
   getNumberStudent(): void {

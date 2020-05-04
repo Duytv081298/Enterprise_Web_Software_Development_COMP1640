@@ -6,5 +6,5 @@ export class Staff{
     address: string;
     dateOfBirth: Date;
     avatar: string;
-    username: string
+    username: string;
 }
