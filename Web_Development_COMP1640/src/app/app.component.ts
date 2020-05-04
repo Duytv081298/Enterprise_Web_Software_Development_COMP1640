@@ -28,7 +28,8 @@ export class AppComponent implements OnInit {
   accountStaff = null;
   accountStudent = null;
   accountTutor = null;
-
+  accountSuperStaff = null;
+ 
   constructor(private router: Router) { }
   ngOnInit(): void {
 
@@ -45,26 +46,30 @@ export class AppComponent implements OnInit {
       this.logout = 'logout';
       if(this.user.type == 'staff'){
         this.accountStaff = "show";
+        this.accountSuperStaff = null;
         this.accountStudent = null;
         this.accountTutor = null;
         console.log(this.user.username)
       } else if(this.user.type == 'student'){
         this.accountStudent = "show";
+        this.accountSuperStaff = null;
         this.accountStaff = null;
         this.accountTutor = null;
       } else if(this.user.type == 'tutor'){
         this.accountTutor = "show";
+        this.accountSuperStaff = null;
         this.accountStaff = null;
         this.accountStudent = null;
       } else if(this.user.type == 'authorized'){
-        this.accountStaff = "show";
+        this.accountSuperStaff = "show";
+        this.accountStaff = null;
         this.accountStudent = null;
         this.accountTutor = null;
-        console.log(this.user.username)
       }
     } else {
       this.login = 'login';
       this.logout = null;
+      this.accountSuperStaff = null;
       this.accountStaff = null;
       this.accountTutor = null;
       this.accountStudent = null;
