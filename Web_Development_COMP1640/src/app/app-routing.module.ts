@@ -20,11 +20,11 @@ import { MessagesComponent } from './components/messages/messages.component';
 import { StudentDashboardComponent } from './components/student-dashboard/student-dashboard.component';
 import { TutorDashboardComponent } from './components/tutor-dashboard/tutor-dashboard.component';
 import { AddScheduleComponent } from './components/add-schedule/add-schedule.component';
-import { DashboardSuperStaffComponent } from './components/dashboard-super-staff/dashboard-super-staff.component';
+import { SuperStaffComponent } from './components/super-staff/super-staff.component';
 
 
 const routes: Routes = [
-  { path: 'superstaff/Dashboard', component: DashboardSuperStaffComponent ,canActivate:[AuthGaurdService]},
+  { path: 'superStaff/Dashboard', component: SuperStaffComponent ,canActivate:[AuthGaurdService]},
   { path: 'staff/Dashboard', component: DashboardStaffComponent ,canActivate:[AuthGaurdService]},
   { path: 'staff/AddClass', component: AddClassComponent ,canActivate:[AuthGaurdService]},
   { path: 'staff/ListTutors', component: ListOfTutorsComponent ,canActivate:[AuthGaurdService]},

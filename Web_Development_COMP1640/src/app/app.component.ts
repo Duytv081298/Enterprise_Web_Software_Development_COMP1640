@@ -17,14 +17,14 @@ export class AppComponent implements OnInit {
   title = 'Web-Development-COMP1640';
   user = JSON.parse(sessionStorage.getItem('user'))
 
-
-  staff: Staff
-  tutor: Tutor
-  student: Student
+  // superstaff : Staff
+  // staff : Staff
+  // tutor : Tutor
+  // student : Student
 
   login = null;
   logout = null;
-
+ 
   accountStaff = null;
   accountStudent = null;
   accountTutor = null;
@@ -36,6 +36,7 @@ export class AppComponent implements OnInit {
   ngDoCheck() {
     this.user = JSON.parse(sessionStorage.getItem('user'))
     this.showLogin()
+    console.log(this.user)
   }
 
   showLogin() {
@@ -44,14 +45,22 @@ export class AppComponent implements OnInit {
       this.logout = 'logout';
       if(this.user.type == 'staff'){
         this.accountStaff = "show";
-      } else if(this.user.type == 'student'){
-        this.accountStudent = "show";
-      } else if(this.user.type == 'tutor'){
-        this.accountTutor = "show";
-      } else{
-        this.accountStaff = null;
         this.accountStudent = null;
         this.accountTutor = null;
+        console.log(this.user.username)
+      } else if(this.user.type == 'student'){
+        this.accountStudent = "show";
+        this.accountStaff = null;
+        this.accountTutor = null;
+      } else if(this.user.type == 'tutor'){
+        this.accountTutor = "show";
+        this.accountStaff = null;
+        this.accountStudent = null;
+      } else if(this.user.type == 'authorized'){
+        this.accountStaff = "show";
+        this.accountStudent = null;
+        this.accountTutor = null;
+        console.log(this.user.username)
       }
     } else {
       this.login = 'login';
@@ -59,6 +68,7 @@ export class AppComponent implements OnInit {
       this.accountStaff = null;
       this.accountTutor = null;
       this.accountStudent = null;
+      console.log(this.user)
     }
   }
 

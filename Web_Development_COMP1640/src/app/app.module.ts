@@ -47,7 +47,7 @@ import { AngularAgoraRtcModule, AgoraConfig } from 'angular-agora-rtc';
 import { TutorDashboardComponent } from './components/tutor-dashboard/tutor-dashboard.component';
 import { AddScheduleComponent } from './components/add-schedule/add-schedule.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
-import { DashboardSuperStaffComponent } from './components/dashboard-super-staff/dashboard-super-staff.component';
+import { SuperStaffComponent } from './components/super-staff/super-staff.component';
 
 
 
@@ -77,7 +77,7 @@ const agoraConfig: AgoraConfig = {
     TutorDashboardComponent,
     AddScheduleComponent,
     ScheduleComponent,
-    DashboardSuperStaffComponent,
+    SuperStaffComponent,
   ],
   imports: [
     BrowserModule,

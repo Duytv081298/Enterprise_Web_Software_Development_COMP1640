@@ -1,9 +1,16 @@
 <header>
     <nav class="navbar fixed-top" style="background: rgb(255, 111, 97)">
         <a *ngIf="login" href="#"><i class="fa fa-graduation-cap mr-3" style="font-size: xx-large;">E-Tutoring</i></a>
+       
         <a *ngIf="accountStaff" routerLink="/staff/Dashboard"><i class="fa fa-graduation-cap mr-3" style="font-size: xx-large;">E-Tutoring</i></a>
         <a *ngIf="accountStudent" routerLink="/student/Dashboard"><i class="fa fa-graduation-cap mr-3" style="font-size: xx-large;">E-Tutoring</i></a>
         <a *ngIf="accountTutor" routerLink="/tutor/Dashboard"><i class="fa fa-graduation-cap mr-3" style="font-size: xx-large;">E-Tutoring</i></a>
+        
+
+        <!-- <button *ngIf="accountSuperStaff" type="button" (click)="sidenav.toggle()"
+            class="navbar-toggler sidebar-toggle-mobile mr-auto">
+            <i class="fa fa-bars" style="font-size: 1.4em;"></i>
+        </button> -->
 
         <button *ngIf="accountStaff" type="button" (click)="sidenav.toggle()"
             class="navbar-toggler sidebar-toggle-mobile mr-auto">

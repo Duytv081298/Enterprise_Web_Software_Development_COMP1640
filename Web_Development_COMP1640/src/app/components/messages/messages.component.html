@@ -61,16 +61,14 @@
                             <p class="card-title">{{item.message}}</p>
                             <p class="card-text">{{item.time}}</p>
                         </div>
-
                         <div class="borderMes mr-auto text-center card" *ngIf="item.user != user">
                             <p class="card-title">{{item.message}}</p>
                             <p class="card-text">{{item.time}}</p>
                         </div>
-                        <!-- <p class="borderMes mr-auto text-center" *ngIf="item.user != user">{{item.message}}</p> -->
                     </div>
                 </div>
                 <div class="input-group mt-auto">
-                    <input type="text" class="form-control" placeholder="Enter message..." [(ngModel)]="messageText">
+                    <input type="text" class="form-control" placeholder="Enter message..." [(ngModel)]="messageText" (keyup.enter)="sendMessage()">
                     <div class="input-group-append">
                         <button class="btn btn-outline-primary" type="button" (click)="sendMessage()">
                             <i class="fa fa-paper-plane"></i>
@@ -105,6 +103,7 @@
                                         (click)="downloadFile(item)">{{item.name}}</a>
                                 </div>
                                 <input id="file-input" type="file" #valueFile />
+                                
                                 <button type="button" class="btn btn-success" (click)="addFile(valueFile.value)">
                                     Add File
                                 </button>
