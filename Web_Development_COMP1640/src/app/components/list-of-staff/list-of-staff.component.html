@@ -25,11 +25,6 @@
                         <mat-cell *matCellDef="let row"> {{row.name}}</mat-cell>
                     </ng-container>
 
-                    <ng-container matColumnDef="dob">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> <b>D.o.B</b> </mat-header-cell>
-                        <mat-cell *matCellDef="let row"> {{row.dateOfBirth}}</mat-cell>
-                    </ng-container>
-
                     <ng-container matColumnDef="email">
                         <mat-header-cell *matHeaderCellDef mat-sort-header> <b>Email</b> </mat-header-cell>
                         <mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
@@ -38,11 +33,6 @@
                     <ng-container matColumnDef="phone">
                         <mat-header-cell *matHeaderCellDef mat-sort-header> <b>Phone</b> </mat-header-cell>
                         <mat-cell *matCellDef="let row"> {{row.phoneNumber}}</mat-cell>
-                    </ng-container>
-
-                    <ng-container matColumnDef="address">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> <b>Address</b> </mat-header-cell>
-                        <mat-cell *matCellDef="let row"> {{row.address}}</mat-cell>
                     </ng-container>
 
                     <ng-container matColumnDef="action">

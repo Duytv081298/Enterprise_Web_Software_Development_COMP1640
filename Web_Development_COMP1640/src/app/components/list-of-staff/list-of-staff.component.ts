@@ -13,7 +13,7 @@ import { of } from 'rxjs';
   styleUrls: ['./list-of-staff.component.css']
 })
 export class ListOfStaffComponent implements OnInit {
-  displayedColumns = ['no', 'id', 'name', 'dob', 'email', 'phone', 'address', 'action'];
+  displayedColumns = ['no', 'id', 'name', 'email', 'phone', 'action'];
 
   dataSource: MatTableDataSource<Staff>;
 

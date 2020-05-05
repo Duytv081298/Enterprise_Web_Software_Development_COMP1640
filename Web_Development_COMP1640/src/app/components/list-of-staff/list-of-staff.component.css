@@ -21,7 +21,6 @@
   
   .mat-table {
     overflow: auto;
-    max-height: 600px;
   }
   
   b{
@@ -52,30 +51,19 @@
     }
     
     .mat-column-id {
-      max-width: 15%;
+      max-width: 12%;
     }
     
     .mat-column-name {
-      max-width: 25%;
-    }
-    
-    .mat-column-dob {
-      max-width: 0;
-      display: none;
+      max-width: 22%;
     }
     
     .mat-column-email {
-      max-width: 40%;
+      max-width: 31%;
     }
     
     .mat-column-phone {
-      max-width: 0;
-      display: none;
-    }
-    
-    .mat-column-address {
-      max-width: 0;
-      display: none;
+      max-width: 15%;
     }
     
     .mat-column-action {
@@ -109,21 +97,11 @@
       max-width: 25%;
     }
     
-    .mat-column-dob {
-      max-width: 0;
-      display: none;
-    }
-    
     .mat-column-email {
       max-width: 40%;
     }
     
     .mat-column-phone {
-      max-width: 0;
-      display: none;
-    }
-    
-    .mat-column-address {
       max-width: 0;
       display: none;
     }
@@ -140,41 +118,31 @@
     }
     
     b{
-      font-size: small;
+      font-size: medium;
     }
     
     .mat-cell{
-      font-size: x-small;
+      font-size: small;
     }
   
     .mat-column-no {
-      max-width: 5%;
+      max-width: 8%;
     }
     
     .mat-column-id {
-      max-width: 10%;
+      max-width: 13%;
     }
     
     .mat-column-name {
       max-width: 20%;
     }
     
-    .mat-column-dob {
-      max-width: 11%;
-      display: inline-flex;
-    }
-    
     .mat-column-email {
-      max-width: 25%;
+      max-width: 31%;
     }
     
     .mat-column-phone {
-      max-width: 10%;
-      display: inline-flex;
-    }
-    
-    .mat-column-address {
-      max-width: 11%;
+      max-width: 20%;
       display: inline-flex;
     }
     
@@ -190,46 +158,36 @@
     }
     
     b{
-      font-size: medium;
+      font-size: small;
     }
     
     .mat-cell{
-      font-size: small;
+      font-size: x-small;
     }
   
     .mat-column-no {
-      max-width: 5%;
+      max-width: 8%;
     }
     
     .mat-column-id {
-      max-width: 10%;
+      max-width: 15%;
     }
     
     .mat-column-name {
-      max-width: 20%;
-    }
-    
-    .mat-column-dob {
-      max-width: 11%;
-      display: inline-flex;
+      max-width: 21%;
     }
     
     .mat-column-email {
-      max-width: 25%;
+      max-width: 30%;
     }
     
     .mat-column-phone {
-      max-width: 10%;
-      display: inline-flex;
-    }
-    
-    .mat-column-address {
-      max-width: 13%;
+      max-width: 15%;
       display: inline-flex;
     }
     
     .mat-column-action {
-      max-width: 6%;
+      max-width: 11%;
     }
   } 
   
@@ -289,7 +247,6 @@
     .example-container {
       display: flex;
       flex-direction: column;
-      min-width: 350px;
     }
         
     .example-header {
