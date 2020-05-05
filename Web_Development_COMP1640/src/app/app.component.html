@@ -27,7 +27,7 @@
             <li *ngIf="logout" class="nav-item dropdown align-self-center">
                 <a class="nav-link dropdown-toggle text-dark border text-center" style="width: 200px"
                     data-toggle="dropdown" href="#">
-                    <b> {{user.username}} </b></a>
+                    <b> {{name}} </b></a>
                 <div class="dropdown-menu dropdown-menu-right m-0 p-2">
                     <p class="text-center p-1 py-2 alert alert-primary" role="alert">Welcome to E-tutoring!</p>
                     <a *ngIf="accountStaff || accountStudent || accountTutor" class=" dropdown-item" routerLink="/profile"><i class="fa fa-user-circle-o mr-2"></i> Profile</a>

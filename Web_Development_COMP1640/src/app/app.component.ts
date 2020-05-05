@@ -1,7 +1,4 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
-import { LoginComponent } from '../app/components/login/login.component'
-import { User } from '../app/models/user';
-import { EtutoringService } from './etutoring.service';
 import { Staff } from './models/staff';
 import { Tutor } from './models/tutor';
 import { Student } from './models/student';
@@ -17,14 +14,14 @@ export class AppComponent implements OnInit {
   title = 'Web-Development-COMP1640';
   user = JSON.parse(sessionStorage.getItem('user'))
 
-  // superstaff : Staff
-  // staff : Staff
-  // tutor : Tutor
-  // student : Student
-
   login = null;
   logout = null;
- 
+
+  staff : Staff
+  tutor : Tutor
+  student : Student
+  name
+  
   accountStaff = null;
   accountStudent = null;
   accountTutor = null;
@@ -37,7 +34,6 @@ export class AppComponent implements OnInit {
   ngDoCheck() {
     this.user = JSON.parse(sessionStorage.getItem('user'))
     this.showLogin()
-    console.log(this.user)
   }
 
   showLogin() {
@@ -45,22 +41,25 @@ export class AppComponent implements OnInit {
       this.login = null;
       this.logout = 'logout';
       if(this.user.type == 'staff'){
+        this.name = JSON.parse(sessionStorage.getItem('staffLogin')).name;
         this.accountStaff = "show";
         this.accountSuperStaff = null;
         this.accountStudent = null;
         this.accountTutor = null;
-        console.log(this.user.username)
       } else if(this.user.type == 'student'){
+        this.name = JSON.parse(sessionStorage.getItem('studentLogin')).name;
         this.accountStudent = "show";
         this.accountSuperStaff = null;
         this.accountStaff = null;
         this.accountTutor = null;
       } else if(this.user.type == 'tutor'){
+        this.name = JSON.parse(sessionStorage.getItem('tutorLogin')).name;
         this.accountTutor = "show";
         this.accountSuperStaff = null;
         this.accountStaff = null;
         this.accountStudent = null;
       } else if(this.user.type == 'authorized'){
+        this.name = JSON.parse(sessionStorage.getItem('user')).username;
         this.accountSuperStaff = "show";
         this.accountStaff = null;
         this.accountStudent = null;
@@ -73,7 +72,6 @@ export class AppComponent implements OnInit {
       this.accountStaff = null;
       this.accountTutor = null;
       this.accountStudent = null;
-      console.log(this.user)
     }
   }
 

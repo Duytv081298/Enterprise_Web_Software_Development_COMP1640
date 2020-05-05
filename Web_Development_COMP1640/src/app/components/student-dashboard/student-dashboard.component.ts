@@ -3,6 +3,7 @@ import { EtutoringService } from 'src/app/etutoring.service';
 import { ListClassService } from '../list-class/list-class.service';
 import { Tutor } from 'src/app/models/tutor';
 import { Class } from 'src/app/models/class';
+import { Student } from 'src/app/models/student';
 
 @Component({
   selector: 'app-student-dashboard',
@@ -11,10 +12,11 @@ import { Class } from 'src/app/models/class';
 })
 export class StudentDashboardComponent implements OnInit {
 
-  student = JSON.parse(sessionStorage.getItem('student'));
+  student : Student = JSON.parse(sessionStorage.getItem('student'));
 
   typeUser = JSON.parse(sessionStorage.getItem('user')).type
 
+  a = null;
   name
   avatar
   user: string;
@@ -30,6 +32,7 @@ export class StudentDashboardComponent implements OnInit {
 
   getId() {
     if(this.student != null){
+      this.a = this.student.name
       this.etutoringService.getUserbyUserName("student", this.student.username).subscribe(
           data => {
             this.name = data.name
@@ -37,6 +40,9 @@ export class StudentDashboardComponent implements OnInit {
             this.CheckAccount(data.id);
           }
         )
+    }
+    else{
+      this.a = null;
     }
     this.etutoringService.getUserbyUserName(this.typeUser,
       JSON.parse(sessionStorage.getItem('user')).username).subscribe(

@@ -1,7 +1,9 @@
-import { Component, OnInit , Output, EventEmitter} from '@angular/core';
-import {LoginService} from '../login/login.service'
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { LoginService } from '../login/login.service'
 import { User } from 'src/app/models/user';
 import { Router } from '@angular/router';
+
+import { EtutoringService } from 'src/app/etutoring.service';
 
 
 @Component({
@@ -10,36 +12,38 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  user : User
-  result : String
-  id:String
+  user: User
+  result: String
+  id: String
 
-  constructor(
-    private router: Router,
-    private loginService: LoginService, ) { }
-  ngOnInit(): void {}
+  constructor(private router: Router, private loginService: LoginService, private etutoringService : EtutoringService ) { }
 
-  getTypeUser(username, password){
-      this.loginService.getTypeUser(username, password)
+  ngOnInit(): void { }
+
+  getTypeUser(username, password) {
+    this.loginService.getTypeUser(username, password)
       .subscribe(
         data => {
           this.user = data
           console.log(this.user)
-          if( this.user == null){
+          if (this.user == null) {
             this.result = 'e-mail'
-          }else{
+          } else {
             let element: HTMLElement = document.getElementsByClassName('closeLogin')[0] as HTMLElement;
             element.click();
-            if(this.user.type == 'staff'){
+            if (this.user.type == 'staff') {
+              this.etutoringService.getStaff(data.username).subscribe(staffLogin => {sessionStorage.setItem('staffLogin', JSON.stringify(staffLogin))})
               this.setUser(this.user)
               this.router.navigate(['/staff/Dashboard'])
-            }else if(this.user.type == 'tutor'){
+            } else if (this.user.type == 'tutor') {
+              this.etutoringService.getTutor(data.username).subscribe(tutorLogin => {sessionStorage.setItem('tutorLogin', JSON.stringify(tutorLogin))})
               this.setUser(this.user)
               this.router.navigate(['/tutor/Dashboard'])
-            }else if(this.user.type == 'student'){
+            } else if (this.user.type == 'student') {
+              this.etutoringService.getStudent(data.username).subscribe(studentLogin => {sessionStorage.setItem('studentLogin', JSON.stringify(studentLogin))})
               this.setUser(this.user)
               this.router.navigate(['/student/Dashboard'])
-            } else if(this.user.type == 'authorized') {
+            } else if (this.user.type == 'authorized') {
               this.setUser(this.user)
               this.router.navigate(['/superStaff/Dashboard'])
             }
@@ -50,12 +54,12 @@ export class LoginComponent implements OnInit {
     let user = sessionStorage.getItem('user')
     return !(user === null)
   }
-  getUser(): User{
-    let user : User = null 
+  getUser(): User {
+    let user: User = null
     user = JSON.parse(sessionStorage.getItem('user'))
     return user
   }
-  setUser(user: User){
+  setUser(user: User) {
     sessionStorage.setItem('user', JSON.stringify(user))
   }
 

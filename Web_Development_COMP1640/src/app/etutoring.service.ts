@@ -11,13 +11,13 @@ import { getStaff, getStudent, getTutor, getSchedule, getFile, uploadFile, addSc
 import { map, catchError } from 'rxjs/operators';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class EtutoringService {
-  constructor(private http: HttpClient,
-    private loginComponent: LoginComponent, ) { }
+  constructor(private http: HttpClient) { }
 
   getStaff(username): Observable<Staff> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' });
