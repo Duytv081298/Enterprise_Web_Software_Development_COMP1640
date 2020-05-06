@@ -206,7 +206,7 @@
     }
   
     .mat-column-no {
-      max-width: 5%;
+      max-width: 9%;
     }
     
     .mat-column-id {
@@ -214,30 +214,20 @@
     }
     
     .mat-column-name {
-      max-width: 20%;
-    }
-    
-    .mat-column-dob {
-      max-width: 11%;
-      display: inline-flex;
+      max-width: 23%;
     }
     
     .mat-column-email {
-      max-width: 25%;
+      max-width: 30%;
     }
     
     .mat-column-phone {
-      max-width: 10%;
-      display: inline-flex;
-    }
-    
-    .mat-column-address {
-      max-width: 13%;
+      max-width: 19%;
       display: inline-flex;
     }
     
     .mat-column-action {
-      max-width: 6%;
+      max-width: 10%;
     }
   }
   
