@@ -47,3 +47,6 @@ Thumbs.db
 
 Web_Development_COMP1640/node_modules
 Web_Development_COMP1640\node_modules
+
+server/node_modules
+server\node_modules

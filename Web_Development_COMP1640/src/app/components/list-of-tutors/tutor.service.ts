@@ -15,6 +15,7 @@ export class TutorService {
   getTutor(): Observable<Tutor[]> {
     return this.http.get<Tutor[]>(getTutor.api)
   }
+  
   constructor(
     private http: HttpClient, 
   ) { }
