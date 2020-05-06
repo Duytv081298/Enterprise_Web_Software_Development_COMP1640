@@ -8,6 +8,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 import * as Chart from 'chart.js'
+import { Staff } from 'src/app/models/staff';
 
 
 @Component({
@@ -22,6 +23,8 @@ export class DashboardStaffComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+
+  a 
 
   numStudent: Number;
   numTutor: Number;
@@ -42,6 +45,14 @@ export class DashboardStaffComponent implements OnInit {
     this.getStudentNoInteraction("7");
 
     this.getNumberOfStudentNoTutor();
+
+    if(JSON.parse(sessionStorage.getItem('superStaffSelectStaff')) != null){
+      this.a = JSON.parse(sessionStorage.getItem('superStaffSelectStaff')).name;
+    }
+    else{
+      this.a = null;
+    }
+
   }
 
   getNumberStudent(): void {
@@ -67,7 +78,6 @@ export class DashboardStaffComponent implements OnInit {
   getStudentNoInteraction(days: string): void {
     let newstr = days.replace("days", " ");
     newstr = newstr.trim();
-    console.log(newstr);
 
     this.dashboardStaffService.getStudentNoInteraction(newstr).pipe(
       map(receivedStudents => {
@@ -129,6 +139,7 @@ export class DashboardStaffComponent implements OnInit {
         }
       });
   }
+
   //get number for chart
   getNumberOfStudentNoTutor(): void {
     let numStudent : number;
@@ -141,6 +152,5 @@ export class DashboardStaffComponent implements OnInit {
       });
     }); 
   }
-
 
 }

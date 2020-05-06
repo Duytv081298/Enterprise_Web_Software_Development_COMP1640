@@ -1,16 +1,10 @@
 <header>
     <nav class="navbar fixed-top" style="background: rgb(255, 111, 97)">
         <a *ngIf="login" href="#"><i class="fa fa-graduation-cap mr-3" style="font-size: xx-large;">E-Tutoring</i></a>
-       
+        <a *ngIf="accountSuperStaff" routerLink="/superStaff/Dashboard"><i class="fa fa-graduation-cap mr-3" style="font-size: xx-large;">E-Tutoring</i></a>
         <a *ngIf="accountStaff" routerLink="/staff/Dashboard"><i class="fa fa-graduation-cap mr-3" style="font-size: xx-large;">E-Tutoring</i></a>
         <a *ngIf="accountStudent" routerLink="/student/Dashboard"><i class="fa fa-graduation-cap mr-3" style="font-size: xx-large;">E-Tutoring</i></a>
         <a *ngIf="accountTutor" routerLink="/tutor/Dashboard"><i class="fa fa-graduation-cap mr-3" style="font-size: xx-large;">E-Tutoring</i></a>
-        
-
-        <!-- <button *ngIf="accountSuperStaff" type="button" (click)="sidenav.toggle()"
-            class="navbar-toggler sidebar-toggle-mobile mr-auto">
-            <i class="fa fa-bars" style="font-size: 1.4em;"></i>
-        </button> -->
 
         <button *ngIf="accountStaff" type="button" (click)="sidenav.toggle()"
             class="navbar-toggler sidebar-toggle-mobile mr-auto">
@@ -33,10 +27,10 @@
             <li *ngIf="logout" class="nav-item dropdown align-self-center">
                 <a class="nav-link dropdown-toggle text-dark border text-center" style="width: 200px"
                     data-toggle="dropdown" href="#">
-                    <b> {{user.username}} </b></a>
+                    <b> {{name}} </b></a>
                 <div class="dropdown-menu dropdown-menu-right m-0 p-2">
-                    <p class="text-center p-1 py-2" style="background-color: darkgrey;">WELCOME!</p>
-                    <a class=" dropdown-item" routerLink="/profile"><i class="fa fa-user-circle-o mr-2"></i> Profile</a>
+                    <p class="text-center p-1 py-2 alert alert-primary" role="alert">Welcome to E-tutoring!</p>
+                    <a *ngIf="accountStaff || accountStudent || accountTutor" class=" dropdown-item" routerLink="/profile"><i class="fa fa-user-circle-o mr-2"></i> Profile</a>
                     <div class="dropdown-divider"></div>
                     <a href="#" *ngIf="logout" class="dropdown-item clickLogout" (click)="logOut()"><i
                             class="fa fa-sign-out mr-2"></i> Sign Out</a>

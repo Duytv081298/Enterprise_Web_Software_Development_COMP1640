@@ -7,8 +7,9 @@ import { Student } from './models/student';
 import { Tutor } from './models/tutor';
 import { File } from './models/files';
 import { Schedule } from './models/schedule';
-import { getStaff, getStudent, getTutor, getSchedule, getFile, uploadFile, addSchedule, addMess } from './models/api';
+import { getStaff, getStudent, getTutor, getSchedule, getFile, uploadFile, addSchedule, addMess, getListStaff } from './models/api';
 import { map, catchError } from 'rxjs/operators';
+
 
 
 @Injectable({
@@ -16,8 +17,7 @@ import { map, catchError } from 'rxjs/operators';
 })
 
 export class EtutoringService {
-  constructor(private http: HttpClient,
-    private loginComponent: LoginComponent, ) { }
+  constructor(private http: HttpClient) { }
 
   getStaff(username): Observable<Staff> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' });
@@ -88,4 +88,9 @@ export class EtutoringService {
       map(messData => { return true })
     )
   }
+
+  getListStaff(): Observable<Staff[]> {
+    return this.http.get<Staff[]>(getListStaff.api)
+  }
+  
 }

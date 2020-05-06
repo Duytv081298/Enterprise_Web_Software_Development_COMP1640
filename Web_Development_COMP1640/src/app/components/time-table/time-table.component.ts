@@ -14,6 +14,7 @@ import { Student } from 'src/app/models/student';
 })
 
 export class TimeTableComponent implements OnInit, DoCheck {
+  superStaffSelectStudent = JSON.parse(sessionStorage.getItem('student'));
   user: User = this.loginComponent.getUser()
   @Input() tutor: Tutor
   @Input() student: Student
@@ -166,7 +167,18 @@ export class TimeTableComponent implements OnInit, DoCheck {
           this.addSlot(data)
         }
       )
-    } if (this.student != null) {
+    }
+
+    if(this.superStaffSelectStudent != null){
+      this.etutoringService.getSchedule('studentId', this.superStaffSelectStudent.id, fromDate, toDate).subscribe(
+        data => {
+          this.schedules = data
+          this.addSlot(data)
+        }
+      )
+    }
+    
+    if (this.student != null) {
       this.etutoringService.getSchedule('studentId', this.student.id, fromDate, toDate).subscribe(
         data => {
           this.schedules = data

@@ -20,6 +20,8 @@ export const addClass = {nameApi:'addClassApi', api:'http://localhost:8080/class
 export const getClassByTutor = {nameApi:'getClassByTutorApi', api:'http://localhost:8080/classes/tutors'}
 export const getNumberStudentOfTutor = {nameApi: 'getNumberStudentOfTutorApi', api: 'http://localhost:8080/tutors/students'}
 
+//Dashboard-superstaff
+export const getListStaff = {nameApi: 'getListStaffApi', api: 'http://localhost:8080/staffs'}
 
 // Dashboard-staff
 export const getNumberOfStudent = {nameApi:'getNumberOfStudentApi', api:'http://localhost:8080/students/total'}

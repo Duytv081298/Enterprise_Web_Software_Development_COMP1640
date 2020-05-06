@@ -1,5 +1,4 @@
-<div class="modal fade " id="login" data-backdrop="static" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade " id="login" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered " role="document">
         <mat-card class="modal-content">
             <div class="container bg-white p-4">
@@ -14,15 +13,19 @@
                             <label>Password:</label>
                             <input type="password" class="form-control" #password placeholder="Enter password">
                         </div>
+                        <p *ngIf="loginUser" class="text-danger">Your e-mail or password incorrect. Please , try again</p>
                     </div>
-                    <p *ngIf="result" class="text-danger">Your e-mail or password incorrect. Please , try again</p>
+
+
+
                     <div class="row justify-content-around">
+
                         <button (click)="getTypeUser(username.value, password.value)" class="btn btn-outline-success col-4">
                             Login
                         </button>
                         <button class="btn btn-outline-danger closeLogin col-4" data-dismiss="modal">Close</button>
                     </div>
-                </form>        
+                </form>
             </div>
         </mat-card>
     </div>

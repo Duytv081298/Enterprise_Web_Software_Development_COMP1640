@@ -25,7 +25,6 @@ import { SuperStaffComponent } from './components/super-staff/super-staff.compon
 
 const routes: Routes = [
   { path: 'superStaff/Dashboard', component: SuperStaffComponent ,canActivate:[AuthGaurdService]},
-
   { path: 'staff/Dashboard', component: DashboardStaffComponent ,canActivate:[AuthGaurdService]},
   { path: 'staff/AddClass', component: AddClassComponent ,canActivate:[AuthGaurdService]},
   { path: 'staff/ListTutors', component: ListOfTutorsComponent ,canActivate:[AuthGaurdService]},

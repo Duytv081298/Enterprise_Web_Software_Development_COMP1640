@@ -22,6 +22,7 @@ export class ListOfStudentsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
+  user = JSON.parse(sessionStorage.getItem('user'))
 
   constructor(private studentsService: StudentsService,
     ) { }

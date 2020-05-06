@@ -48,6 +48,7 @@ import { TutorDashboardComponent } from './components/tutor-dashboard/tutor-dash
 import { AddScheduleComponent } from './components/add-schedule/add-schedule.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
 import { SuperStaffComponent } from './components/super-staff/super-staff.component';
+import { ListOfStaffComponent } from './components/list-of-staff/list-of-staff.component';
 
 
 
@@ -78,6 +79,7 @@ const agoraConfig: AgoraConfig = {
     AddScheduleComponent,
     ScheduleComponent,
     SuperStaffComponent,
+    ListOfStaffComponent,
   ],
   imports: [
     BrowserModule,
