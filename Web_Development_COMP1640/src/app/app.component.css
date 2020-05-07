@@ -3,6 +3,13 @@ a{
     color: black;
 }
 
+#logo{
+    font-size: xx-large;
+}
+
+#toggler{
+    font-size: xx-large;
+}
 
 mat-sidenav {
     width: 300px;
@@ -30,14 +37,15 @@ mat-sidenav-container{
 }
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-    #main {
-        margin-top: 100px;
-    }
-}
 
-@media only screen and (max-width: 343px) {
-    #main {margin-top: 138px;}
+@media only screen and (max-width: 600px) {
+    #logo{
+        font-size: medium;
+    }
+
+    #toggler{
+        font-size: medium;
+    }
 }
 
 

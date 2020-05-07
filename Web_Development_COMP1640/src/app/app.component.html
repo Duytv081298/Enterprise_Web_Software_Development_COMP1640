@@ -1,14 +1,14 @@
 <header>
     <nav class="navbar fixed-top" style="background: rgb(255, 111, 97)">
-        <a *ngIf="login" href="#"><i class="fa fa-graduation-cap mr-3" style="font-size: xx-large;">E-Tutoring</i></a>
-        <a *ngIf="accountSuperStaff" routerLink="/superStaff/Dashboard"><i class="fa fa-graduation-cap mr-3" style="font-size: xx-large;">E-Tutoring</i></a>
-        <a *ngIf="accountStaff" routerLink="/staff/Dashboard"><i class="fa fa-graduation-cap mr-3" style="font-size: xx-large;">E-Tutoring</i></a>
-        <a *ngIf="accountStudent" routerLink="/student/Dashboard"><i class="fa fa-graduation-cap mr-3" style="font-size: xx-large;">E-Tutoring</i></a>
-        <a *ngIf="accountTutor" routerLink="/tutor/Dashboard"><i class="fa fa-graduation-cap mr-3" style="font-size: xx-large;">E-Tutoring</i></a>
+        <a id="logo" *ngIf="login" href="#"><i class="fa fa-graduation-cap mr-3">E-Tutoring</i></a>
+        <a id="logo" *ngIf="accountSuperStaff" routerLink="/superStaff/Dashboard"><i class="fa fa-graduation-cap mr-3">E-Tutoring</i></a>
+        <a id="logo" *ngIf="accountStaff" routerLink="/staff/Dashboard"><i class="fa fa-graduation-cap mr-3">E-Tutoring</i></a>
+        <a id="logo" *ngIf="accountStudent" routerLink="/student/Dashboard"><i class="fa fa-graduation-cap mr-3">E-Tutoring</i></a>
+        <a id="logo" *ngIf="accountTutor" routerLink="/tutor/Dashboard"><i class="fa fa-graduation-cap mr-3">E-Tutoring</i></a>
 
         <button *ngIf="accountStaff" type="button" (click)="sidenav.toggle()"
             class="navbar-toggler sidebar-toggle-mobile mr-auto">
-            <i class="fa fa-bars" style="font-size: 1.4em;"></i>
+            <i id="toggler" class="fa fa-bars"></i>
         </button>
 
         <a *ngIf="accountTutor" type="button" class="btn border py-0 px-4 mx-2 ml-auto" routerLink="/tutor/Dashboard/Messages">
@@ -25,10 +25,11 @@
 
         <ul class="nav mx-2">
             <li *ngIf="logout" class="nav-item dropdown align-self-center">
-                <a class="nav-link dropdown-toggle text-dark border text-center" style="width: 200px"
+                <a class="nav-link dropdown-toggle text-dark border text-center px-5" style="font-size: small;"
                     data-toggle="dropdown" href="#">
-                    <b> {{name}} </b></a>
-                <div class="dropdown-menu dropdown-menu-right m-0 p-2">
+                    <b>{{name}}</b>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right m-0 p-2" style="font-size: small;">
                     <p class="text-center p-1 py-2 alert alert-primary" role="alert">Welcome to E-tutoring!</p>
                     <a *ngIf="accountStaff || accountStudent || accountTutor" class=" dropdown-item" routerLink="/profile"><i class="fa fa-user-circle-o mr-2"></i> Profile</a>
                     <div class="dropdown-divider"></div>
@@ -38,7 +39,7 @@
             </li>
 
             <li *ngIf="login" class="nav-item dropdown align-self-center">
-                <a type="button" class="btn border px-5" data-toggle="modal" data-target="#login"><b>Sign In</b></a>
+                <a type="button" class="btn border px-5" data-toggle="modal" data-target="#login" style="font-size: medium"><b>Sign In</b></a>
             </li>
         </ul>
     </nav>
